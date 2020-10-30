@@ -5,9 +5,7 @@ import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
 from transformers import pipeline
-
-# Constants
-REPO_ROOT = Path.cwd()
+from tweet import config
 
 
 # Helper function
@@ -18,7 +16,7 @@ def get_sentiment(text):
 
 if __name__ == '__main__':
     # Read in the data
-    df_path = REPO_ROOT / 'data' / 'covid19_tweets.csv'
+    df_path = config.data / 'data' / 'covid19_tweets.csv'
     df = pd.read_csv(df_path)
     tweets = df['text'].values
 
