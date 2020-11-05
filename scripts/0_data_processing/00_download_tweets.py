@@ -34,7 +34,7 @@ if __name__ == '__main__':
     consumer_secret = os.environ["CONSUMER_SECRET"]
 
     auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
-    api = tweepy.API(auth, wait_on_rate_limit=True)
+    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
     # Define Consts
     search_words = "#covid19 -filter:retweets"
