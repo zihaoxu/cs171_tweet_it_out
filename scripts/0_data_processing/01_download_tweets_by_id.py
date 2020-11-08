@@ -29,7 +29,7 @@ if __name__ == '__main__':
             n_processed = len(IDs)
             for tweet_id in IDs:
                 try:
-                    row_info = utils.get_tweet_data(tweet_id, api)
+                    row_info = utils.get_tweet_data_by_id(tweet_id, api)
                     writer.writerow(row_info)
                 except Exception:
                     n_processed -= 1
