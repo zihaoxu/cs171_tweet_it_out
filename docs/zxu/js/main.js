@@ -23,8 +23,8 @@ let dateParser = d3.timeParse("%Y-%m-%d");
 
 // load data using promises
 let promises = [
-    d3.json("data/node.json"),
-    d3.json("data/edge.json")
+    d3.json("viz_data/node.json"),
+    d3.json("viz_data/edge.json")
 ];
 
 Promise.all(promises)
