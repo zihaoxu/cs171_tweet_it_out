@@ -142,3 +142,6 @@ data/
 
 # Virtual env
 cs171/
+
+# idea
+.idea/
