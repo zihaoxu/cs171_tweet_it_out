@@ -31,8 +31,8 @@ class TagNetwork {
 
         // initialize a simple force layout, using the nodes and edges in dataset
         vis.force = d3.forceSimulation(vis.node_data.nodes)
-            .force("charge", d3.forceManyBody().strength(-vis.height*0.6))
-            .force("link", d3.forceLink(vis.edge_data.edges).distance(vis.height*0.3))
+            .force("charge", d3.forceManyBody().strength(-vis.height*0.4))
+            .force("link", d3.forceLink(vis.edge_data.edges).distance(vis.height*0.4))
             .force("center", d3.forceCenter().x(vis.width/2).y(vis.height/2));
 
         // define scales
@@ -40,15 +40,23 @@ class TagNetwork {
         vis.edgeScale = d3.scaleLog().range([1,10]);
         vis.nodeScale = d3.scaleSqrt().range([16,40]);
 
-        vis.wrangleData();
+        vis.updateViz();
     }
 
     wrangleData() {
         let vis = this;
+
+        let start_date = selectedTimeRange[0],
+            end_date = selectedTimeRange[1];
+        let new_data = processor.processData(start_date, end_date);
+        vis.node_data_display = new_data[0];
+        vis.edge_data_display = new_data[1];
+
         vis.updateViz();
     }
-
     updateViz(){
+
+        console.log("Here")
         let vis = this;
 
         // define domains for scales
@@ -79,6 +87,8 @@ class TagNetwork {
             .call(vis.dragFunc(vis.force))
             .on('mouseover', function (i, d){
                 console.log(d.id, d.tag_name, d.tag_count);
+                let detail_area = document.getElementById("tagDails");
+                detail_area.innerHTML = `Hashtag: ${d.tag_name}</br>Count: ${d.tag_count}`;
             });
 
         // add hashtag to circles
