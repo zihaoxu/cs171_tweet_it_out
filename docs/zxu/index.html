@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CS171 - Boilerplate</title>
+		<title>Tweet TagNetwork</title>
 
 		<!-- Load CSS libraries -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -19,26 +19,24 @@
 		 WHEN SUBMITTING, WE ALWAYS EXPECT CLEAR SEPARATION OF HTML, CSS, AND JS INTO THE PROPER FILES -->
 	<body style="padding: 5vh">
 	<div class="container-fluid" style="border: thin solid grey; border-radius: 5px">
-		<form class="form-inline">
-			<div class="form-group">
-				<label for="month">Choose Month</label>
-				<select class="form-control" id="month" onchange="updatePage()">
-					<option value="All">All Months</option>
-					<option value="Feb">Feb</option>
-					<option value="Mar">Mar</option>
-					<option value="Apr">April</option>
-					<option value="May">May</option>
-					<option value="Jun">June</option>
-					<option value="Jul">July</option>
-					<option value="Aug">Aug</option>
-					<option value="Sep" selected="selected">Sep</option>
-				</select>
-			</div>
-		</form>
-
 		<div class="row justify-content-center" style="height: 12vh; background: #22223b;">
 			<div class="align-self-center">
-				<h1 style="color: #F2E9E4">CS 171 Boilerplate</h1>
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="month">Choose Month</label>
+						<select class="form-control" id="month" onchange="updatePage()">
+							<option value="All">All Months</option>
+							<option value="Feb">Feb</option>
+							<option value="Mar">Mar</option>
+							<option value="Apr">April</option>
+							<option value="May">May</option>
+							<option value="Jun">June</option>
+							<option value="Jul">July</option>
+							<option value="Aug">Aug</option>
+							<option value="Sep" selected="selected">Sep</option>
+						</select>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div class="row justify-content-center" style="height: 70vh; background-color: lightcyan">
