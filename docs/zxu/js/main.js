@@ -1,42 +1,28 @@
-/* * * * * * * * * * * * * *
-*           MAIN           *
-* * * * * * * * * * * * * */
-
-// init global variables, switches, helper functions
-let myBarChart,
-    myMapVis;
+let tagNetwork, processor;
+let dataset_clean;
 
 let selectedTimeRange = [];
+let selectedTag = '';
 
-function updateAllVisualizations(){
-    myBarChart.wrangleData()
-    // myMapVis.wrangleData()
-}
+// Function to convert date objects to strings or reverse
+let dateFormatter = d3.timeFormat("%Y-%m-%d");
+let dateParser = d3.timeParse("%Y-%m-%d");
 
 // load data using promises
 let promises = [
-    d3.csv("data/trump_raw_tweets.csv"),
-    //d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
+    d3.json("data/node.json"),
+    d3.json("data/edge.json")
 ];
 
 Promise.all(promises)
-    .then( function(data){
-        data[0].forEach(function(d){
-            d.sentiment_score =+ d.sentiment_score;
-            d.tweet_length =+ d.tweet_length})
-    initMainPage(data) })
+    .then(function(dataset){initPage(dataset)})
     .catch( function (err){console.log(err)} );
 
-// initMainPage
-function initMainPage(allDataArray) {
 
-    // log data
-    console.log(allDataArray);
-
-    // // bar chart for trump tweet sentiments
-    myBarChart = new BarVis('bar_trump', allDataArray, 'sentiment')
-    //
-    // // activity 2, force layout
-    // myMapVis = new MapVis('mapDiv', allDataArray[0], allDataArray[1])
-
+function initPage(dataset){
+    let start_date = '2020-09-01',
+        end_date = '2020-10-10';
+    processor = new TagDataProcessor(dataset);
+    dataset_clean = processor.processData(start_date, end_date);
+    tagNetwork = new TagNetwork("tagNetwork", dataset_clean[0], dataset_clean[1]);
 }
