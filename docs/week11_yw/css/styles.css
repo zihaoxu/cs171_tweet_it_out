@@ -32,8 +32,31 @@ h4{
     font: 30px Courier,Georgia, Palatino, serif;
     fill: #1DA1F2;
 }
+.inline-block-child {
+    display: inline-block;
+}
+.rotate15 {
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+}
 
-
+.reset{
+    background-color: black;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    /*padding: 5px 10px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 2px;
+}
 
 .rcorners {
     border-radius: 25px;
@@ -43,7 +66,8 @@ h4{
 }
 
 img{
-mix-blend-mode: multiply;}
+mix-blend-mode: multiply;
+}
 
 .content {
     display: flex;
