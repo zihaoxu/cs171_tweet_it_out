@@ -39,4 +39,9 @@ function initMainPage(allDataArray) {
     // // activity 2, force layout
     // myMapVis = new MapVis('mapDiv', allDataArray[0], allDataArray[1])
 
+    timeline = new Timeline("timeline_trump", allDataArray)
+    timeline.initVis()
+
 }
+
+

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Week 08 | lab</title>
+	<title>Tweets Sentiment Analysis -By TweetItOut</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
 
@@ -29,7 +29,7 @@
 							<div class="content" style = "height:100%;width:100%">
 <!--								<a href = "#trump1"><input type = "image" src = "img/twitter-icon-home.png" style = "width:50%;height:auto;border:0;outline:none" border = 0/></a>-->
 
-								<a href = "#TRUMP1"><img src="img/twitter-icon-home.png" alt = "twitter-home" style = "width:100%;height:auto;border:0;outline:none" border = 0 class="img-thumbnail"></a>
+								<a href = "#TRUMP0"><img src="img/twitter-icon-home.png" alt = "twitter-home" style = "width:100%;height:auto;border:0;outline:none" border = 0 class="img-thumbnail"></a>
 								<p style = "color: #657786;border:grey">Click to get started!</p>
 
 							</div>
@@ -38,34 +38,216 @@
 
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
-				<!-- TRUMP1 -->
-			<div class = "row d-flex rcorners" id = "TRUMP1" style = "width:98%;height:95vh;padding-top:0vh">
-
-							<div class="col-7 offset-2">
-								<div class="row justify-content-center" style="height: 100%">
-									<div id = "bar_trump" style="width:100%;height: 100%"></div>
-								</div>
-							</div>
-			</div>
-
-				<!-- Visualizations -->
-				<div class="row" >
-
-					<div class="col">
-						<div class="row">
-							<div class="col-6">
-								<div class="row">
-
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="row">
-
-								</div>
-							</div>
+			<!--Lollipop-->
+			<div class = "row d-flex rcorners" id = "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Text
 						</div>
 					</div>
 				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Lollipop Plot for sentiment topics in the tweets that talk about Covid19</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+
+			<!--NETWORK-->
+			<div class = "row d-flex rcorners" id = "NETWORK" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Network Plot for tags co-occur with #covid19</p>
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Text
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+			<!--Search-->
+			<div class = "row d-flex rcorners" id = "SEARCH" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-12'>
+					<div class="row justify-content-center" style="height: 95vh">
+						<div class = 'align-self-center'>
+							<p>A search engine here that allows the user to search for a specific user</p>
+						</div>
+					</div>
+				</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!-- TRUMP0 -->
+
+			<div class = "row d-flex rcorners" id = "TRUMP0" style = "width:98%;height:95vh;padding-top:0vh">
+
+				<div class="col-2">
+					<div class="row justify-content-center" style="height: 100%">
+						<img src = "img/trump.png" style = "width:80%;height:40%;position:absolute;top:30vh;left:5vh;" class="rotate15">
+					</div>
+				</div>
+				<div class="col-3">
+
+						<div class="row" style="height: 30vh">
+							<p style = "display:none;position:absolute;top:60px" id="warning">Sorry, the limit has reached!</p>
+							<button type="button"  id = "ttweet_generate" class = "align-self-center" style="position:absolute;top:100px;left:0px;height:30px">Give some Trump's Tweets!</button>
+							<button type="reset"   id = "ttweet_reset" class = "align-self-center reset" style="position:absolute;top:105px;left:150px;height:20px">Reset</button><br>
+						</div>
+
+
+						<div class="row" style="height: 50vh">
+<!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
+							<img src = "img/tweet_feb.png"class="tweet-img" id = "ttweet1"  style = "position:absolute;top:140px;left:-15px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_mar.png"class="tweet-img" id = "ttweet2" style = "position:absolute;top:210px;left:25px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_apr.png"class="tweet-img" id = "ttweet3" style = "position:absolute;top:280px;left:-15px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_jun.png"class="tweet-img" id = "ttweet4" style = "position:absolute;top:350px;left:25px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_july.png"class="tweet-img" id = "ttweet5" style = "position:absolute;top:420px;left:-15px;display:none;width:300px;height:70px" >
+						</div>
+
+					<script type="text/javascript">
+						window.tweet_img_list = ["ttweet1","ttweet2","ttweet3","ttweet4","ttweet5"]
+						document.getElementById("ttweet_generate").onclick = function(){displayImage()};
+						function displayImage(){
+							try{
+								let id = tweet_img_list[0];
+								document.getElementById(id).style.display = "block";
+								tweet_img_list = tweet_img_list.slice(1);}
+							catch(err){
+								document.getElementById('warning').style.display = "block";
+								return
+							}
+
+
+						}
+						document.getElementById("ttweet_reset").onclick = function(){hideImage()};
+						function hideImage(){
+							document.getElementById('warning').style.display = "none";
+							var elems =document.getElementsByClassName("tweet-img");
+							for (var i=0;i<elems.length;i+=1){
+								elems[i].style.display = 'none';
+							}
+							window.tweet_img_list = ["ttweet1","ttweet2","ttweet3","ttweet4","ttweet5"]
+						}
+					</script>
+
+				</div>
+				<div class="col-6 offset-1">
+					<div class="row justify-content-center" style="height: 70vh">
+						<div id = "bar_trump" style="width:100%;height: 100%"></div>
+					</div>
+					<div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">
+						<div id = "timeline_trump" style="width:100%;height: 100%"></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--TRUMP1-->
+			<div class = "row d-flex rcorners" id = "TRUMP1" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Topic Modeling Plot for Trump's Tweets
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Text</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--TRUMP2-->
+			<div class = "row d-flex rcorners" id = "TRUMP2" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							An interactive vertical line plot shows the sentiments in tweets that @DonaldTrump
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Text</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--SENTIMENT ANALYSIS-->
+			<div class = "row d-flex rcorners" id = "SENTIMENT" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							A line/area plot shows the overall sentiment score trend in tweets
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Sample Tweets that show specific concerns</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--CALLOUT-->
+			<div class = "row d-flex rcorners" id = "ACTION" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Text
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Relevant sources related to mental health(links,text)</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+<!--							<div class="col-6">-->
+<!--								<div class="row justify-content-center" style="height: 70vh">-->
+<!--									<div id = "bar_trump" style="width:100%;height: 100%"></div>-->
+<!--								</div>-->
+<!--								<div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">-->
+<!--									<div id = "timeline_trump" style="width:100%;height: 100%"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+
 
 		</div>
 	</div>
@@ -88,7 +270,7 @@
 	<script src="https://d3js.org/d3-geo.v1.min.js"></script>
 
 	<!-- OWN JS -->
-	<script src="js/mapVis.js"></script>
+	<script src="js/timeline.js"></script>
 	<script src="js/barVis.js"></script>
 	<script src="js/main.js"></script>
 </body>
