@@ -5,7 +5,7 @@ let threatVisual = createSentimentTopicSpectrum()
     .height(1000)
 
 let promises = []
-promises.push(d3.json("data/sentiment_graph.json"))
+promises.push(d3.json("viz_data/sentiment_graph.json"))
 Promise.all(promises).then(values => {
     graph = values[0]
     let nodes = prepareSentimentCluster(graph)
