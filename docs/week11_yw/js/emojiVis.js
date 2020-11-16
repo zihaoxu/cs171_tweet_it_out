@@ -3,7 +3,7 @@
 * * * * * * * * * * * * * */
 
 
-class BarVis {
+class EmojiVis {
 
     constructor(parentElement, covidData, cat){
         this.parentElement = parentElement;
