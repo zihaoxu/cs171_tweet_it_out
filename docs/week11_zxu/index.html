@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tweet TagNetwork</title>
+
+		<!-- Load CSS libraries -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- GOOGLE FONTS -->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,400italic,300italic' rel='stylesheet' type='text/css'>
+	</head>
+
+	<!-- SOME SAMPLE HTML HERE - DELETE EVERYTHING INSIDE THE BODY EXCEPT THE SCRIPTS ON THE BOTTOM TO START FROM SCRATCH -->
+	<!-- DON'T WRITE CSS IN YOUR HTML LIKE WE DID HERE - THE INLINE CSS SHOULD HELP YOU TO UNDERSTAND THE BEHAVIOR OF THE ELEMENTS BETTER -
+		 WHEN SUBMITTING, WE ALWAYS EXPECT CLEAR SEPARATION OF HTML, CSS, AND JS INTO THE PROPER FILES -->
+	<body style="padding: 5vh">
+	<div class="container-fluid" style="border: thin solid grey; border-radius: 5px">
+		<div class="row justify-content-center" style="height: 12vh; background: tan;">
+			<div class="align-self-center">
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="month">Choose Month</label>
+						<select class="form-control" id="month" onchange="updatePage()">
+							<option value="All">All Months</option>
+							<option value="Feb">Feb</option>
+							<option value="Mar">Mar</option>
+							<option value="Apr">April</option>
+							<option value="May">May</option>
+							<option value="Jun">June</option>
+							<option value="Jul">July</option>
+							<option value="Aug">Aug</option>
+							<option value="Sep" selected="selected">Sep</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row justify-content-center" style="height: 70vh; background-color: lightcyan">
+			<div class="col-9 align-self-center" style="height: 100%; width: 100%">
+				<div id="tagNetwork" style="height: 100%; background-color: antiquewhite"></div>
+			</div>
+			<div class="col-2 align-self-center">
+				<div id="tagDails" style="height: 60%; background-color: antiquewhite">
+					<p> Details of the chosen tag</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- embedding JS libraries -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+	<!-- d3 -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+
+	<!-- own js files -->
+	<script src="js/tagDataProcessor.js"></script>
+	<script src="js/tagNetwork.js"></script>
+	<script src="js/main.js"></script>
+	</body>
+</html>
