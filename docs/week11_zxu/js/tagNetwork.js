@@ -40,7 +40,7 @@ class TagNetwork {
         // define scales
         // vis.nodeColor = d3.scaleOrdinal(d3.schemeCategory10);
         vis.edgeScale = d3.scaleLog().range([1.3,12]);
-        vis.nodeScale = d3.scaleSqrt().range([16,50]);
+        vis.nodeScale = d3.scaleSqrt().range([20,55]);
         vis.legendX = d3.scaleLinear().range([0, 20*vis.legend_colors.length]).domain([0, vis.legend_colors.length]);
 
         vis.updateViz();
