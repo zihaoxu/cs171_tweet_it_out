@@ -9,6 +9,8 @@ class TagNetwork {
         // for legend
         this.legend_colors= ["#08306b","#08519c","#2171b5","#4292c6","#6baed6","#9ecae1","#c6dbef","#deebf7","#fee0d2", "#fcbba1","#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15","#67000d"];
 
+        // for gh-pages
+        this.github_scale = 1.2;
         this.initVis()
     }
 
@@ -38,10 +40,11 @@ class TagNetwork {
             .force("center", d3.forceCenter().x(vis.width/2).y(vis.height/2));
 
         // define scales
-        // vis.nodeColor = d3.scaleOrdinal(d3.schemeCategory10);
-        vis.edgeScale = d3.scaleLog().range([1.3,12]);
-        vis.nodeScale = d3.scaleSqrt().range([20,55]);
-        vis.legendX = d3.scaleLinear().range([0, 20*vis.legend_colors.length]).domain([0, vis.legend_colors.length]);
+        vis.r_min = Math.min(vis.height, vis.width)*0.025;
+        vis.r_max = Math.min(vis.height, vis.width)*0.0625;
+        vis.edgeScale = d3.scaleLog().range([1.5,12]);
+        vis.nodeScale = d3.scaleSqrt().range([vis.r_min,vis.r_max]);
+        vis.legendX = d3.scaleLinear().range([0, vis.r_min*vis.legend_colors.length]).domain([0, vis.legend_colors.length]);
 
         vis.updateViz();
     }
@@ -90,6 +93,12 @@ class TagNetwork {
             .enter()
             .append("g")
 
+        // add hashtag to circles
+        vis.nodeTags = vis.nodesGroup
+            .append("text")
+            .text(d=>d.tag_name)
+            .attr("font-size", d=>vis.nodeScale(d.tag_count) * 0.75);
+
         // create the nodes
         vis.nodes = vis.nodesGroup
             .append("circle")
@@ -107,18 +116,15 @@ class TagNetwork {
                 d3.select("#tagent-senti").html("").append("text").text(d.senti.toFixed(4));
                 d3.select("#tagent-timeRange").html("").append("text").text(`${selected_month[0]} ~ ${selected_month[1]}`);
 
-                // Highlight the nodes: every node is green except of him
-                vis.nodes
-                    .style('opacity', 0.4); // fill everything with gray
-                d3.select(this)
-                    .style('fill', vis.nodeColor(d.senti))
-                    .style('opacity', 1)
-                    .style("stroke-width", 4)
-                    .style("stroke", vis.nodeColor(d.senti));
                 // Highlight the edges
+                let edge_nodes = new Set();
                 vis.edges
                     .style('stroke', function (link_d) {
-                        return link_d.source.id === d.id || link_d.target.id === d.id ? vis.nodeColor(d.senti) : '#b8b8b8';
+                        if (link_d.source.id === d.id || link_d.target.id === d.id){
+                            edge_nodes.add(link_d.source.id);
+                            edge_nodes.add(link_d.target.id);
+                            return vis.nodeColor(d.senti)
+                        }else{return '#b8b8b8'}
                     })
                     .style('stroke-width', function (link_d) {
                         return link_d.source.id === d.id || link_d.target.id === d.id ? vis.edgeScale(link_d.edge_count) : 2;
@@ -126,6 +132,25 @@ class TagNetwork {
                     .style('opacity', function (link_d) {
                         return link_d.source.id === d.id || link_d.target.id === d.id ? 1 : 0.1;
                     })
+
+                // Highlight connected nodes
+                vis.nodes.style('opacity', (d)=>{
+                        if (edge_nodes.has(d.id)){return 0.7}
+                        else {return 0.1}
+                    });
+                vis.nodeTags.style('opacity', (d)=>{
+                    if (edge_nodes.has(d.id)){return 0.85}
+                    else {return 0.1}
+                });
+
+                // Highlight the center nodes
+                d3.select(this)
+                    .style('fill', vis.nodeColor(d.senti))
+                    .style('opacity', 1)
+                    .style("stroke-width", vis.r_min/2)
+                    .style("stroke-opacity", 0.5)
+                    .style("stroke", vis.nodeColor(d.senti));
+
             })
             .on('mouseout', function (d) {
                 // restore the nodes and edges
@@ -133,19 +158,14 @@ class TagNetwork {
                     .style("fill", d=>vis.nodeColor(d.senti))
                     .style('opacity', 1)
                     .style("stroke", '#ccc')
-                    .style("stroke-width", 2);
+                    .style("stroke-width", 2)
+                    .style("stroke-opacity", 1);
                 vis.edges
                     .style('stroke', "#ccc")
                     .style('stroke-width', d=>vis.edgeScale(d.edge_count))
                     .style("opacity", 1);
+                vis.nodeTags.style("opacity", 1);
             });
-
-
-        // add hashtag to circles
-        vis.nodeTags = vis.nodesGroup
-            .append("text")
-            .text(d=>d.tag_name)
-            .attr("font-size", d=>vis.nodeScale(d.tag_count) * 0.75);
 
         // add tick event for forces
         vis.force.on("tick", function() {
@@ -172,9 +192,9 @@ class TagNetwork {
             .enter()
             .append('rect')
             .attr("x", (d, i) => vis.legendX(i))
-            .attr("y",0)
-            .attr("width", 20)
-            .attr("height", 5)
+            .attr("y", 0)
+            .attr("width", vis.r_min)
+            .attr("height", 7)
             .attr("class",'legend')
             .attr("fill",d=>d)
 
