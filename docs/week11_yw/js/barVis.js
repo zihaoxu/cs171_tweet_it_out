@@ -12,7 +12,8 @@ class BarVis {
         this.parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
         this.monthFormat = d3.timeFormat("%m")
         this.key = cat;
-        this.colors= ["white","#08306b","#08519c","#2171b5","#4292c6","#6baed6","#9ecae1","#c6dbef","#deebf7","#fee0d2", "#fcbba1","#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15","#67000d"];
+        this.colors= ["white","#08306b","#08519c","#2171b5","#4292c6","#6baed6","#9ecae1","#c6dbef","#deebf7",
+            "#fee0d2", "#fcbba1","#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15","#67000d"];
         this.xtransform = 90;
         this.ytransform = 35;
         this.y_interval = 10;
@@ -249,7 +250,7 @@ class BarVis {
             .attr('class', 'legend')
             .attr('transform', `translate(${0}, ${vis.y_interval*4+vis.ytransform})`)
          vis.legend_scale = vis.svg.append("g")
-            .attr('class', 'legend scale')
+            .attr('class', 'legend-scale')
             .attr('transform', `translate(${0}, ${vis.y_interval*6+vis.ytransform})`)
 
         // similar to linspace in python; reusable
@@ -263,13 +264,13 @@ class BarVis {
         }
 
         // define scale for category colors
-        vis.xScale = d3.scaleLinear()
+        vis.xcolorScale = d3.scaleLinear()
             .domain(vis.categories)
             .range(makeArr(170,270,vis.categories.length))
 
         // define x axis for the color scale
         vis.colorAxis = d3.axisBottom()
-            .scale(vis.xScale)
+            .scale(vis.xcolorScale)
             .tickValues([-1,1])
             .tickFormat(function(d){if(d==-1){return 'Negative'}else{return 'Positive'}})
 
@@ -284,15 +285,15 @@ class BarVis {
         vis.legend.selectAll().data(vis.colors.slice(1))
             .enter()
             .append('rect')
-            .attr("x", function(d) {return vis.xScale(mapRange(d)[0])})
+            .attr("x", function(d) {return vis.xcolorScale(mapRange(d)[0])})
             .attr("y",0)
-            .attr("width",function(d){return vis.xScale(mapRange(d)[1])-vis.xScale(mapRange(d)[0])})
+            .attr("width",function(d){return vis.xcolorScale(mapRange(d)[1])-vis.xcolorScale(mapRange(d)[0])})
             .attr("height", 20)
             .attr("class",'legend')
             .attr("fill",d=>d)
 
         // call the color axis
-        vis.svg.select(".scale").call(vis.colorAxis);
+        vis.svg.select(".legend-scale").call(vis.colorAxis);
 
 
     }

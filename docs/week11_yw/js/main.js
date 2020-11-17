@@ -4,7 +4,8 @@
 
 // init global variables, switches, helper functions
 let myBarChart,
-    myMapVis;
+    myMapVis,
+    emoji;
 
 let selectedTimeRange = [];
 
@@ -15,7 +16,7 @@ function updateAllVisualizations(){
 
 // load data using promises
 let promises = [
-    d3.csv("data/trump_raw_tweets.csv"),
+    d3.csv("viz_data/trump_raw_tweets.csv"),
     //d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
 ];
 
@@ -41,6 +42,9 @@ function initMainPage(allDataArray) {
 
     timeline = new Timeline("timeline_trump", allDataArray)
     timeline.initVis()
+
+    emoji = new Timeline("bar_emoji", allDataArray)
+
 
 }
 
