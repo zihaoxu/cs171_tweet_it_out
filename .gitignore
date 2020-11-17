@@ -145,3 +145,5 @@ cs171/
 
 # idea
 .idea/
+
+.DS_Store
