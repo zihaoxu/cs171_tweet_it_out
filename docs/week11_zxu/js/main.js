@@ -33,11 +33,10 @@ Promise.all(promises)
 
 
 function initPage(dataset){
-    selected_month = d3.select("#month").property("value")
-    let month = monthDict[selected_month];
-    let start_date = month[0],
-        end_date = month[1];
-    console.log(month)
+    let selected_time = d3.select("#month").property("value")
+    selected_month = monthDict[selected_time];
+    let start_date = selected_month[0],
+        end_date = selected_month[1];
     dataset_orig = dataset;
     processor = new TagDataProcessor(dataset);
     dataset_clean = processor.processData(start_date, end_date);
@@ -48,10 +47,10 @@ function updatePage(){
     let tagNetworkDiv = document.getElementById("tagNetwork");
     tagNetworkDiv.innerHTML='';
 
-    selected_month = d3.select("#month").property("value")
-    let month = monthDict[selected_month];
-    let start_date = month[0],
-        end_date = month[1];
+    let selected_time = d3.select("#month").property("value")
+    selected_month = monthDict[selected_time];
+    let start_date = selected_month[0],
+        end_date = selected_month[1];
     processor = new TagDataProcessor(dataset_orig);
     dataset_clean = processor.processData(start_date, end_date);
     tagNetwork = new TagNetwork("tagNetwork", dataset_clean[0], dataset_clean[1]);

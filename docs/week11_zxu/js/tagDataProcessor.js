@@ -2,6 +2,7 @@ class TagDataProcessor{
     constructor(dataset) {
         this.node_data = dataset[0].nodes;
         this.edge_data = dataset[1].edges;
+        this.keep_tag = 20;
     }
 
     processData(start_date, end_date){
@@ -22,23 +23,28 @@ class TagDataProcessor{
         pro.node_data.forEach((d) => {
             let tag_id = d.tag_id,
                 row_id = d.row_id,
-                tag = d.tag;
+                tag = d.tag,
+                senti = d.senti;
             if(!Object.keys(tags_count).includes(tag_id.toString())){
-                tags_count[tag_id] = {'row_id':row_id, 'tag_name':tag, 'tag_count':1};
+                tags_count[tag_id] = {'row_id':row_id, 'tag_name':tag, 'tag_count':1, 'senti':senti};
             }else{
+                let old_tag_count = tags_count[tag_id].tag_count,
+                    old_senti = tags_count[tag_id].senti;
+                let new_senti = (senti + old_tag_count*old_senti) / (old_tag_count+1)
                 tags_count[tag_id].tag_count += 1;
+                tags_count[tag_id].senti = new_senti; // update running average
             }
         })
 
         // convert object to array
         let node_data_process = Object.values(tags_count);
 
-        // Trim the array down to at most 20 tags
-        if(node_data_process.length > 20){
+        // Trim the array down to at most pro.keep_tag tags
+        if(node_data_process.length > pro.keep_tag){
             node_data_process.sort(function(a,b) {
                 return b.tag_count - a.tag_count
             })
-            node_data_process = node_data_process.slice(0, 20);
+            node_data_process = node_data_process.slice(0, pro.keep_tag);
         }
 
         // Extract top tags
