@@ -9,8 +9,6 @@ class TagNetwork {
         // for legend
         this.legend_colors= ["#08306b","#08519c","#2171b5","#4292c6","#6baed6","#9ecae1","#c6dbef","#deebf7","#fee0d2", "#fcbba1","#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15","#67000d"];
 
-        // for gh-pages
-        this.github_scale = 1.2;
         this.initVis()
     }
 
@@ -33,7 +31,7 @@ class TagNetwork {
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // initialize a simple force layout, using the nodes and edges in dataset
-        let strength = Math.min(vis.height, vis.width)*0.32;
+        let strength = Math.min(vis.height, vis.width)*0.37;
         vis.force = d3.forceSimulation(vis.node_data.nodes)
             .force("charge", d3.forceManyBody().strength(-strength))
             .force("link", d3.forceLink(vis.edge_data.edges).distance(strength))
@@ -114,7 +112,7 @@ class TagNetwork {
                 d3.select("#tagent-tag").html("").append("text").text(d.tag_name);
                 d3.select("#tagent-count").html("").append("text").text(d.tag_count);
                 d3.select("#tagent-senti").html("").append("text").text(d.senti.toFixed(4));
-                d3.select("#tagent-timeRange").html("").append("text").text(`${selected_month[0]} ~ ${selected_month[1]}`);
+                d3.select("#tagent-timeRange").html("").append("text").text(`${selectedTimeRange[0]} ~ ${selectedTimeRange[1]}`);
 
                 // Highlight the edges
                 let edge_nodes = new Set();

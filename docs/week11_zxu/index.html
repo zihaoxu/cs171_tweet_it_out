@@ -21,29 +21,26 @@
 
 	<!--Tag Network Page-->
 	<div class="container-fluid" style="border: thin solid grey; border-radius: 5px">
-		<div class="row" style="height: 12vh;">
-			<form class="form-inline">
-				<div class="form-group">
-					<label for="month">Choose a Month: &nbsp;</label>
-					<select class="form-control" id="month" onchange="updatePage()">
-						<option value="All">All Months</option>
-						<option value="Feb">Feb</option>
-						<option value="Mar">Mar</option>
-						<option value="Apr">April</option>
-						<option value="May">May</option>
-						<option value="Jun">June</option>
-						<option value="Jul">July</option>
-						<option value="Aug">Aug</option>
-						<option value="Sep" selected="selected">Sep</option>
-					</select>
-				</div>
-			</form>
+		<div class="row" style="height: 12vh; width: 100%">
+			<div class="row" style="height: 8vh;">
+				<h3 id="tagnet-title">Tag Network: Top 20 hashtags per Month</h3>
+			</div>
+
+			<div class="row" style="height:4vh; width: 100%; padding-left: 3.2vw">
+				<p><i>select a month to get started...</i></p>
+			</div>
+
 		</div>
 		<div class="row" style="height: 80vh">
 			<div class="col-8 align-self-center" style="height: 100%">
-				<div id="tagNetwork" style="height: 100%"></div>
+				<div class="row" style="height: 15%; width: 100%">
+					<div id="tagnet-month_menu" style="height: 100%; width: 100%"></div>
+				</div>
+				<div class="row" style="height: 85%; width: 100%">
+					<div id="tagnet-tagNetwork" style="height: 100%; width: 100%"></div>
+				</div>
 			</div>
-			<div class="col-4 align-self-center">
+			<div class="col-3 align-self-center">
 				<div id="tagDails">
 					<table class="styled-table">
 						<thead>
@@ -88,6 +85,7 @@
 	<script src="https://d3js.org/d3.v6.min.js"></script>
 
 	<!-- own js files -->
+	<script src="js/monthMenu.js"></script>
 	<script src="js/tagDataProcessor.js"></script>
 	<script src="js/tagNetwork.js"></script>
 	<script src="js/main.js"></script>
