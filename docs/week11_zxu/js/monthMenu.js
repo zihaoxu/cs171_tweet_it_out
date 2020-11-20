@@ -39,12 +39,14 @@ class MonthMenu{
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // define scales
-        vis.r_min = vis.width*0.012;
-        vis.r_max = vis.width*0.024;
+        vis.r_min = vis.width*0.011;
+        vis.r_max = vis.width*0.022;
+        console.log(vis.height, vis.r_max);
+        console.log(vis.r_min, vis.r_max);
         vis.xtransform = vis.r_max * 2;
         vis.x = d3.scaleLinear()
             .domain(d3.extent(vis.month_df, d=>d.month))
-            .range([0, vis.height*vis.month_df.length*1.5]);
+            .range([0, vis.r_max*vis.month_df.length*4.2]);
         vis.r = d3.scaleSqrt()
             .domain(d3.extent(vis.month_df, d=>d.count))
             .range([vis.r_min, vis.r_max]);
@@ -55,8 +57,7 @@ class MonthMenu{
             .attr("x1", vis.x(1)+vis.xtransform)     // x position of the first end of the line
             .attr("y1", vis.height/4)      // y position of the first end of the line
             .attr("x2", vis.x(9)+vis.xtransform)     // x position of the second end of the line
-            .attr("y2", vis.height/4)
-        console.log(vis.x(1)+vis.xtransform, vis.x(9)+vis.xtransform)
+            .attr("y2", vis.height/4);
 
         // Draw circles for months
         vis.monthGroup = vis.svg.selectAll("g")
