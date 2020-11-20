@@ -67,7 +67,7 @@ class MonthMenu{
 
         vis.month = vis.monthGroup.append("text")
             .attr('x', d=>vis.x(d.month)+vis.xtransform)
-            .attr('y', vis.height*1.5)
+            .attr('y', d=>vis.height/4 + vis.r(d3.max(vis.month_df, d=>d.count))*2.5)
             .text(d=>vis.months[d.month])
             .attr("text-anchor", 'middle');
 
