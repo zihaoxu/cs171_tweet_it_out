@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     for idx, row in day_df.iterrows():
         item = {'id': idx,
-                'month': str(row.date.date()),
+                'date': str(row.date.date()),
                 'senti': row.senti,
                 'count': row.full_text,
                 'weekday': row.weekday}
