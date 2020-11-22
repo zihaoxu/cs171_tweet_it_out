@@ -44,18 +44,40 @@
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
 			<!--Lollipop-->
-			<div class = "row d-flex rcorners" id = "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0vh">
+			<!--Lollipop-->
+			<div class = "row d-flex rcorners" id= "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0;">
 				<div class ='col-6'>
-					<div class="row justify-content-center" style="height: 70vh">
+					<div class="row justify-content-center bar-title" style="height: 70vh" >
+						<font color="1DA1F2">Draw your own  Covid-19 negative sentiment trend line</font> <!-- TODO: refactor -->
 						<div class = 'align-self-center'>
-							Text
+							<iframe src="viz/hook_viz/hook.html" class="clsiframe"></iframe>
+						</div>
+					</div>
+					<div class="testimonial-quote-secondary group right" id="hook_text" style="display:none;">
+						<div class="quote-container">
+							<div>
+								<blockquote>
+									<p>
+										Between mid February to the first week of March, we see a spike in negative sentiment
+										in Covid related tweets. The negative sentiment goes down between mid march and mid April. Later in the summer months
+										of May, June and July, we observe a significant spike in Negative sentiment. More recently, between mid August to the end of September
+										the negative sentiment trend appears to be in a slightly downward trajectory. Additional data for October and November probably would
+										have shown an upward trend in negative sentiment as covid related death and infection rates are increasing again.
+
+									</p>
+
+								</blockquote>
+
+							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class ='col-6'>
-					<div class="row justify-content-center" style="height: 70vh">
-						<div class = 'align-self-center'>
-							<p>Lollipop Plot for sentiment topics in the tweets that talk about Covid19</p>
+					<div class="row justify-content-center bar-title" style="height: 70vh" id="topic_cluster_frame">
+						<font color="1DA1F2">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+						<div id="lolipop_frame_container" class = 'align-self-center' style="display:block;">
+							<iframe id="lolipop_frame" src="viz/lolipop_viz/index.html" class="clsiframe"></iframe>
 						</div>
 					</div>
 
