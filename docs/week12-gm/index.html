@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tweets Sentiment Analysis -By TweetItOut</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="hook_viz/css/style-explore.css">
+
+</head>
+<style>
+.clsiframe {
+	position: absolute;
+	top: 10px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	border:0;
+}
+</style>
+<body>
+
+	<!-- WRAPPER -->
+	<div class="container-fluid" style="height: 1000vh; padding-top: 1vh; background-color: #F5F8FA">
+		<div class="row">
+				<!-- HOMEPAGE -->
+					<div class = "row d-flex rcorners" style = "width:98%;height:95vh;padding-top:1vh">
+
+						<div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
+							<div class="align-self-center p-2">
+								<h1>Tweets Sentiment</h1>
+							</div>
+							<div class="align-self-center p-2">
+								<h2>During Covid</h2>
+							</div>
+						</div>
+
+
+						<div class="col-6 offset-5" style = "height:50%;width:100%">
+							<div class="content" style = "height:100%;width:100%">
+<!--								<a href = "#trump1"><input type = "image" src = "img/twitter-icon-home.png" style = "width:50%;height:auto;border:0;outline:none" border = 0/></a>-->
+
+								<a href = "#LOLLIPOP"><img src="img/twitter-icon-home.png" alt = "twitter-home" style = "width:100%;height:auto;border:0;outline:none" border = 0 class="img-thumbnail"></a>
+								<p style = "color: #657786;border:grey">Click to get started!</p>
+
+							</div>
+						</div>
+					</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+			<!--Lollipop-->
+			<div class = "row d-flex rcorners" id = "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0;">
+				<div class ='col-6'>
+					<div class="row justify-content-center bar-title" style="height: 70vh" >
+
+						<font color="1DA1F2">Draw your own  Covid-19 negative sentiment trend line</font> <!-- TODO: refactor -->
+						<div class = 'align-self-center'>
+							<iframe src="hook_viz/hook.html" class="clsiframe">
+							</iframe>
+						</div>
+					</div>
+				</div>
+
+				<div class ='col-6'>
+					<div class="row justify-content-center bar-title" style="height: 70vh" id="topic_cluster_frame">
+
+						<font color="1DA1F2">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+
+						<div class = 'align-self-center' style="display:block;">
+							<iframe id="lolipop_frame" src="lolipop_viz/index.html"
+									class="clsiframe">
+							</iframe>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+
+			<!--NETWORK-->
+			<div class = "row d-flex rcorners" id = "NETWORK" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Network Plot for tags co-occur with #covid19</p>
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Text
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+			<!--Search-->
+			<div class = "row d-flex rcorners" id = "SEARCH" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-12'>
+					<div class="row justify-content-center" style="height: 95vh">
+						<div class = 'align-self-center'>
+							<p>A search engine here that allows the user to search for a specific user</p>
+						</div>
+					</div>
+				</div>
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!-- TRUMP0 -->
+
+			<div class = "row d-flex rcorners" id = "TRUMP0" style = "width:98%;height:95vh;padding-top:0vh">
+
+				<div class="col-2">
+					<div class="row justify-content-center" style="height: 100%">
+						<img src = "img/trump.png" style = "width:80%;height:40%;position:absolute;top:30vh;left:5vh;" class="rotate15">
+					</div>
+				</div>
+				<div class="col-3">
+						<div class="row" style="height: 30vh">
+							<p style = "display:none;position:absolute;top:60px" id="warning">Sorry, the limit has reached!</p>
+							<button type="button"  id = "ttweet_generate" class = "align-self-center" style="position:absolute;top:100px;left:0px;height:30px">Give some Trump's Tweets!</button>
+							<button type="reset"   id = "ttweet_reset" class = "align-self-center reset" style="position:absolute;top:105px;left:150px;height:20px">Reset</button><br>
+						</div>
+
+
+						<div class="row" style="height: 50vh">
+<!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
+							<img src = "img/tweet_feb.png"class="tweet-img" id = "ttweet1"  style = "position:absolute;top:140px;left:-15px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_mar.png"class="tweet-img" id = "ttweet2" style = "position:absolute;top:210px;left:25px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_apr.png"class="tweet-img" id = "ttweet3" style = "position:absolute;top:280px;left:-15px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_jun.png"class="tweet-img" id = "ttweet4" style = "position:absolute;top:350px;left:25px;display:none;width:300px;height:70px" >
+							<img src = "img/tweet_july.png"class="tweet-img" id = "ttweet5" style = "position:absolute;top:420px;left:-15px;display:none;width:300px;height:70px" >
+						</div>
+
+					<script type="text/javascript">
+						window.tweet_img_list = ["ttweet1","ttweet2","ttweet3","ttweet4","ttweet5"]
+						document.getElementById("ttweet_generate").onclick = function(){displayImage()};
+						function displayImage(){
+							try{
+								let id = tweet_img_list[0];
+								document.getElementById(id).style.display = "block";
+								tweet_img_list = tweet_img_list.slice(1);}
+							catch(err){
+								document.getElementById('warning').style.display = "block";
+								return
+							}
+
+
+						}
+						document.getElementById("ttweet_reset").onclick = function(){hideImage()};
+						function hideImage(){
+							document.getElementById('warning').style.display = "none";
+							var elems =document.getElementsByClassName("tweet-img");
+							for (var i=0;i<elems.length;i+=1){
+								elems[i].style.display = 'none';
+							}
+							window.tweet_img_list = ["ttweet1","ttweet2","ttweet3","ttweet4","ttweet5"]
+						}
+					</script>
+
+				</div>
+				<div class="col-6 offset-1">
+					<div class="row justify-content-center" style="height: 70vh">
+						<div id = "bar_trump" style="width:100%;height: 100%"></div>
+					</div>
+					<div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">
+						<div id = "timeline_trump" style="width:100%;height: 100%"></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--TRUMP1-->
+			<div class = "row d-flex rcorners" id = "TRUMP1" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Topic Modeling Plot for Trump's Tweets
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Text</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--TRUMP2-->
+			<div class = "row d-flex rcorners" id = "TRUMP2" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<div id = "bar_emoji" style="width:100%;height: 100%"></div>
+							An interactive vertical line plot shows the sentiments in tweets that @DonaldTrump
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Text</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--SENTIMENT ANALYSIS-->
+			<div class = "row d-flex rcorners" id = "SENTIMENT" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							A line/area plot shows the overall sentiment score trend in tweets
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Sample Tweets that show specific concerns</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+				<!--CALLOUT-->
+			<div class = "row d-flex rcorners" id = "ACTION" style = "width:98%;height:95vh;padding-top:0vh">
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							Text
+						</div>
+					</div>
+				</div>
+				<div class ='col-6'>
+					<div class="row justify-content-center" style="height: 70vh">
+						<div class = 'align-self-center'>
+							<p>Relevant sources related to mental health(links,text)</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+<!--							<div class="col-6">-->
+<!--								<div class="row justify-content-center" style="height: 70vh">-->
+<!--									<div id = "bar_trump" style="width:100%;height: 100%"></div>-->
+<!--								</div>-->
+<!--								<div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">-->
+<!--									<div id = "timeline_trump" style="width:100%;height: 100%"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+
+		</div>
+	</div>
+
+
+	<!-- - - - - - - - - - - - >
+	<    Load JS libraries     >
+	<- - - - - - - - - - - - -->
+
+	<!-- BOOTSTRAP -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+	<!-- d3 -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="https://d3js.org/topojson.v2.min.js"></script>
+	<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+	<!-- OWN JS -->
+	<script src="js/timeline.js"></script>
+	<script src="js/barVis.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

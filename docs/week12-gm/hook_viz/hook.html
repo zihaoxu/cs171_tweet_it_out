@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CS171 - Final Project - Hook</title>
+    <meta name="description" content="">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://use.typekit.net/jhx1tfz.css">
+    <link rel="stylesheet" href="css/style-hook.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="js/json5/index.min.js"></script>
+    <script>
+        const dataConfig = JSON5.parse(`{dataUrl:"https://docs.google.com/spreadsheets/d/1k85Ez8GiRkNqcK_vi4rDIPRuleXLdo8hxmzcyEH4AGg/edit#gid=274571410",config:{width:"1000",height:"800"},x:{axisMeasure:"month",axisLabel:"COVID-19 Pandemic Months",showXAxisGrid:true,showXAxisTick:true},y:{axisLabel:"Tweet Frequency Count (by sentiment)",axisMeasures:[{options:["negativetweets","positivetweets"],selectedMeasure:"negativetweets",label:{key:"label",name:"row0_label",value:"Negative Sentiment"},color:{key:"color",name:"row0_color",value:"#a50f15"}},{options:["negativetweets","positivetweets"],selectedMeasure:"positivetweets",label:{key:"label",name:"row1_label",value:"Positive Sentiment"},color:{key:"color",name:"row1_color",value:"#08519c"}}],yMin:null,yMax:15579,showYAxisGrid:true,showYAxisTick:true},prediction:{predictionMeasure:"negativetweets",predictionMeasureLabel:"Negative Sentiment",predictionMeasureColor:"#a50f15",elicitRange:["Jan","Sep"],elicit_range_a:"Jan",elicit_range_b:"Sep",hints:{showPointHint:true,pointHint:[426.0966491699219,249.65469360351562],pointHintText:{xHintPointText1:378.0966491699219,yHintPointText1:299.6546936035156,xHintPointText2:360.0966491699219,yHintPointText2:319.6546936035156,textHintPointText2:"go through this point"},pointHintArrow:{x1:426.0966491699219,x2:426.0966491699219,y1:284.6546936035156,y2:267.6546936035156},showHintPredictionText:true}},social:{socialDisplay:"no_social"},text:{chartDataSource:"",chartDataSourceLink:"",chartNotes:"Twitter Sentiment Trend during the Covid-19 Pandemic",chartSubtitle:" .",chartTitle:" "},chartTypeface:"motiva-sans"}`);
+    </script>
+    <script>
+        // Import fontFamily names from typeface options
+        const fontFamilies = [
+            'Roboto',
+            'Open Sans',
+            'Montserrat',
+            'Lato',
+            'Source Sans Pro',
+            'Raleway',
+            'Merriweather',
+            'Roboto Slab',
+            'Noto Sans',
+            'Playfair Display',
+            'Lora',
+            'Work Sans'
+        ]
+
+        console.log('dataconfig in top script', dataConfig);
+
+        WebFont.load({
+            google: {
+                families: fontFamilies
+            }
+        });
+    </script>
+    <script type="text/javascript" src="js/main-hook-gm.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="svg_and_canvas">
+        <div class="vis_container">
+            <svg id='vis_svg'></svg>
+        </div>
+    </div>
+
+</body>
+
+</html>
