@@ -1,20 +1,22 @@
-
+#headstart{
+    font:15px "Comic Sans MS";
+}
 
 h1{
-    font: 100px Courier,Georgia, Palatino, serif;
+    font: 100px "Comic Sans MS", Courier,Georgia, Palatino, serif;
     color: #1DA1F2;
 }
 h2{
-    font: 80px Courier,Georgia, Palatino, serif;
+    font: 80px "Comic Sans MS",Courier,Georgia, Palatino, serif;
     color: #657786;
 }
 
 h4{
-    font: 10px Courier,Georgia, Palatino, serif;
+    font: 10px "Comic Sans MS", Courier,Georgia, Palatino, serif;
     color: #657786;
 }
 .bar-title{
-    font: 30px Courier,Georgia, Palatino, serif;
+    font: 30px "Comic Sans MS", Courier,Georgia, Palatino, serif;
     fill: #1DA1F2;
 }
 .inline-block-child {
@@ -51,7 +53,7 @@ button {
 }
 
 img{
-mix-blend-mode: multiply;
+    mix-blend-mode: multiply;
 }
 
 .content {
@@ -68,7 +70,26 @@ mix-blend-mode: multiply;
 
 }
 
-/*CSS code from https://codepen.io/andrewwright/pen/Aigre?__cf_chl_jschl_tk__=3a62211badeea09c14e119ca5cffebe6c2494687-1606074306-0-AUwGUASpByvsWxO_ZcxNT6GIjH8GWh6sa3qcciZw4HZnMezA-tg44wgdU_nA4j3P5F01mHXAxyzEPgEG_3kHmz7YN7FWVzZvXE1nbTH4PsAbUeMi4DuNhPHU00vS4NpYnI8CeZi8NKa89Fh8-vsCjQVYLhQo-7g9Ghq1Eye_Pu547lKiVGc_Da-okPlTezSW3XDqbYGSoTEPTAcXSdu0CwArjVKXpbv55xghLLYAYZvHF-g8JmDZo3aXU5BqQb0TkNWeivveTF0h4e7bEZuhgR-dWXa-nS5QQA4T1y4K192YyCQtWSDXyKpSrQKwJfEsrFpxWeJvmy4RH4CjiOIrrla0W-M9QltRZMYWy-mjcrxWg3tZJ7a856PRN9jfuxE2jOPMZL3wdM3PTXzaeTilHh8 */
+/*Topic*/
+.topic-title{
+    font: 1.2rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    fill: #1DA1F2;
+
+}
+.topic-subtitle{
+    font: 0.5rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    fill: gray;
+}
+
+.radar-topics{
+    font: 10px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+}
+/*CSS code from https://codepen.io/andrewwright/pen/Aigre?__cf_chl_jschl_tk__=3a62211badeea09c14e119ca5c
+ffebe6c2494687-1606074306-0-AUwGUASpByvsWxO_ZcxNT6GIjH8GWh6sa3qcciZw4HZnMezA-tg44wgdU_nA4j3P5F01mHXAxyz
+EPgEG_3kHmz7YN7FWVzZvXE1nbTH4PsAbUeMi4DuNhPHU00vS4NpYnI8CeZi8NKa89Fh8-vsCjQVYLhQo-7g9Ghq1Eye_Pu547lKiVG
+c_Da-okPlTezSW3XDqbYGSoTEPTAcXSdu0CwArjVKXpbv55xghLLYAYZvHF-g8JmDZo3aXU5BqQb0TkNWeivveTF0h4e7bEZuhgR-dW
+Xa-nS5QQA4T1y4K192YyCQtWSDXyKpSrQKwJfEsrFpxWeJvmy4RH4CjiOIrrla0W-M9QltRZMYWy-mjcrxWg3tZJ7a856PRN9jfuxE2
+jOPMZL3wdM3PTXzaeTilHh8 */
 /*                                                                             for the backquotes*/
 
 .testimonial-quote blockquote {
