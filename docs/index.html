@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+	<link rel="stylesheet" href="css/fullpage.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -18,7 +19,9 @@
 	<div class="container-fluid" style="height: 1000vh; padding-top: 1vh; background-color: #F5F8FA">
 		<div class="row">
 				<!-- HOMEPAGE -->
-					<div class = "row d-flex rcorners" style = "width:98%;height:95vh;padding-top:1vh">
+			<div id = "fullpage">
+				<div class = "section" id="section0" style=" background-image: url(img/twitter_background3.jpg);">
+					<div class = "row d-flex rcorners" id = "homepage" style = "width:98%;height:95vh;padding-top:1vh">
 
 						<div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
 							<div class="align-self-center p-2">
@@ -29,25 +32,27 @@
 							</div>
 						</div>
 
-
-						<div class="col-6 offset-5" style = "height:50%;width:100%">
-							<div class="content" style = "height:100%;width:100%">
-<!--								<a href = "#trump1"><input type = "image" src = "img/twitter-icon-home.png" style = "width:50%;height:auto;border:0;outline:none" border = 0/></a>-->
-
-								<a href = "#LOLLIPOP"><img src="img/twitter-icon-home.png" alt = "twitter-home" style = "width:100%;height:auto;border:0;outline:none" border = 0 class="img-thumbnail"></a>
-								<p style = "color: #657786;border:grey">Click to get started!</p>
+						<div class="col-4 offset-8" style = "height:50%;width:100%">
+							<div class="content" style = "height:100%;width:100%;padding-top: 200px;padding-left: 100px">
+								<a href = "#HOOK"><img src="img/twitter-icon-home.png" alt = "twitter-home" style = "width:120%;auto;border:0;outline:none" border = 0 class="img-thumbnail"></a>
+<!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
 
 							</div>
 						</div>
 					</div>
+					<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+				</div>
 
-			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
-			<!--Lollipop-->
-			<div class = "row d-flex rcorners" id= "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0;">
-				<div class ='col-6'>
+
+			<!--HOOK-->
+			<div class = "section" id = "section1">
+			<div class = "row d-flex" id= "HOOK" style = "width:98%;height:95vh;padding-top:0;">
+				<div class ='col-6 offset-3'>
 					<div class="row justify-content-center bar-title" style="height: 70vh" >
+
 						<font color="1DA1F2">Draw your own  Covid-19 negative sentiment trend line</font> <!-- TODO: refactor -->
+
 						<div class = 'align-self-center'>
 							<iframe src="viz/hook_viz/hook.html" class="clsiframe"></iframe>
 						</div>
@@ -71,10 +76,18 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			</div>
 
+			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+
+
+			<!--Lollipop-->
+			<div class = "section" id = "section2" style=" background-image: url(img/twitter_background5.png);background-size: auto">
+			<div class = "row d-flex" id= "LOLLIPOP" style = "width:98%;height:95vh;padding-top:0;">
 				<div class ='col-6'>
 					<div class="row justify-content-center bar-title" style="height: 70vh" id="topic_cluster_frame">
-						<font color="1DA1F2">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+						<font color="#f5f5f5">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
 						<div id="lolipop_frame_container" class = 'align-self-center' style="display:block;">
 							<iframe id="lolipop_frame" src="viz/lolipop_viz/index.html" class="clsiframe"></iframe>
 						</div>
@@ -82,10 +95,13 @@
 
 				</div>
 			</div>
+			</div>
+
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
 
 			<!--NETWORK-->
+			<div class = "section" id = "section3">
 			<div class = "row d-flex rcorners" id = "NETWORK" style = "width:98%;height:95vh;padding-top:0vh">
 				<div class ='col-12'>
 					<div class="row justify-content-center" style="height: 70vh">
@@ -96,13 +112,16 @@
 				</div>
 
 			</div>
+			</div>
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
 
 			<!--Emoji-->
+			<div class = "section" id = "section4">
 			<div class = "row d-flex rcorners" id = "Emoji" style = "width:98%;height:95vh;padding-top:0vh">
 				<div class ='col-6'>
 					<div class="row justify-content-center" style="width:98%;height: 90vh">
+						<div class="row justify-content-center bar-title" style ="color:#E1E8ED;;margin-top: 30px;height:50px">Top 10 Frequent Emojis' Sentiments</div>
 						<svg xmlns="http://www.w3.org/2000/svg" width=0 height=0>
 						<!--code adapted from https://codepen.io/NickNoordijk/pen/VLvxLE-->
 							<defs>
@@ -119,14 +138,14 @@
 							</defs>
 						<!--end code adaption-->
 						</svg>
-							<div id = "bar_emoji" style="width:100%;height: 95%"></div>
+							<div id = "bar_emoji" style="width:100%;height: 80%"></div>
 
 
 						<div class = 'align-self-center'>
 							<div id="slider-range"></div>
 							<p>
-								<label for="month">Month Range:</label>
-								<input type="text" id="month" readonly style="border:0; color:#f6931f; font-weight:bold;background-color:#F5F8FA">
+								<label for="month" style="color:#E1E8ED;">Month Range:</label>
+								<input type="text" id="month" readonly style="border:0; color:#AAB8C2;; font-weight:bold;background-color:#1DA1F2">
 
 							</p>
 						</div>
@@ -149,15 +168,17 @@
 							</div>
 
 
-
 						</div>
 					</div>
 
 				</div>
 			</div>
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
+			</div>
+
 
 			<!-- TRUMP0 -->
+			<div class = "section" id = "section5">
 			<div class = "row d-flex rcorners" id = "TRUMP0" style = "width:98%;height:95vh;padding-top:0vh">
 
 				<div class="col-3" style="height: 75vh">
@@ -209,7 +230,7 @@
 						<div class="quote-container" style = "width:100%;height:100%">
 							<div>
 								<blockquote>
-									<p>Trump seems to be satisfied with the way he handled the coronavirus.</p>
+									<p style="color: #657786;">Trump seems to be satisfied with the way he handled the coronavirus.</p>
 								</blockquote>
 							</div>
 						</div>
@@ -240,34 +261,45 @@
 				</div>
 
 			</div>
+			</div>
 
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
 
 				<!--TRUMP1-->
-			<div class = "row d-flex rcorners" id = "TRUMP1" style = "width:98%;height:95vh;padding-top:0vh">
-				<div class ='col-6'>
-					<div class="row justify-content-center" style="height: 70vh">
-						<div class = 'align-self-center'>
-							<div id = "" style="width:100%;height: 100%"></div>
-							An interactive vertical line plot shows the sentiments in tweets that @DonaldTrump
+			<div class = "section" id = "section6" style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
+			<div style = "width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
+			<div class = "row d-flex " id = "TRUMP1" style = "width:98%;height:95vh;padding-top:0vh;">
+				<div class ='col-6 offset-3'>
+					<div class="row justify-content-center" style="height: 100%">
+						<div class = 'align-self-center' >
+							<div class="testimonial-quote group">
+								<div class="quote-container" style = "width:100%;height:100%">
+									<div>
+										<blockquote>
+											<p style="color: black;opacity: 1">For the “1/100th time,” the reason why we show so many cases is because of the reopening.
+												Doing more tests does bring in more positive test results.
+												But the rising case numbers come with a rising percent positive rate too.
+												The percentage of tests coming back positive is rising.</p>
+										</blockquote>
+										<cite><span>@eugenegu - July 9</span></cite>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class ='col-6'>
-					<div class="row justify-content-center" style="height: 70vh">
-						<div class = 'align-self-center'>
-							<p>Text</p>
-						</div>
-					</div>
+				</div>
 
-				</div>
+			</div>
 			</div>
 
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
+
 				<!--SENTIMENT ANALYSIS-->
-			<div class = "row d-flex rcorners" id = "SENTIMENT" style = "width:98%;height:95vh;padding-top:0vh">
+			<div class = "section" id = "section7">
+			<div class = "row d-flex" id = "SENTIMENT" style = "width:98%;height:95vh;padding-top:0vh">
 				<div class ='col-9'>
 					<div class="row justify-content-center" style="height: 70vh">
 						<div class = 'align-self-center'>
@@ -284,11 +316,14 @@
 
 				</div>
 			</div>
+			</div>
 
 			<div class = "row d-flex" style = "width:98%;height:5vh;padding-top:1vh"></div>
 
 				<!--CALLOUT-->
-			<div class = "row d-flex rcorners" id = "ACTION" style = "width:98%;height:95vh;padding-top:0vh">
+			<div class = "section" id = "section8" style=" background-image: url(img/twitter_background2.jpg);background-size: cover">
+			<div style = "width:100%;height:100%;background-color: #E1E8ED;opacity: 0.6">
+			<div class = "row d-flex" id = "ACTION" style = "width:98%;height:95vh;padding-top:0vh">
 				<div class ='col-6'>
 					<div class="row justify-content-center" style="height: 70vh">
 						<div class = 'align-self-center'>
@@ -305,6 +340,10 @@
 
 				</div>
 			</div>
+			</div>
+			</div>
+			</div>
+
 
 
 
@@ -331,11 +370,24 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+	<!--full page vertical navigation tool-->
+	<script src="js/fullpage.js"></script>
+
 	<!-- OWN JS -->
 	<script src="js/timeline.js"></script>
 	<script src="js/barVis.js"></script>
 	<script src="js/topicVis.js"></script>
 	<script src="js/emojiVis.js"></script>
 	<script src="js/main.js"></script>
+
+	<script type="text/javascript">
+		var myFullpage = new fullpage('#fullpage', {
+			anchors: ['1Page', '2Page','3Page','4Page','5Page','6Page','7Page','8Page'],
+			sectionsColor: ['', '','','','#1DA1F2'],
+			navigation: true,
+			navigationPosition: 'right',
+			navigationTooltips: ['Homepage', 'Sentiment Line','Topics','Tags','Emojis','Trump Dashboard','People\'s Response','Sentiment Analysis','Resources']
+		});
+	</script>
 </body>
 </html>

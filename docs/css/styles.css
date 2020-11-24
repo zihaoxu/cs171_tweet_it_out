@@ -4,7 +4,7 @@
 
 h1{
     font: 100px "Comic Sans MS", Courier,Georgia, Palatino, serif;
-    color: #1DA1F2;
+    color: #32A8DA;
 }
 h2{
     font: 80px "Comic Sans MS",Courier,Georgia, Palatino, serif;
@@ -48,6 +48,13 @@ button {
 .rcorners {
     border-radius: 25px;
     border: 5px solid #1DA1F2;
+    margin-left: 12px;
+
+}
+
+#homepage{
+    border-radius: 25px;
+    border: 5px solid #32A8DA;
     margin-left: 12px;
 
 }
@@ -99,7 +106,7 @@ jOPMZL3wdM3PTXzaeTilHh8 */
     padding: 0;
 
     background: none;
-    color: gray;
+    color: whitesmoke;
     font-family: Georgia, serif;
     font-size: 1.5em;
     font-style: italic;
@@ -115,9 +122,10 @@ jOPMZL3wdM3PTXzaeTilHh8 */
 }
 
 .testimonial-quote blockquote p {
-    color: #75808a;
+    color: #E1E8ED;
     line-height: 1.4 !important;
 }
+
 
 .testimonial-quote blockquote p:first-child:before {
     content: '\201C';
