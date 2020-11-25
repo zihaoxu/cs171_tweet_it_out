@@ -17,7 +17,7 @@ h4{
 }
 .bar-title{
     font: 30px "Comic Sans MS", Courier,Georgia, Palatino, serif;
-    fill: #1DA1F2;
+    fill: whitesmoke;
 }
 .inline-block-child {
     display: inline-block;
@@ -59,7 +59,7 @@ button {
 
 }
 
-img{
+img .start{
     mix-blend-mode: multiply;
 }
 
@@ -75,6 +75,11 @@ img{
     justify-content: center;
     font-size: 2.5rem;
 
+}
+
+.annotation{
+    font-style: italic;
+    font-size:10px;
 }
 
 /*Topic*/

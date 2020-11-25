@@ -61,12 +61,12 @@ class EmojiVis {
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // add title
-        vis.svg.append('g')
-            .attr('class', 'title bar-title')
-            .append('text')
-            .text(vis.title)
-            .attr('transform', `translate(${vis.width / 2}, 20)`)
-            .attr('text-anchor', 'middle');
+        // vis.svg.append('g')
+        //     .attr('class', 'title bar-title')
+        //     .append('text')
+        //     .text(vis.title)
+        //     .attr('transform', `translate(${vis.width / 2}, 20)`)
+        //     .attr('text-anchor', 'middle');
 
         vis.list = [{'index':0},{'index':1},{'index':2},{'index':3},{'index':4},{'index':5},{'index':6},{'index':7},{'index':8},{'index':9}];
 
