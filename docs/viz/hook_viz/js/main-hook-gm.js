@@ -33619,24 +33619,7 @@ parcelRequire = function (e, r, t, n) {
             value: !0
         }), exports.getSocialData = exports.postSocialData = void 0;
         var t = window.location.hostname;
-        console.log("NODE_ENV: ", "production");
-        var o = "https://".concat(t),
-            a = function (t) {
-                return fetch("https://theydrawit.mucollective.co/bdv_api/api/v1.0/postSocialData", {
-                    method: "POST",
-                    body: JSON.stringify(t),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-            };
-        exports.postSocialData = a;
-        var e = function (t) {
-            var o = t.uid,
-                a = t.projectId;
-            return fetch("https://theydrawit.mucollective.co/bdv_api/api/v1.0/getSocialData/".concat(o, "/").concat(a))
-        };
-        exports.getSocialData = e;
+
     }, {}],
     "mTnz": [function (require, module, exports) {
         var define;
@@ -35960,8 +35943,14 @@ parcelRequire = function (e, r, t, n) {
                 .text("I am done!")
                 .on("click", function (a) {
                     console.log("I am done clicked")
-                    window.parent.document.getElementById('hook_text').style.display = "block";
-                    console.log(window.parent.document.getElementById('hook_text'))
+                    if (window.parent.document.getElementById('hook_text_before')
+                    && window.parent.document.getElementById('hook_text_after')) {
+                        window.parent.document.getElementById('hook_text_before').style.display = "none";
+                        //window.parent.document.getElementById('hook_text_after').style.transition = "opacity 2s linear";
+                        //window.parent.document.getElementById('hook_text_after').style.opacity = 1;
+                        window.parent.document.getElementById('hook_text_after').style.display = "block";
+                        console.log(window.parent.document.getElementById('hook_text'))
+                    }
                     e.selectAll(".el_line_partial")
                         .style("display", "initial"),
                         e.selectAll(".reference_line")

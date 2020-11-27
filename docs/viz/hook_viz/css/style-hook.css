@@ -12,10 +12,7 @@ main {
     display: block
 }
 
-h1 {
-    font-size: 2em;
-    margin: .67em 0
-}
+
 
 hr {
     box-sizing: content-box;
@@ -227,8 +224,9 @@ h2 {
     letter-spacing: .6px
 }
 
-h3 {
-    font-size: 2rem
+h3{
+    font: 24px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    color: #32A8DA;
 }
 
 h4 {
