@@ -142,3 +142,8 @@ data/
 
 # Virtual env
 cs171/
+
+# idea
+.idea/
+
+.DS_Store

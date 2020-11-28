@@ -1,0 +1,222 @@
+#headstart{
+    font:15px "Comic Sans MS";
+}
+
+h1{
+    font: 100px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    color: #32A8DA;
+}
+h2{
+    font: 80px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    color: #657786;
+}
+
+h4{
+    font: 10px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    color: #657786;
+}
+.bar-title{
+    font: 30px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    fill: whitesmoke;
+}
+.inline-block-child {
+    display: inline-block;
+}
+.rotate15 {
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+}
+
+.reset{
+    background-color: black;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    /*padding: 5px 10px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 2px;
+}
+
+.rcorners {
+    border-radius: 25px;
+    border: 5px solid #1DA1F2;
+    margin-left: 12px;
+
+}
+
+#homepage{
+    border-radius: 25px;
+    border: 5px solid #32A8DA;
+    margin-left: 12px;
+
+}
+
+img .start{
+    mix-blend-mode: multiply;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.emoji-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+
+}
+
+.annotation{
+    font-style: italic;
+    font-size:10px;
+}
+
+/*Topic*/
+.topic-title{
+    font: 1.2rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    fill: #1DA1F2;
+
+}
+.topic-subtitle{
+    font: 0.5rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    fill: gray;
+}
+
+.radar-topics{
+    font: 10px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+}
+/*CSS code from https://codepen.io/andrewwright/pen/Aigre?__cf_chl_jschl_tk__=3a62211badeea09c14e119ca5c
+ffebe6c2494687-1606074306-0-AUwGUASpByvsWxO_ZcxNT6GIjH8GWh6sa3qcciZw4HZnMezA-tg44wgdU_nA4j3P5F01mHXAxyz
+EPgEG_3kHmz7YN7FWVzZvXE1nbTH4PsAbUeMi4DuNhPHU00vS4NpYnI8CeZi8NKa89Fh8-vsCjQVYLhQo-7g9Ghq1Eye_Pu547lKiVG
+c_Da-okPlTezSW3XDqbYGSoTEPTAcXSdu0CwArjVKXpbv55xghLLYAYZvHF-g8JmDZo3aXU5BqQb0TkNWeivveTF0h4e7bEZuhgR-dW
+Xa-nS5QQA4T1y4K192YyCQtWSDXyKpSrQKwJfEsrFpxWeJvmy4RH4CjiOIrrla0W-M9QltRZMYWy-mjcrxWg3tZJ7a856PRN9jfuxE2
+jOPMZL3wdM3PTXzaeTilHh8 */
+/*                                                                             for the backquotes*/
+
+.testimonial-quote blockquote {
+    /* Negate theme styles */
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    background: none;
+    color: whitesmoke;
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    z-index: 600;
+}
+
+.testimonial-quote blockquote * {
+    box-sizing: border-box;
+}
+
+.testimonial-quote blockquote p {
+    color: #E1E8ED;
+    line-height: 1.4 !important;
+}
+
+
+.testimonial-quote blockquote p:first-child:before {
+    content: '\201C';
+    color: #81bedb;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;
+    text-shadow: none;
+    z-index: -300;
+}
+
+.testimonial-quote img {
+    border: 3px solid #9CC1D3;
+    border-radius: 50%;
+    display: block;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: -.2em;
+    left: 0;
+}
+
+.testimonial-quote cite {
+    color: gray;
+    display: block;
+    font-size: .8em;
+}
+
+.testimonial-quote cite span {
+    color: #5e5e5e;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px white;
+}
+
+.testimonial-quote {
+    position: relative;
+}
+
+.testimonial-quote .quote-container {
+    padding-left: 160px;
+}
+
+.testimonial-quote.right .quote-container {
+    padding-left: 20px;
+    padding-right: 8px;
+}
+
+.testimonial-quote.right img {
+    left: auto;
+    right: 0;
+}
+
+.testimonial-quote.right cite {
+    text-align: right;
+}
+
+.testimonial-quote {
+    font-size: 16px;
+}
+
+.clsiframe {
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border:0;
+}
+
+.testimonial-quote-secondary {
+    color: gray;
+    font-family: Georgia, serif;
+    font-size: 1.2em;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    z-index: 600;
+}

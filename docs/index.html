@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tweets Sentiment Analysis -By TweetItOut</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="css/fullpage.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+</head>
+<body>
+<!-- WRAPPER -->
+<div class="container-fluid" style="height: 1000vh; padding-top: 1vh; background-color: #F5F8FA">
+    <div class="row">
+        <!-- HOMEPAGE -->
+        <div id="fullpage">
+            <div class="section" id="section0" style=" background-image: url(img/twitter_background3.jpg);">
+                <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:1vh">
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
+                        <div class="align-self-center p-2">
+                            <h1>Tweets Sentiment</h1>
+                        </div>
+                        <div class="align-self-center p-2">
+                            <h2>During Covid</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-4 offset-8" style="height:50%;width:100%">
+                        <div class="content" style="height:100%;width:100%;padding-top: 200px;padding-left: 30px">
+                            <img src="img/twitter-icon-home.png" alt="twitter-home"
+                                 style="width:50%;height:auto;border:0;outline:none;" border=0 class="start">
+                            <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+            </div>
+
+
+            <!--HOOK-->
+            <div class="section" id="section1">
+                <div class="row d-flex" id="HOOK" style="width:98%;height:95vh;padding-top:0vh">
+                    <div class='col-6'>
+                        <div class="row justify-content-center" style="width:100%;height: 90vh">
+                            <iframe src="viz/hook_viz/hook.html" class="clsiframe"></iframe>
+                        </div>
+                    </div>
+
+                    <div class='col-6'
+                         style=" background-image: url(img/twitter_background9.jpg);background-size: cover">
+                        <div class="row justify-content-center" style="height: 70vh">
+                            <div class='align-self-center'>
+                                <div class="testimonial-quote group right">
+                                    <div class="quote-container">
+                                        <div id="hook_text_before" style="display: block">
+                                            <blockquote>
+                                                <p>
+                                                    The plot on the left displays the monthly tweet frequency
+                                                    with positive sentiment during Covid-19.
+                                                    Please draw your prediction line for the negative sentiment trend
+                                                    line in relation to
+                                                    the tweet frequency with positivesentiment line</p>
+                                            </blockquote>
+
+                                        </div>
+                                        <div id="hook_text_after" style="display: none">
+                                            <blockquote>
+                                                <p>
+                                                    Between mid February to the first week of March, we see a spike in
+                                                    negative sentiment
+                                                    in Covid related tweets. The negative sentiment goes down between
+                                                    mid march and mid April. Later in the summer months
+                                                    of May, June and July, we observe a significant spike in Negative
+                                                    sentiment. More recently, between mid August to the end of September
+                                                    the negative sentiment trend appears to be in a slightly downward
+                                                    trajectory. Additional data for October and November probably would
+                                                    have shown an upward trend in negative sentiment as covid related
+                                                    death and infection rates are increasing again.</p>
+                                            </blockquote>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+			</div>
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+                <!--Lollipop-->
+                <div class="section" id="section2"
+                     style=" background-image: url(img/twitter_background5.png);background-size: auto">
+                    <div class="row d-flex" id="LOLLIPOP" style="width:98%;height:95vh;padding-top:0;">
+                        <div class='col-6'>
+                            <div class="row justify-content-center bar-title" style="height: 70vh"
+                                 id="topic_cluster_frame">
+                                <font color="#f5f5f5">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+                                <div id="lolipop_frame_container" class='align-self-center' style="display:block;">
+                                    <iframe id="lolipop_frame" src="viz/lolipop_viz/index.html"
+                                            class="clsiframe"></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+                <!--NETWORK-->
+                <div class="section" id="section3">
+                    <div class="row d-flex" id="NETWORK" style="width:98%;height:95vh;padding-top:0vh">
+                        <div class='col-12'>
+                            <div class="row justify-content-center" style="height: 70vh">
+                                <div class='align-self-center'>
+                                    <iframe id="aaa" src="viz/tagnet_viz/index.html" class="clsiframe"></iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+
+                <!--Emoji-->
+                <div class="section" id="section4">
+                    <div class="row d-flex" id="Emoji" style="width:98%;height:95vh;padding-top:0vh">
+                        <div class='col-6'>
+                            <div class="row justify-content-center" style="width:100%;height: 90vh">
+                                <!--						<div class="row justify-content-center bar-title" style ="color:#E1E8ED;margin-top: 30px;height:50px">Top 10 Frequent Emojis' Sentiments</div>-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width=0 height=0>
+                                    <!--code adapted from https://codepen.io/NickNoordijk/pen/VLvxLE-->
+                                    <defs>
+                                        <linearGradient id="gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+                                            <stop offset="0%" stop-color="#9c4f96">
+                                                <animate attributeName="stop-color"
+                                                         values="#9c4f96; #fba949; #8bd448; #9c4f96" dur="1s"
+                                                         repeatCount="indefinite"></animate>
+                                            </stop>
+
+                                            <stop offset="100%" stop-color="#ff6355">
+                                                <animate attributeName="stop-color"
+                                                         values="#ff6355; #fae442; #2aa8f2;#ff6355" dur="1s"
+                                                         repeatCount="indefinite"></animate>
+                                            </stop>
+
+                                        </linearGradient>
+                                    </defs>
+                                    <!--end code adaption-->
+                                </svg>
+                                <div id="bar_emoji" style="width:90%;height: 80%"></div>
+
+
+                                <div class='align-self-center'>
+                                    <div id="slider-range"></div>
+                                    <p>
+                                        <label for="month" style="color:#E1E8ED;font-family: 'Comic Sans MS'">Month
+                                            Range:</label>
+                                        <input type="text" id="month" readonly
+                                               style="border:0; color:#E1E8ED;; font-weight:bold;background-color:#219ed6">
+                                    <p class="annotation" style="color:#E1E8ED;">*The sentiment scores for emojis are
+                                        credited to Novak et al., 2015</p>
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-6'
+                             style=" background-image: url(img/twitter_background9.jpg);background-size: cover">
+                            <div class="row justify-content-center" style="height: 70vh">
+                                <div class='align-self-center'>
+                                    <div class="testimonial-quote group right">
+                                        <div class="quote-container">
+                                            <div>
+                                                <blockquote>
+                                                    <p>People tend to use more positive emojis during the Covid
+                                                        time.</p>
+                                                    <p class="emoji"></p>
+                                                </blockquote>
+                                                <div id="example-emoji"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+                </div>
+
+
+                <!-- TRUMP0 -->
+                <div class="section" id="section5">
+                    <div class="row d-flex" id="TRUMP0" style="width:98%;height:95vh;padding-top:0vh">
+
+                        <div class="col-3" style="height: 100%;width:98%">
+
+                            <div class="row" style="height: 10vh">
+                                <p style="display:none;position:absolute;top:20px;left:40px;" id="warning">Sorry, the
+                                    limit has reached!</p>
+                                <button type="button" id="ttweet_generate" class="align-self-center"
+                                        style="position:absolute;top:40px;left:40px;height:30px">Give me some Trump's
+                                    Tweets!
+                                </button>
+                                <button type="reset" id="ttweet_reset" class="align-self-center reset"
+                                        style="position:absolute;top:45px;left:240px;height:20px">Reset
+                                </button>
+                                <br>
+                            </div>
+
+                            <div class="row" style="height: 60vh">
+                                <!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
+                                <img src="img/tweet_feb.png" class="tweet-img-fixed" id="ttweet6"
+                                     style="position:absolute;top:100px;left:20px;width:300px;height:70px">
+                                <img src="img/tweet_mar.png" class="tweet-img-fixed" id="ttweet7"
+                                     style="position:absolute;top:170px;left:90px;width:300px;height:70px">
+                                <img src="img/tweet_apr.png" class="tweet-img-fixed" id="ttweet8"
+                                     style="position:absolute;top:240px;left:20px;width:300px;height:70px">
+                                <img src="img/tweet_jun.png" class="tweet-img-fixed" id="ttweet9"
+                                     style="position:absolute;top:310px;left:90px;width:300px;height:70px">
+                                <img src="img/tweet_july.png" class="tweet-img-fixed" id="ttweet10"
+                                     style="position:absolute;top:380px;left:20px;width:300px;height:70px">
+                                <!--					</div>-->
+
+
+                                <!--					<div class="row" style="height: 60vh">-->
+                                <!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
+                                <img src="img/tweet_feb.png" class="tweet-img" id="ttweet1"
+                                     style="position:absolute;top:100px;left:20px;display:none;width:300px;height:70px">
+                                <img src="img/tweet_mar.png" class="tweet-img" id="ttweet2"
+                                     style="position:absolute;top:170px;left:90px;display:none;width:300px;height:70px">
+                                <img src="img/tweet_apr.png" class="tweet-img" id="ttweet3"
+                                     style="position:absolute;top:240px;left:20px;display:none;width:300px;height:70px">
+                                <img src="img/tweet_jun.png" class="tweet-img" id="ttweet4"
+                                     style="position:absolute;top:310px;left:90px;display:none;width:300px;height:70px">
+                                <img src="img/tweet_jun.png" class="tweet-img" id="ttweet4"
+                                     style="position:absolute;top:380px;left:90px;display:none;width:300px;height:70px">
+                            </div>
+
+
+                            <script type="text/javascript">
+                                window.tweet_img_list = ["ttweet1", "ttweet2", "ttweet3", "ttweet4", "ttweet5"]
+                                document.getElementById("ttweet_generate").onclick = function () {
+                                    displayImage()
+                                };
+
+                                function displayImage() {
+                                    try {
+                                        let id = tweet_img_list[0];
+                                        document.getElementById(id).style.display = "block";
+                                        tweet_img_list = tweet_img_list.slice(1);
+                                    } catch (err) {
+                                        document.getElementById('warning').style.display = "block";
+                                        return
+                                    }
+
+
+                                }
+
+                                document.getElementById("ttweet_reset").onclick = function () {
+                                    hideImage()
+                                };
+
+                                function hideImage() {
+                                    document.getElementById('warning').style.display = "none";
+                                    var elems = document.getElementsByClassName("tweet-img");
+                                    for (var i = 0; i < elems.length; i += 1) {
+                                        elems[i].style.display = 'none';
+                                    }
+                                    window.tweet_img_list = ["ttweet1", "ttweet2", "ttweet3", "ttweet4", "ttweet5"]
+                                }
+                            </script>
+                            <div class="testimonial-quote group right">
+                                <div class="quote-container" style="width:100%;height:100%">
+                                    <div>
+                                        <blockquote>
+                                            <p style="color: #657786;">Trump seems to be satisfied with the way he
+                                                handled the coronavirus.</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-2 offset-1" style="height: 75vh">
+                            <div class="row justify-content-center" style="height: 50vh">
+                                <img src="img/trump.png"
+                                     style="width:80%;height:40%;position:absolute;top:10vh;left:5vh;" class="rotate15">
+                            </div>
+                            <div class="row" style="height: 35vh">
+                                <div id='topic_trump' style="width:100%;height: 100%"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6 offset">
+                            <div class="row justify-content-center" style="height: 70vh">
+                                <div id="bar_trump" style="width:100%;height: 100%"></div>
+                            </div>
+                            <div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">
+                                <div id="timeline_trump" style="width:100%;height: 100%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+
+                <!--TRUMP1-->
+                <div class="section" id="section6"
+                     style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
+                    <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
+                        <div class="row d-flex " id="TRUMP1" style="width:98%;height:95vh;padding-top:0vh;">
+                            <div class='col-6 offset-3'>
+                                <div class="row justify-content-center" style="height: 100%">
+                                    <div class='align-self-center'>
+                                        <div class="testimonial-quote group">
+                                            <div class="quote-container" style="width:100%;height:100%">
+                                                <div>
+                                                    <blockquote>
+                                                        <p style="color: black;opacity: 1">For the “1/100th time,” the
+                                                            reason why we show so many cases is because of the
+                                                            reopening.
+                                                            Doing more tests does bring in more positive test results.
+                                                            But the rising case numbers come with a rising percent
+                                                            positive rate too.
+                                                            The percentage of tests coming back positive is rising.</p>
+                                                    </blockquote>
+                                                    <cite><span>@eugenegu - July 9</span></cite>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+
+                <!--SENTIMENT ANALYSIS-->
+                <div class="section" id="section7">
+                    <div class="row d-flex" id="SENTIMENT" style="width:98%;height:95vh;padding-top:0vh">
+                        <div class='col-9'>
+                            <div class="row justify-content-center" style="height: 70vh">
+                                <div class='align-self-center'>
+                                    <iframe src="viz/senti_viz/index.html" class="clsiframe"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-3'>
+                            <div class="row justify-content-center" style="height: 70vh">
+                                <div class='align-self-center'>
+                                    <p>Some comments on the visualization</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+                <!--CALLOUT-->
+                <div class="section" id="section8">
+                    <div style="width:100%;height:100%;background-color: #E1E8ED;">
+                        <div class="row d-flex" id="ACTION" style="width:98%;height:95vh;padding-top:0vh">
+                            <div class='col-6'>
+                                <div class="row justify-content-center" style="height: 70vh">
+                                    <div class='align-self-center'>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xzNMABRELPg"
+                                                frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-6'>
+                                <div class="row justify-content-center" style="height: 70vh">
+                                    <div class='align-self-center'>
+                                        <p>Relevant sources related to mental health(links,text)</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- - - - - - - - - - - - >
+    <    Load JS libraries     >
+    <- - - - - - - - - - - - -->
+
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--full page vertical navigation tool-->
+    <script src="js/fullpage.js"></script>
+
+    <!-- OWN JS -->
+    <script src="js/timeline.js"></script>
+    <script src="js/barVis.js"></script>
+    <script src="js/topicVis.js"></script>
+    <script src="js/emojiVis.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+            sectionsColor: ['', '', '', '', '#219ed6', '', '', '#AAB8C2'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['Homepage', 'Sentiment Line', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'People\'s Response', 'Sentiment Analysis', 'Resources']
+        });
+    </script>
+</body>
+</html>
