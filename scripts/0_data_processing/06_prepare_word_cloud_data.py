@@ -77,7 +77,7 @@ if __name__ == '__main__':
             vocab = row.vocab
             imp = row.importance
             senti = df_m[df_m['clean_topic'].str.contains(vocab)]['senti'].mean()
-            month_data.append({'vocab': vocab, 'imp': imp, 'senti': senti})
+            month_data.append({'text': vocab, 'size': imp, 'senti': senti})
         month_dict[m] = month_data
 
     # Save json to disk
