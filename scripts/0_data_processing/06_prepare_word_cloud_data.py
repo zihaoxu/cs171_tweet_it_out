@@ -5,6 +5,7 @@ import numpy as np
 from tweet import config
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.stem import WordNetLemmatizer
+np.random.seed(47)
 
 
 def clean_text(text):
@@ -77,7 +78,9 @@ if __name__ == '__main__':
             vocab = row.vocab
             imp = row.importance
             senti = df_m[df_m['clean_topic'].str.contains(vocab)]['senti'].mean()
-            month_data.append({'text': vocab, 'size': imp, 'senti': senti})
+            sample_tweet = df_m[df_m['clean_topic'].str.contains(vocab)].sample(n=1)['full_text'].values[0]
+            sample_tweet = sample_tweet.replace("\n", " ").replace("&amp;", " ").replace("\\", " ")
+            month_data.append({'text': vocab, 'size': imp, 'senti': senti, 'sample_tweet': sample_tweet})
         month_dict[m] = month_data
 
     # Save json to disk
