@@ -75,48 +75,43 @@ class MonthMenu{
             .attr('fill', d=>vis.nodeColor(d.senti))
             .attr("stroke-opacity", 0.5)
             .attr("stroke", function(d){
-                if(vis.months[d.month] != selected_month){
+                if(d.month != selected_month.toString()){
                     return '#ccc'
                 }else{
                     return vis.nodeColor(d.senti)
                 }
-            })
-            .attr("stroke-width", function(d){
-                if(vis.months[d.month] != selected_month){
+            }).attr("stroke-width", function(d){
+                if(d.month != selected_month.toString()){
                     return 2
                 }else{
                     return vis.r(d.count)/2
                 }
-            })
-            .on('mouseover', function (i, d){
+            }).on('mouseover', function (i, d){
                 // Highlight the center nodes
                 d3.select(this)
                     .attr("stroke-width", vis.r(d.count)/2)
                     .attr("stroke", vis.nodeColor(d.senti));
             }).on('mouseout', function (i, d){
                 vis.nodes.attr("stroke", function(d){
-                    if(vis.months[d.month] != selected_month){
+                    if(d.month != selected_month.toString()){
                         return '#ccc'
                     }else{
                         return vis.nodeColor(d.senti)
                     }
-                })
-                    .attr("stroke-width", function(d){
-                        if(vis.months[d.month] != selected_month){
+                }).attr("stroke-width", function(d){
+                        if(d.month != selected_month.toString()){
                             return 2
                         }else{
                             return vis.r(d.count)/2
                         }
                     })
             }).on("click", function (event, d){
-                selected_month = vis.months[d.month];
+                selected_month = parseInt(d.month);
                 // restore the nodes and edges
                 vis.nodes
                     .attr("stroke", '#ccc')
                     .attr("stroke-width", 2)
                 updatePage();
             });
-
-
     }
 }

@@ -187,7 +187,7 @@ class SentiPlot{
             .append("path")
             .attr("class", "senti-line")
             .attr("fill", "none")
-            .attr("stroke", "darkgray")
+            .attr("stroke", "black")
             .merge(vis.line)
             .transition()
             .duration(500)
