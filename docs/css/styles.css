@@ -10,13 +10,16 @@ h1{
 h2{
     font: 80px "Comic Sans MS",Courier,Georgia, Palatino, serif;
     color: #657786;
+    text-align: center;
 }
 
 h3{
-    font: 60px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    font: 30px "Comic Sans MS",Courier,Georgia, Palatino, serif;
     color: black;
-    text-align: center;
+    /*text-align: center;*/
 }
+
+
 
 h4{
     font: 10px "Comic Sans MS", Courier,Georgia, Palatino, serif;

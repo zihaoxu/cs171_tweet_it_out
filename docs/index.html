@@ -16,12 +16,12 @@
 </head>
 <body>
 <!-- WRAPPER -->
-<div class="container-fluid" style="height: 1000vh; padding-top: 1vh; background-color: #F5F8FA">
+<div class="container-fluid" style="height: 1000vh; padding-top: 0vh; background-color: #F5F8FA">
     <div class="row">
         <!-- HOMEPAGE -->
         <div id="fullpage">
             <div class="section" id="section0" style=" background-image: url(img/twitter_background3.jpg);">
-                <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:1vh">
+                <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:0vh">
                     <div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
                         <div class="justify-content-center" style = "width:100%">
                             <div class="align-self-center p-2">
@@ -32,12 +32,13 @@
                             <h2>During Covid</h2>
                         </div>
                     </div>
-
-                    <div class="col-4 offset-6" style="height:45%;width:100%">
-                        <div class="content" style="height:100%;width:100%;padding-top: 50px;">
-                            <img src="img/twitter-icon-home.png" alt="twitter-home"
-                                 style="width:50%;height:auto;border:0;outline:none;" border=0 class="start">
-                            <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
+                        <div class="col-4 offset-3" style="height:50vh;width:100%">
+                            <div class="content" style="height:100%;width:100%;padding-left: 80px;">
+                                <img src="img/twitter-icon-home.png" alt="twitter-home"
+                                     style="width:50%;height:auto;border:0;outline:none;" border=0 class="start">
+                                <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +49,7 @@
             <!--HOOK-->
             <div class="section" id="section1">
                 <div class = "slide">
-                <div class="row d-flex" id="HOOK" style="width:98%;height:95vh;padding-top:1vh">
+                <div class="row d-flex" id="HOOK" style="width:98%;height:95vh;padding-top:0vh">
                     <div class='col-6'>
                         <div class="row justify-content-center" style="width:100%;height: 90vh">
                             <iframe src="viz/hook_viz/hook.html" class="clsiframe"></iframe>
@@ -108,15 +109,19 @@
 
 
             <div class="section" id="section2" style=" background-color: whitesmoke">
-                <div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
+                <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
                     <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.7">
-                        <div class="align-self-center p-2">
-                            <h3>We will now look at the Covid-19 Tweets from three aspects: Topics, Tags, and Emojis. </h3>
+                        <div class="align-self-center" style = "padding-left: 3vh;padding-right: 3vh">
+                            <h2>Overview </h2>
+                            <br>
+                            <h3>   - We will first take a look at the COVID-19 Tweets distribution from three aspects: <b>Topics</b>, <b>Tags</b>, and <b>Emojis</b>.</h3>
+                            <h3>   - Then we will dive into <b>Trump</b>'s COVID-19 tweets and people's reactions.</h3>
+                            <h3>   - Finally we will revisit the <b>general</b> sentiment trend more closely, pinpoint some major <b>concerns</b> that people have, and provide some <b>resources</b> to help relieve these concerns.</h3>
                         </div>
                     </div>
 
                     <div class="col-4 offset-4" style="height:50%;width:100%">
-                        <div class="content" style="height:100%;width:100%;padding-top: 40px;">
+                        <div class="content" style="height:100%;width:100%;padding-top: 50px;">
                             <img src="img/twitter-icon-home.png" alt="twitter-home"
                                  style="width:30%;height:auto;border:0;outline:none;" border=0 class="start">
                             <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
@@ -212,7 +217,7 @@
                                         <div class="quote-container">
                                             <div>
                                                 <blockquote>
-                                                    <p>People tend to use more positive emojis during the Covid
+                                                    <p>Despite the negative topics/tags we saw from above, people tend to use more positive emojis during the Covid
                                                         time.</p>
                                                     <p class="emoji"></p>
                                                 </blockquote>
@@ -243,7 +248,7 @@
                                 <div class="quote-container" style="width:100%;height:100%">
                                     <div>
                                         <blockquote>
-                                            <p style="color: whitesmoke;">Donald Trump has always been an active Twitter user. Let's take a look at his tweets during the Covid19 pandemic.</p>
+                                            <p style="color: gray;">Donald Trump has always been an active Twitter user. Let's take a look at his tweets during the Covid19 pandemic.</p>
                                         </blockquote>
                                     </div>
                                 </div>
@@ -326,7 +331,7 @@
                                     window.tweet_img_list = ["ttweet1", "ttweet2", "ttweet3", "ttweet4", "ttweet5"]
                                 }
                             </script>
-                            <p style="font-family: 'Comic Sans MS'; color:whitesmoke;font-style: italic"> Click onto the right slide to see more visualizations...</p>
+                            <p style="font-family: 'Comic Sans MS'; color:gray;font-style: italic"> Click onto the right slide to see more visualizations...</p>
 
 
                         </div>
@@ -407,7 +412,7 @@
 
 
                 <!--SENTIMENT ANALYSIS-->
-                <div class="section" id="section8">
+                <div class="section" id="section8" >
                     <div class="row d-flex" id="SENTIMENT" style="width:98%;height:95vh;padding-left:1vh">
                         <div class='col-12'>
                             <div class="row justify-content-center" style="height: 70vh">
@@ -443,6 +448,7 @@
                                         <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Mental Health</p>
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/xzNMABRELPg"
                                                 frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                                        <br>
                                         <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How To Protect Ourselves Against Covid19</p>
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/1APwq1df6Mw"
                                                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
@@ -497,12 +503,42 @@
 
                 <!--Final Page-->
                 <div class="section" id="section11">
-                    <div style="width:100%;height:100%;background-color: #034a7f;">
+                    <div style="width:100%;height:100%;background-color: #AAB8C2;">
                         <div class ='row'>
-                            <div class='col-5' style="width:100%;height:100%">
+                            <div class='col-5 offset-1' style="width:100%;height:100%">
                                 <div class="row justify-content-center" style="height: 70vh">
                                     <div class='align-self-center'>
-                                        <p>References</p>
+                                        <h2>References</h2>
+                                        <h3>Images/Icons:</h3>
+                                        <h3 style="font-size:15px;">Trump Icon:
+                                        <a style = "font-size:12px" href="https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL">https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Twitter Icon:
+                                        <a style = "font-size:12px" href="https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856">https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856</a>
+                                        </h3>
+                                        <h3 style="font-size:15px">Twitter Background (Homepage):
+                                        <a style = "font-size:12px" href="https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg">https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Twitter Background (Topics):
+                                        <a style = "font-size:12px" href="https://www.studiobinder.com/blog/how-to-post-videos-on-twitter/">https://www.studiobinder.com/blog/how-to-post-videos-on-twitter/</a>
+                                        </h3>
+                                        <h3 style="font-size:15px">Twitter Background (Emoji):
+                                        <a style = "font-size:12px" href="https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg">https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg</a>
+                                        </h3>
+                                        <br>
+                                        <h3>Methods/Tools:</h3>
+                                        <h3 style="font-size:15px;">Navigation Tooltip:
+                                        <a style = "font-size:12px" href="http://alvarotrigo.com/fullPage">http://alvarotrigo.com/fullPage - A project by Alvaro Trigo</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Emoji Sentiment Scores:
+                                        <a style = "font-size:12px" href="http://kt.ijs.si/data/Emoji_sentiment_ranking/">http://kt.ijs.si/data/Emoji_sentiment_ranking</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Radar Plot:
+                                        <a style = "font-size:12px" href="https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart">https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Gradient Color Border:
+                                        <a style = "font-size:12px" href="https://codepen.io/NickNoordijk/pen/VLvxLE">https://codepen.io/NickNoordijk/pen/VLvxLE</a>
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +600,7 @@
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
             anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10','11','12'],
-            sectionsColor: ['', '','', '', '', '#219ed6', '#AAB8C2', '', '#AAB8C2'],
+            sectionsColor: ['', '','', '', '', '#219ed6', '#E1E8ED', '', '#E1E8ED'],
             navigation: true,
             navigationPosition: 'right',
             navigationTooltips: ['Homepage', 'Sentiment Line', 'Overview', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'People\'s Response', 'Sentiment Analysis', 'Concerns', 'Resources','About Us']

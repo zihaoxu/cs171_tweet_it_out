@@ -322,10 +322,10 @@ class EmojiVis {
         // create a legend group
         vis.legend = vis.svg.append("g")
             .attr('class', 'legend')
-            .attr('transform', `translate(${vis.legendx*2.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.7}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
          vis.legend_scale = vis.svg.append("g")
             .attr('class', 'legend-scale')
-            .attr('transform', `translate(${vis.legendx*2.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.7}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
 
         // similar to linspace in python; reusable
         function makeArr(startValue, stopValue, cardinality) {
