@@ -21,7 +21,7 @@ Emoji,encode,sentiment_score
 :sparkling_heart:,0X1F496,0.713380839
 :grinning_face_with_big_eyes:,0X1F603,0.558043118
 :pensive_face:,0X1F614,-0.146058091
-:face_screaming_in_fear:,0X1F631,0.190265487
+:face_screaming_in_fear:,0X1F631,-0.190265487
 :party_popper:,0X1F389,0.739555556
 :cherry_blossom:,0X1F338,0.652219873
 :purple_heart:,0X1F49C,0.656017039
@@ -94,7 +94,7 @@ Emoji,encode,sentiment_score
 :movie_camera:,0X1F3A5,0.303030303
 :syringe:,0X1F489,0.375
 :memo:,0X1F4DD,0.241935484
-:cross_mark:,0X274C,0.285714286
+:cross_mark:,0X274C,-0.285714286
 :police_car_light:,0X1F6A8,-0.472727273
 :white_heavy_check_mark:,0X2705,0.431372549
 :red_circle:,0X1F534,0.422222222
