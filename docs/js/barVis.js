@@ -41,7 +41,7 @@ class BarVis {
         let vis = this;
 
         // title for the barchart
-        // vis.title = "Sentiment of Trump's Tweets"
+        vis.title = "Sentiment of Trump's Tweets"
 
 
         vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
@@ -56,12 +56,12 @@ class BarVis {
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // add title
-        // vis.svg.append('g')
-        //     .attr('class', 'title bar-title')
-        //     .append('text')
-        //     .text(vis.title)
-        //     .attr('transform', `translate(${vis.width / 2}, 10)`)
-        //     .attr('text-anchor', 'middle');
+        vis.svg.append('g')
+            .attr('class', 'title bar-title')
+            .append('text')
+            .text(vis.title)
+            .attr('transform', `translate(${vis.width / 2}, 10)`)
+            .attr('text-anchor', 'middle');
 
         // Scales
         vis.xscale = d3.scaleBand()

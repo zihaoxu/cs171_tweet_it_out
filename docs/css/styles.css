@@ -3,12 +3,19 @@
 }
 
 h1{
-    font: 100px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    font: 110px "Comic Sans MS", Courier,Georgia, Palatino, serif;
     color: #32A8DA;
+    text-align: center;
 }
 h2{
     font: 80px "Comic Sans MS",Courier,Georgia, Palatino, serif;
     color: #657786;
+}
+
+h3{
+    font: 60px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    color: black;
+    text-align: center;
 }
 
 h4{
@@ -17,7 +24,7 @@ h4{
 }
 .bar-title{
     font: 30px "Comic Sans MS", Courier,Georgia, Palatino, serif;
-    fill: whitesmoke;
+    fill: #1DA1F2;
 }
 .inline-block-child {
     display: inline-block;
@@ -34,14 +41,15 @@ h4{
     background-color: black;
 }
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #219ed6; /* Green */
     border: none;
     color: white;
     /*padding: 5px 10px;*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 20px;
+    font-family: "Comic Sans MS";
     margin: 2px;
 }
 
@@ -84,17 +92,17 @@ img .start{
 
 /*Topic*/
 .topic-title{
-    font: 1.2rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    font: 30px "Comic Sans MS",Courier,Georgia, Palatino, serif;
     fill: #1DA1F2;
 
 }
 .topic-subtitle{
-    font: 0.5rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    font: 0.8rem "Comic Sans MS",Courier,Georgia, Palatino, serif;
     fill: gray;
 }
 
 .radar-topics{
-    font: 10px "Comic Sans MS",Courier,Georgia, Palatino, serif;
+    font: 16px "Comic Sans MS",Courier,Georgia, Palatino, serif;
 }
 /*CSS code from https://codepen.io/andrewwright/pen/Aigre?__cf_chl_jschl_tk__=3a62211badeea09c14e119ca5c
 ffebe6c2494687-1606074306-0-AUwGUASpByvsWxO_ZcxNT6GIjH8GWh6sa3qcciZw4HZnMezA-tg44wgdU_nA4j3P5F01mHXAxyz
