@@ -23,7 +23,7 @@ class TopicVis{
 
     initVis(){
         let vis = this;
-        console.log(vis.topicData)
+        // console.log(vis.topicData)
 
         // title for the radar plot
         vis.title = "Topics Plot"

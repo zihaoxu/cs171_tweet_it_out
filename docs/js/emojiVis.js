@@ -206,8 +206,8 @@ class EmojiVis {
         });
 
         // finalData contains emoji, encode, sentiment, count, category, index(for ordering the emojis on the sentiment axis)
-        console.log(vis.finalData)
-        console.log(vis.filteredData)
+        // console.log(vis.finalData)
+        // console.log(vis.filteredData)
         vis.finalData.sort((a,b) => {return a['sentiment_score'] - b['sentiment_score']})
         vis.displayData = vis.finalData;
 

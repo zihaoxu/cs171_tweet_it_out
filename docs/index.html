@@ -60,6 +60,10 @@
                          style=" background-color: #219ed6;background-size: cover">
                         <div class="row justify-content-center" style="height: 100vh">
                             <div class='align-self-center'>
+                                <div style = "background-color:white;height:10vh">
+                                    <h4 style="color:#219ed6; font-size:30px;text-align: center;padding-left: 5vh;padding-right: 5vh">Click onto the right slide to see more about the <b>data</b> and our definition of tweets <b>sentiments</b></h4>
+                                </div>
+                                <div style = "height:10vh"></div>
                                 <div class="testimonial-quote group right">
                                     <div class="quote-container">
                                         <div id="hook_text_before" style="display: block">
@@ -123,7 +127,7 @@
             <div class="section" id="section2" style=" background-color: whitesmoke">
                 <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
                     <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.7">
-                        <div class="align-self-center" style = "padding-left: 3vh;padding-right: 3vh">
+                        <div class="align-self-center" style = "padding-left: 10vh;padding-right: 10vh">
                             <h2>Overview </h2>
                             <br>
                             <h3>   - We will first take a look at the COVID-19 Tweets distribution from three aspects: <b>Topics</b>, <b>Tags</b>, and <b>Emojis</b>.</h3>
@@ -144,16 +148,23 @@
 
                 <!--Lollipop-->
                 <div class="section" id="section3"
-                     style=" background-image: url(img/twitter_background5.png);background-size: auto">
+                     style="background-color: whitesmoke">
                     <div class="row d-flex" id="LOLLIPOP" style="width:98%;height:95vh;padding-top:0;">
-                        <div class='col-6'>
+                        <div class='col-9'>
                             <div class="row justify-content-center bar-title" style="height: 70vh"
                                  id="topic_cluster_frame">
-                                <font color="#f5f5f5">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+                                <font color="dimgray">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
                                 <div id="lolipop_frame_container" class='align-self-center' style="display:block;">
                                     <iframe id="lolipop_frame" src="viz/lolipop_viz/index.html"
                                             class="clsiframe"></iframe>
                                 </div>
+                            </div>
+
+                        </div>
+                        <div class = 'col-3'>
+                            <div class="content" style="height:100%;width:100%;padding-top: 50px;">
+                                <img src="img/twitter_background10.png" alt="twitter-black"
+                                     style="width:80%;height:auto;border:0;outline:none;" border=0 class="start">
                             </div>
 
                         </div>
@@ -383,43 +394,41 @@
 
                     </div>
                     </div>
-                </div>
-
-
-
-                <!--TRUMP1-->
-                <div class="section" id="section7"
-                     style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
-                    <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
-                        <div class="row d-flex " id="TRUMP1" style="width:98%;height:95vh;padding-top:0vh;">
-                            <div class='col-6 offset-3'>
-                                <div class="row justify-content-center" style="height: 100%">
-                                    <div class='align-self-center'>
-                                        <p style="color:dimgray;font-size:30px; font-style: italic; font-family: 'Comic Sans MS'">Despite Trump's self-satisfaction, some people @realDonaldTrump and say...</p>
-                                        <br>
-                                        <div class="testimonial-quote group">
-                                            <div class="quote-container" style="width:100%;height:100%">
-                                                <div>
-                                                    <blockquote>
-                                                        <p style="color: black;opacity: 1">For the “1/100th time,” the
-                                                            reason why we show so many cases is because of the
-                                                            reopening.
-                                                            Doing more tests does bring in more positive test results.
-                                                            But the rising case numbers come with a rising percent
-                                                            positive rate too.
-                                                            The percentage of tests coming back positive is rising.</p>
-                                                    </blockquote>
-                                                    <cite><span>@eugenegu - July 9</span></cite>
+                    <div class="slide" style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
+                            <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
+                                <div class="row d-flex " id="TRUMP1" style="width:98%;height:95vh;padding-top:0vh;">
+                                    <div class='col-6 offset-3'>
+                                        <div class="row justify-content-center" style="height: 100%">
+                                            <div class='align-self-center'>
+                                                <p style="color:dimgray;font-size:30px; font-style: italic; font-family: 'Comic Sans MS'">Despite Trump's self-satisfaction, some people @realDonaldTrump and say...</p>
+                                                <br>
+                                                <div class="testimonial-quote group">
+                                                    <div class="quote-container" style="width:100%;height:100%">
+                                                        <div>
+                                                            <blockquote>
+                                                                <p style="color: black;opacity: 1">For the “1/100th time,” the
+                                                                    reason why we show so many cases is because of the
+                                                                    reopening.
+                                                                    Doing more tests does bring in more positive test results.
+                                                                    But the rising case numbers come with a rising percent
+                                                                    positive rate too.
+                                                                    The percentage of tests coming back positive is rising.</p>
+                                                            </blockquote>
+                                                            <cite><span>@eugenegu - July 9</span></cite>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+
+
+
+
 
 
 
@@ -467,7 +476,7 @@
                                                 gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
-                            <div class='col-5 offset-1'>
+                            <div class='col-5'>
                                 <div class="row justify-content-center" style="height: 70vh">
                                     <div class='align-self-center'>
                                         <div class="testimonial-quote group right">
@@ -515,21 +524,21 @@
                     <div style="width:100%;height:100%;background-color: #AAB8C2;">
                         <div class ='row'>
                             <div class='col-5 offset-1' style="width:100%;height:100%">
-                                <div class="row justify-content-center" style="height: 70vh">
+                                <div class="row justify-content-center" style="height: 70vh;padding-top: 5vh;">
                                     <div class='align-self-center'>
                                         <h2>References</h2>
                                         <h3>Images/Icons:</h3>
                                         <h3 style="font-size:15px;">Trump Icon:
                                         <a style = "font-size:12px" href="https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL">https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL</a>
                                         </h3>
-                                        <h3 style="font-size:15px;">Twitter Icon:
+                                        <h3 style="font-size:15px;">Twitter Icon (Homepage):
                                         <a style = "font-size:12px" href="https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856">https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856</a>
+                                        </h3>
+                                        <h3 style="font-size:15px;">Twitter Icon (Topics):
+                                        <a style = "font-size:12px" href="https://image.similarpng.com/very-thumbnail/2020/07/Twitter-new-logo-on-transparent-background-PNG.png">https://image.similarpng.com/very-thumbnail/2020/07/Twitter-new-logo-on-transparent-background-PNG.png</a>
                                         </h3>
                                         <h3 style="font-size:15px">Twitter Background (Homepage):
                                         <a style = "font-size:12px" href="https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg">https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg</a>
-                                        </h3>
-                                        <h3 style="font-size:15px;">Twitter Background (Topics):
-                                        <a style = "font-size:12px" href="https://www.studiobinder.com/blog/how-to-post-videos-on-twitter/">https://www.studiobinder.com/blog/how-to-post-videos-on-twitter/</a>
                                         </h3>
                                         <h3 style="font-size:15px">Twitter Background (Emoji):
                                         <a style = "font-size:12px" href="https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg">https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg</a>
@@ -622,11 +631,11 @@
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
             licenseKey: 'IHHcGFM%k0',
-            anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10','11','12'],
-            sectionsColor: ['', '','', '', '', '#219ed6', '#E1E8ED', '', '#E1E8ED'],
+            anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10','11'],
+            sectionsColor: ['', '','', '', '', '#219ed6', '#E1E8ED', '#E1E8ED'],
             navigation: true,
             navigationPosition: 'right',
-            navigationTooltips: ['Homepage', 'Sentiment Line', 'Overview', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'People\'s Response', 'Sentiment Analysis', 'Concerns', 'Resources','About Us']
+            navigationTooltips: ['Homepage', 'Data', 'Overview', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'Sentiment Analysis', 'Concerns', 'Resources','About Us']
         });
     </script>
 </body>
