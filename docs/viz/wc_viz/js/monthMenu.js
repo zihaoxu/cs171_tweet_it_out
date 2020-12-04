@@ -106,6 +106,8 @@ class MonthMenu{
                         }
                     })
             }).on("click", function (event, d){
+                let sampleDiv =  document.getElementById("sample-tweet");
+                sampleDiv.innerHTML = "";
                 selected_month = parseInt(d.month);
                 // restore the nodes and edges
                 vis.nodes
