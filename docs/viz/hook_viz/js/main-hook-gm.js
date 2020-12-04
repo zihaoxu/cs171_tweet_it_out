@@ -35942,14 +35942,14 @@ parcelRequire = function (e, r, t, n) {
                 .style("font-family", t.chartTypeface)
                 .text("I am done!")
                 .on("click", function (a) {
-                    console.log("I am done clicked")
+                 //   console.log("I am done clicked")
                     if (window.parent.document.getElementById('hook_text_before')
                     && window.parent.document.getElementById('hook_text_after')) {
                         window.parent.document.getElementById('hook_text_before').style.display = "none";
                         //window.parent.document.getElementById('hook_text_after').style.transition = "opacity 2s linear";
                         //window.parent.document.getElementById('hook_text_after').style.opacity = 1;
                         window.parent.document.getElementById('hook_text_after').style.display = "block";
-                        console.log(window.parent.document.getElementById('hook_text'))
+                        //console.log(window.parent.document.getElementById('hook_text'))
                     }
                     e.selectAll(".el_line_partial")
                         .style("display", "initial"),
@@ -35994,16 +35994,6 @@ parcelRequire = function (e, r, t, n) {
                         }
                     }), e.selectAll(".prediction-point").transition().duration(600).attr("r", 0).on("end", function () {
                         e.select(this).remove()
-                    }), (0, u.postSocialData)({
-                        time: Date.now(),
-                        predictionPoints: b,
-                        datePoints: w,
-                        projectId: projectId,
-                        uid: uid
-                    }).then(function (t) {
-                        return t.json()
-                    }).then(function (t) {
-                        r.warn("data is hahaha: " + t)
                     }), "no_social" === t.social.socialDisplay ? (e.select(h).style("opacity", .6),
                         e.select(h).on("click", null)) : (r.warn("enter socialButton"),
                         P.selectAll(".button--reveal").attr("class", "button--reveal-social btn btn--default").text("Show Others' Predictions").each(function () {
