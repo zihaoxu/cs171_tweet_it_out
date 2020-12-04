@@ -2,24 +2,31 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>About the Data</title>
 </head>
 <body>
 <h3>About the Data</h3>
 <strong>
-    We initially decided to use the <a target="_top" href="https://www.kaggle.com/gpreda/covid19-tweets">kaggle Covid-19 tweeet dataset</a>. However, during our initial exploratory data analysis, we discovered that many of the tweet texts of the dataset
-were truncated. As we wanted to extract sentiment scores and topics from the unstructured fulltext content of the tweets, we needed access to the tweet texts to their entirety.
-We decided to retain the original columns of the Kaggle dataset and acquire the tweet text ourselves using the Twitter API. For the final dataset, we used the twitter API to collect a customized set of tweets that ranges from Jan. 27th to Sept. 30th, which represents a wider time range.
-The total number of tweets we collected is 91448, and we kept all the original columns of the Kaggle dataset.
+<ul style="list-style-type: square;">
+    <li>The dataset includes Covid-19 related Tweets from January 27, 2020 to September 30, 2020. </li>
+    <li>The dataset was collected using the Twitter API</li>
+    <li>The total number of tweets in the dataset is 91448. All metadata provided by the Twitter API were persisted.</li>
+</ul>
 </strong>
-<br><br>
+<br>
 <h3>Feature Engineering</h3>
 <strong>
-For additional information, we extracted the sentiment scores of each tweet using three different packages: NLTK, Transformers, and TextBlob. We finalized on the Transformer sentiment scores for all our visualizations.
-We extracted significant phrases or topics from each unstructured Tweet text. This topic extraction process provides us with methods to organize, understand and summarize large collections of highly unstructured textual information stored in the covid-19 twitter text. The topics enable us to discover latent topical patterns that are present across the dataset.  We have used a Python library called RAKE, which stands for Rapid Automatic Keyword Extraction. The algorithm behind the RAKE implementation of topic modeling is based on the “Text Mining Applications and Theory” book by Michael W. Berry.
-
-Furthermore, with our sentiment scores and sentiment labels, we are able to map the extracted set of topics to sentiment score range clusters. We define the sentiment score range clusters as a spectrum of sentiments, from ‘Negative Sentiment 90-100’ to ‘Positive Sentiment 90-100’. All other cluster ranges are mapped in between the aforementioned lower bound and upper bound clusters.
+    <ul style="list-style-type: square;">
+    <li>We extracted the sentiment scores and sentiment labels for each tweet using <a target="_top" href=https://huggingface.co/transformers/">Transformers</a>.</li>
+    <li>We extracted significant phrases or topics from each unstructured Tweet text in an attempt to organize, understand and summarize large collections of highly unstructured textual information stored in the covid-19 twitter text.
+        We have used the <a target="_top" href="https://pypi.org/project/rake-nltk/">rake-nltk</a> library for topic modeling</li>
+    <li>Sentiment metadata and topic metadata were appended to the original dataset</li>
+    </ul>
 </strong>
-
+<br>
+<h3>Data collection and processing flow chart</h3>
+<p align="center">
+<img src="viz/hook_viz/docs/img/flow-chart.png" width="700" height="150">
+</p>
 </body>
 </html>
