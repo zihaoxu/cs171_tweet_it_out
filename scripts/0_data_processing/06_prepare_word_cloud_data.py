@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # Narrow down the range of topics
     issue_list = ['evict', 'mental', 'depress', 'food', 'money', 'unemploy',
-                  'shut', 'bankrup', 'friend', 'credit', 'house', 'medici']
+                  'shut', 'bankrup', 'friend', 'credit', 'housing', 'medici', 'poverty']
 
     # Gather info for each month
     month_dict = {int(m): 0 for m in df['month'].unique()}
@@ -52,13 +52,13 @@ if __name__ == '__main__':
         df_m = df_m[df_m.index.isin(selected_ids)]
 
         # Lemmatize the texts
-        lemmatizer = WordNetLemmatizer()
+        lemmatizer = WordNetLemmatizer() 
         df_m['clean_topic'] = df_m['topic'].apply(clean_text)
 
         # Apply Tfidf
         vec = TfidfVectorizer(
             stop_words='english',
-            token_pattern='(?u)\\b\\w\\w+\\b',
+            token_pattern = '(?u)\\b\\w\\w+\\b',
             min_df=min_df,
             max_df=max_df,
             ngram_range=ngram_range,
