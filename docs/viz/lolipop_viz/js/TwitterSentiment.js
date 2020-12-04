@@ -17,12 +17,12 @@ function createSentimentTopicSpectrum() {
         .domain(cluster_ids)
         .range(cluster_config.map(d => d.color))
 
-  
+
     let cluster_radius = d3.scaleSqrt()
         .domain([0, 30])
         .range([0, 80])
 
-   
+
     let node_radius = 20
     let radius_elements = 600
     let radius_elements_offset = 1.1 * node_radius
@@ -71,7 +71,7 @@ function createSentimentTopicSpectrum() {
     let pi = Math.PI
     let pi2 = Math.PI * 2
     let pi1_2 = Math.PI / 2
-    
+
     //Visual styles
     let opacity_concept_default = 0.5
     let opacity_element_default = 0.1
@@ -496,7 +496,8 @@ function createSentimentTopicSpectrum() {
 
     ////////////// ICH element label outside circle //////////////
     function showElementTitle(ctx, type, text, ICH_num) {
-        text = text ? text : ICH_num + " | " + sentiment_clusters[language].titles[0]
+        //text = text ? text : ICH_num + " | " + sentiment_clusters[language].titles[0]
+        text="";
         //Create a white arc on the background so cover the potential fixed title
         if(type === "hover") {
             ctx.fillStyle = "white"
@@ -521,13 +522,7 @@ function createSentimentTopicSpectrum() {
         ctx.fillStyle = "black"
         drawTextAlongArc(ctx, text, pi, radius_elements_title, "down", 0.6, false)
 
-        // let font_size = fitText(ctx, text, 34, 2*radius_elements_title)
-        // ctx.font = "normal normal 400 " + font_size + "px " + font_family
-        // ctx.strokeText(text, 0, 50)
-        // ctx.fillText(text, 0, 50)
 
-        // ctx.font = "normal normal 400 34px " + font_family
-        // wrapText(ctx, text, 0, 250, 2*300, 48, false)
     }//function showElementTitle
 
     /////////////////// Concept label in circle //////////////////
@@ -538,10 +533,8 @@ function createSentimentTopicSpectrum() {
         ctx.strokeStyle = "white"
         ctx.lineWidth = 8
 
-        //Add the threat's name
-        // let font_size = fitText(ctx, d.label, 44, 2*radius_concept_title)
         let offset = -350
-        ctx.font = "normal normal 400 " + 43 + "px " + font_family
+        ctx.font = "normal normal 400 " + 73 + "px " + font_family
         ctx.strokeText(d.label, 0, offset)
         ctx.fillText(d.label, 0, offset)
 
@@ -550,28 +543,15 @@ function createSentimentTopicSpectrum() {
         ctx.strokeRect(0 - width_text/2, offset, width_text, 5)
         ctx.fillRect(0 - width_text/2, offset, width_text, 5)
 
-        ctx.font = "normal normal 400 20px IBM Plex Serif"
+        ctx.font = "normal normal 400 30px Gotham Narrow SSm"
         ctx.textBaseline = 'middle'
         let line_height = 30
         let max_width = 2 * radius_size * 0.6
-        // let lines = wrapText(ctx, d.definition, 0, -270, max_width, line_height, false, true) + 0.5
-        // //Create background white rect that's a little see through
-        // ctx.fillStyle = "rgba(255,255,255,0.6)"
-        // ctx.fillRect(-max_width/2, -290, max_width, lines * line_height)
-        //Add threat definition below
         ctx.fillStyle = "black"
         wrapText(ctx, d.definition, 0, -270, max_width, line_height, true)
     }//function showConceptTitle
 
-    ///////////////// Smallest fitting font size /////////////////
-    function fitText(ctx, text, font_size, width) {
-        //Lower the font size until the text fits the canvas
-        do {
-            font_size -= 1
-            ctx.font = "normal normal 400 " + font_size + "px " + font_family
-        } while (ctx.measureText(text).width > width)
-        return font_size
-    }//function fitText
+
 
     ////////////////// Fit & wrap text on canvas /////////////////
     //From: https://codepen.io/bramus/pen/eZYqoO
@@ -781,19 +761,6 @@ function createSentimentTopicSpectrum() {
         ctx.rotate(d.angle > 0 + flip ? d.angle - pi1_2 : d.angle + pi1_2)
         ctx.translate((d.angle > 0 + flip ? 1 : -1) * radius_concept, 0)
 
-        //Draw the large degree based concept circle //large bubbles over topic
-        /*
-        ctx.globalCompositeOperation = "multiply"
-        ctx.beginPath()
-        ctx.moveTo(0, 0)
-        ctx.arc(0, 0, scale_concept_radius(d.degree), 0, pi2)
-        ctx.closePath()
-        ctx.fillStyle = chroma(d.fill).alpha(Math.max(0.05, opacity/5)).css()
-        ctx.fill()
-        ctx.globalCompositeOperation = "source-over"
-        */
-        //Draw the small concept circle
-
 
         ctx.beginPath()
         ctx.moveTo(0, 0)
@@ -819,7 +786,8 @@ function createSentimentTopicSpectrum() {
         ctx.globalCompositeOperation = "multiply"
         ctx.beginPath()
         ctx.moveTo(d.x, d.y)
-        ctx.arc(d.x, d.y, cluster_radius(d.degree), 0, pi2)
+        //ctx.arc(d.x, d.y, cluster_radius(d.degree), 0, pi2)
+        ctx.arc(d.x, d.y, 90, 0, pi2)
         ctx.closePath()
         ctx.fillStyle = chroma(d.fill).alpha(opacity/6).css()
         ctx.fill()
@@ -952,12 +920,12 @@ function createSentimentTopicSpectrum() {
         //Draw threat categories
         ctx_nodes.textBaseline = 'middle'
         ctx_nodes.textAlign = 'center'
-        ctx_nodes.font = "normal normal 400 24px " + font_family
+        ctx_nodes.font = "normal normal 400 26px " + font_family
         threats.forEach(d => { drawCategories(ctx_nodes, d) })
 
-        //Draw the other concepts around the top outside
+        //Draw the other topics around the top outside
         ctx_nodes.textBaseline = 'middle'
-        ctx_nodes.font = "normal normal 300 19px " + font_family
+        ctx_nodes.font = "normal normal 300 30px " + font_family
         concepts.forEach(d => { drawConcepts(ctx_nodes, d) })
 
         //Draw the ICH elements around the bottom outside
