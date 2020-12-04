@@ -22,7 +22,6 @@ function createSentimentTopicSpectrum() {
         .domain([0, 30])
         .range([0, 80])
 
-
     let node_radius = 20
     let radius_elements = 600
     let radius_elements_offset = 1.1 * node_radius
@@ -47,7 +46,7 @@ function createSentimentTopicSpectrum() {
     let base_size = 2100
     let width = 600, height = 400
     let total_width, total_height
-    let margin = {top: 10, right: 0,  bottom: 0, left: 0}
+    let margin = {top: 15, right: 0,  bottom: 0, left: 0}
     let svg, g
     let g_scale
     let canvas_edges, canvas_nodes, canvas_hover
@@ -925,7 +924,7 @@ function createSentimentTopicSpectrum() {
 
         //Draw the other topics around the top outside
         ctx_nodes.textBaseline = 'middle'
-        ctx_nodes.font = "normal normal 300 30px " + font_family
+        ctx_nodes.font = "normal normal 300 28px " + font_family
         concepts.forEach(d => { drawConcepts(ctx_nodes, d) })
 
         //Draw the ICH elements around the bottom outside
