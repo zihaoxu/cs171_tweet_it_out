@@ -17,64 +17,53 @@
 </head>
 <body>
 <!-- WRAPPER -->
-<div class="container-fluid" style="height: 1000vh; padding-top: 0vh; background-color: #F5F8FA">
+<div class="container-fluid" style="height: 1000vh; padding-top: 0vh; background-color: rgb(225, 232, 237)">
     <div class="row">
         <!-- HOMEPAGE -->
         <div id="fullpage">
-            <div class="section" id="section0" style=" background-image: url(img/twitter_background3.jpg);">
+            <div class="section" id="section0">
                 <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:0vh">
-                    <div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 40vh">
                         <div class="justify-content-center" style = "width:100%">
-                            <div class="align-self-center p-2">
+                            <div class="align-self-center" style = "padding-top:15vh">
                                 <h1>Tweets Sentiment</h1>
                             </div>
                         </div>
-                        <div class="align-self-center p-2">
+                        <div class="align-self-center">
                             <h2>During Covid</h2>
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
-                        <div class="col-4 offset-3" style="height:50vh;width:100%">
-                            <div class="content" style="height:100%;width:100%;padding-left: 80px;">
-                                <img src="img/twitter-icon-home.png" alt="twitter-home"
-                                     style="width:50%;height:auto;border:0;outline:none;" border=0 class="start">
-                                <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
-                            </div>
+                    <div class="row justify-content-center" style="width:100%;height: 40vh">
+                        <div class="col-3 align-self-center">
+                            <img src="img/twitter-icon-home.png" alt="twitter-home" style="width: 17vw;padding-left:7vw">
                         </div>
                     </div>
                 </div>
-<!--                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>-->
             </div>
 
 
             <!--HOOK-->
             <div class="section" id="section1">
-                <div class = "slide">
+                <div class = "slide" style="background-color: rgb(245, 245, 240)">
                 <div class="row d-flex" id="HOOK" style="width:98%;height:95vh;padding-top:0vh">
-                    <div class='col-6'>
+                    <div class='col-8'>
                         <div class="row justify-content-center" style="width:100%;height: 90vh">
                             <iframe src="viz/hook_viz/hook.html" class="clsiframe" scrolling="no"></iframe>
                         </div>
                     </div>
 
-                    <div class='col-6'
-                         style=" background-color: #219ed6;background-size: cover">
+                    <div class='col-3' style="background-size: cover">
                         <div class="row justify-content-center" style="height: 100vh">
                             <div class='align-self-center'>
-                                <div style = "background-color:white;height:10vh">
-                                    <h4 style="color:#219ed6; font-size:30px;text-align: center;padding-left: 5vh;padding-right: 5vh">Click onto the right slide to see more about the <b>data</b> and our definition of tweets <b>sentiments</b></h4>
-                                </div>
-                                <div style = "height:10vh"></div>
-                                <div class="testimonial-quote group right">
+                                <div class="testimonial-quote group right" style="height: 30vh">
                                     <div class="quote-container">
                                         <div id="hook_text_before" style="display: block">
                                             <blockquote>
-                                                <p>
+                                                <p style="color:gray">
                                                     The plot on the left displays the monthly tweet frequency
                                                     with positive sentiment during Covid-19.
                                                     Please draw your prediction line for the negative sentiment trend
-                                                    line in relation to
-                                                    the tweet frequency with positivesentiment line</p>
+                                                    line in relation to the tweet frequency with positive sentiment line</p>
                                             </blockquote>
 
                                         </div>
@@ -96,6 +85,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div style = "height:10vh"></div>
+                                <div style = "height:10vh">
+                                    <h4 style="font-size:23px;padding-left: 2vh;padding-right: 2vh">Click onto the right slide to see more about the <b>data</b> and our definition of tweets <b>sentiments</b></h4>
+                                </div>
                             </div>
                         </div>
 
@@ -104,9 +97,9 @@
                 </div>
 
 
-                <div class = "slide" style="background-color: #E1E8ED">
+                <div class = "slide">
                     <!-- Intro on data-->
-                    <div class="row d-flex justify-content-center" style="width:100%;height: 70vh">
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 70vh;background-color: rgb(245, 245, 240)">
                         <div style="width:100%;height:100%;background-color: #E1E8ED;">
                             <div id="about_data" class="align-self-center" style = "padding-left: 10vh;padding-right: 10vh">
                             </div>
@@ -122,7 +115,7 @@
 
             <div class="section" id="section2" style=" background-color: whitesmoke">
                 <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
-                    <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.7">
+                    <div style="width:100%;height:100%;background-color: lightgrey;opacity: 0.7">
                         <div class="align-self-center" style = "padding-left: 10vh;padding-right: 10vh">
                             <h2>Overview </h2>
                             <br>
@@ -133,10 +126,9 @@
                     </div>
 
                     <div class="col-4 offset-4" style="height:50%;width:100%">
-                        <div class="content" style="height:100%;width:100%;padding-top: 50px;">
+                        <div class="content" style="height:100%;width:100%;padding-top:10px;">
                             <img src="img/twitter-icon-home.png" alt="twitter-home"
                                  style="width:30%;height:auto;border:0;outline:none;" border=0 class="start">
-                            <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
                         </div>
                     </div>
                 </div>
@@ -149,7 +141,7 @@
                         <div class='col-9'>
                             <div class="row justify-content-center bar-title" style="height: 70vh"
                                  id="topic_cluster_frame">
-                                <font color="dimgray">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+                                <h3 style="color: #657786;font-size: 33px">Explore Sentiment Topic Clusters</h3> <!-- TODO: refactor -->
                                 <div id="lolipop_frame_container" class='align-self-center' style="display:block;">
                                     <iframe id="lolipop_frame" src="viz/lolipop_viz/index.html"
                                             class="clsiframe" scrolling="no"></iframe>
@@ -158,7 +150,6 @@
 
                         </div>
                         <div class = 'col-3'>
-
                             <div class="content" style="height:100%;width:100%;padding-top: 50px;">
                                 <div class="testimonial-quote group right">
                                     <div class="quote-container">
@@ -256,12 +247,9 @@
                                                         time.</p>
                                                     <p class="emoji"></p>
                                                 </blockquote>
-<!--                                                <div id="example-emoji"></div>-->
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
 
@@ -275,9 +263,10 @@
                     <div class ="slide active">
                     <div class="row d-flex" id="TRUMP0" style="width:98%;height:95vh;padding-top:0vh">
                         <div class="col-3 offset-1" style="height: 100vh">
-                            <div class="row justify-content-center" style="height: 70vh">
+                            <h3 style="color: #657786;font-size: 33px">The Trump Dashboard</h3>
+                            <div class="row justify-content-center" style="height: 60vh">
                                 <img src="img/trump.png"
-                                     style="width:80%;height:50%;position:absolute;top:10vh;left:5vh;" class="rotate15">
+                                     style="width:80%;height:45%;position:absolute;top:10vh;left:5vh;" class="rotate15">
                             </div>
                             <div class="testimonial-quote group right">
                                 <div class="quote-container" style="width:100%;height:100%">
@@ -293,14 +282,14 @@
                         <div class="col-6 offset-1" style="height: 100%;width:98%">
 
                             <div class="row" style="height: 20vh">
-                                <p style="display:none;position:absolute;top:20px;left:40px;" id="warning">Sorry, the
+                                <p style="display:none;position:absolute;top:10px;left:40px;" id="warning">Sorry, the
                                     limit is reached!</p>
                                 <button type="button" id="ttweet_generate" class="align-self-center"
-                                        style="position:absolute;top:40px;left:40px;height:60px">Give me more Trump's
+                                        style="position:absolute;top:40px;left:40px;height:60px;border-radius: 4px;">Give me more Trump's
                                     Tweets!
                                 </button>
                                 <button type="reset" id="ttweet_reset" class="align-self-center reset"
-                                        style="position:absolute;top:50px;left:400px;height:40px">Reset
+                                        style="position:absolute;top:50px;left:400px;height:40px;border-radius: 4px;">Reset
                                 </button>
                                 <br>
                             </div>
@@ -373,13 +362,11 @@
                     </div>
                 </div>
                 <div class = "slide" style = "background-color: #e1e8ed">
-                    <div class="row d-flex" style="width:98%;height:95vh;padding-top:5vh">
+                    <div class="row d-flex" style="width:98%;height:95vh;padding-top:2vh">
                         <div class = "col-3 offset-1" style = "height:95%">
                             <div class="row" style="height: 75vh">
                                 <div id='topic_trump' style="width:100%;height: 100%"></div>
-
                             </div>
-
                             <br>
                             <div class="testimonial-quote group right">
                                 <div class="quote-container" style="width:100%;height:100%">
@@ -441,9 +428,6 @@
 
 
 
-
-
-
                 <!--SENTIMENT ANALYSIS-->
                 <div class="section" id="section8" >
                     <div class="row d-flex" id="SENTIMENT" style="width:98%;height:95vh;padding-left:1vh">
@@ -478,11 +462,11 @@
                         <div class="row d-flex" id="ACTION" style="width:98%;height:71vh;padding-top:4vh">
                             <div class='col-5 offset-1'>
                                     <div class='align-self-center'>
-                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Mental Health</p>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How to Address Mental Health Issues</p>
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/xzNMABRELPg"
                                                 frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                                         <br>
-                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How To Protect Ourselves Against Covid19</p>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How To Protect Ourselves Against Covid</p>
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/1APwq1df6Mw"
                                                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
                                                 gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -492,7 +476,7 @@
                                 <div class="row justify-content-center" style="height: 70vh">
                                     <div class='align-self-center'>
                                         <div class="testimonial-quote group right">
-                                            <div class="quote-container" style="width:90%;height:30vh;padding-top:5vh;padding-left: 2vh">
+                                            <div class="quote-container" style="width:90%;height:23vh;padding-top:5vh;padding-left: 2vh">
                                                 <div>
                                                     <blockquote>
                                                         <p style="color:gray">It seems that the people's main concerns are physical and mental health,
@@ -502,7 +486,7 @@
                                             </div>
                                         </div>
                                     <div class='align-self-center'>
-                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Unemployment Issue</p>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Resources for Unemployment</p>
                                         <p style="font-family: 'Comic Sans MS';font-size: 1rem; color:#657786">Sources related to unemployment assistance</p>
                                         <a href="https://edd.ca.gov/unemployment/pdf/benefit-flowchart.pdf">CA Unemployment Benefit Programs</a><br>
                                         <a href="https://www.mass.gov/how-to/apply-for-pandemic-unemployment-assistance">MA Pandemic Unemployment Assistance</a><br>
@@ -534,7 +518,7 @@
             
                 <!--Final Page-->
                 <div class="section" id="section11">
-                    <div style="width:100%;height:100%;background-color: #AAB8C2;">
+                    <div style="width:100%;height:100%;padding: 2vh">
 
                         <div style="width:100%;height:60vh">
                             <div class="row justify-content-center" style="height: 55vh;padding-top:1vh;padding-bottom:1vh;padding-left:5vh;padding-right:5vh">
@@ -542,7 +526,7 @@
                                     <div class="row">
                                         <h3>About Us</h3>
                                     </div>
-                                    <div class="row" style="height:50vh;width:100%">
+                                    <div class="row" style="height:49vh;width:100%">
                                         <div class="col-md-4" style="height:100%">
                                             <div class="card-box text-center" style="height:100%">
                                                 <div class="user-pic">
@@ -570,8 +554,6 @@
                                                     Zihao Xu is a Master's student in Data Science at Harvard University.
                                                     He is passionate about using data wrangling, visualization,
                                                     and predictive modeling to solve a diverse range of business problems.
-                                                    In his spare time, he likes playing catch with his cat Milli and
-                                                    experimenting with different ways of cooking steaks.
                                                 </p>
                                             </div>
                                         </div>
@@ -589,16 +571,16 @@
                                                     Networks and facets of machine learning techniques in
                                                     SourceCode static analysis,
                                                     Computational Linguistics and
-                                                    information retrieval theories/practices.
+                                                    information retrieval.
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="padding-top:5vh">
+                                    <div class="row" style="padding-top:3vh">
                                         <h3>References</h3>
                                     </div>
                                     <div class="row" style="width:100%">
                                         <div class = "col-6">
-                                            <h3>Images/Icons:</h3>
+                                            <h3 style="font-size:18px;">Images/Icons:</h3>
                                             <h3 style="font-size:15px;">Trump Icon:
                                                 <a style = "font-size:12px" href="https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL">https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL</a>
                                             </h3>
@@ -617,7 +599,7 @@
                                         </div>
                                         <br>
                                         <div class = "col-6">
-                                            <h3>Methods/Tools:</h3>
+                                            <h3 style="font-size:18px;">Methods/Tools:</h3>
                                             <h3 style="font-size:15px;">Twitter API:
                                                 <a style = "font-size:12px" href="https://developer.twitter.com/en/docs">https://codepen.io/NickNoordijk/pen/VLvxLE</a>
                                             </h3>

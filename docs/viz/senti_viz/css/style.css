@@ -1,11 +1,13 @@
 #senti-title{
     padding-top: 3vh;
     padding-left: 3vw;
+    font: 33px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    color: #657786;
 }
 
 .senti-from-group-label{
     padding-right: 2vw;
-    padding-left: 1vw;
+    padding-left: .5vw;
     padding-top: 2vh;
 }
 
@@ -74,7 +76,7 @@
 button {
     margin-left: 85vw;
     padding: 10px;
-    transform:translate(-50%,-50%);
+    transform:translate(-40%,-50%);
     font-size:18px;
     border:2px solid #222;
     color:#222;
