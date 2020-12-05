@@ -1,8 +1,9 @@
 # CS171 TweetItOut
-Sentiment visualization and analysis using tweets during the Covid-19 pandemic. Note: for best viewing experience, the suggested resolution is 1680 by 1050 px
+Sentiment visualization and analysis using tweets during the Covid-19 pandemic
+Note: for best viewing experience, the suggested resolution is 1680 by 1050 px
 
 ## Licence
-This software is published by Zihao Xu, Yiwen Wang, and Gazi Mahmud under  [GPL V3](https://www.gnu.org/licenses/gpl-3.0.html).
+This software is published by Zihao Xu, Yiwen Wang, and Gazi Mahmud under [GPL V3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Important URLs
 - Website URL: https://zihaoxu.github.io/cs171_tweet_it_out/  
