@@ -312,20 +312,20 @@ class EmojiVis {
         vis.rect.exit().remove()
 
         // annotation for the sentiment color scale
-        vis.svg.selectAll('#scale-annotation')
-            .text('Sentiment Color Scale')
-            .attr("fill","saddlebrown")
-            .attr("x",150)
-            .attr("y",30)
+        // vis.svg.selectAll('#scale-annotation')
+        //     .text('Sentiment Color Scale')
+        //     .attr("fill","saddlebrown")
+        //     .attr("x",150)
+        //     .attr("y",30)
 
 
         // create a legend group
         vis.legend = vis.svg.append("g")
             .attr('class', 'legend')
-            .attr('transform', `translate(${vis.legendx*1.7}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
          vis.legend_scale = vis.svg.append("g")
             .attr('class', 'legend-scale')
-            .attr('transform', `translate(${vis.legendx*1.7}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
 
         // similar to linspace in python; reusable
         function makeArr(startValue, stopValue, cardinality) {
