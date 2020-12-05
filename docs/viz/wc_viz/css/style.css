@@ -38,6 +38,8 @@
 #tagnet-title{
     padding-top: 3vh;
     padding-left: 3vw;
+    font: 33px "Comic Sans MS", Courier,Georgia, Palatino, serif;
+    color: #657786;
 }
 
 .popup .overlay {
