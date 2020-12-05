@@ -183,7 +183,7 @@ class TagNetwork {
             .attr('transform', `translate(${vis.xtransform}, ${vis.ytransform})`)
         vis.legend_scale = vis.svg.append("g")
             .attr('class', 'legend-scale')
-            .attr('transform', `translate(${vis.xtransform}, ${vis.ytransform})`)
+            .attr('transform', `translate(${vis.xtransform}, ${vis.ytransform+7})`)
 
         // create the color scale legend
         vis.legend.selectAll().data(vis.legend_colors.reverse())

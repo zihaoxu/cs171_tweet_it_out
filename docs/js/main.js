@@ -45,7 +45,7 @@ Promise.all(promises)
 function initMainPage(allDataArray) {
 
     // log viz_data
-    console.log(allDataArray);
+    // console.log(allDataArray);
 
     // emoji piano plot
     emoji = new EmojiVis("bar_emoji", allDataArray[2], allDataArray[3])

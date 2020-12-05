@@ -8,7 +8,9 @@ class TopicVis{
         this.parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
         this.monthFormat = d3.timeFormat("%m")
         this.legendx = 150;
-        this.yloc = 120;
+        this.r = 130;
+
+
 
         this.initVis()
     }
@@ -16,41 +18,62 @@ class TopicVis{
         let vis = this;
         let x = Math.cos(angle) * vis.radialScale(value);
         let y = Math.sin(angle) * vis.radialScale(value);
-        return {"x": 70 + x, "y": vis.yloc - y};
+        return {"x": vis.xloc + x, "y": vis.yloc - y};
     }
 
     initVis(){
         let vis = this;
-        console.log(vis.topicData)
+        // console.log(vis.topicData)
 
         // title for the radar plot
         vis.title = "Topics Plot"
-        vis.subtitle = "*Six topics are manually picked."
+        vis.subtitle = "**Six topics are manually picked."
+        vis.annotation = "*We also sampled Trump's Tweets just to be consistent"
+        vis.annotation2 = "with the general data processing step."
 
-        vis.margin = {top: 0, right: 20, bottom: 0, left: 20};
+        vis.margin = {top: 0, right: 0, bottom: 0, left: 0};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
+        vis.xloc = vis.width / 2  - 30;
+        vis.yloc = vis.height / 2;
 
         // init drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr('transform', `translate (20,0)`);
+
+
 
         // add title
         vis.svg.append('g')
             .attr('class', 'title topic-title')
             .append('text')
             .text(vis.title)
-            .attr('transform', `translate(80,20)`)
+            .attr('transform', `translate(${vis.width / 2}, 70)`)
             .attr('text-anchor', 'middle');
 
         // add subtitle
         vis.svg.append('g')
             .attr('class', 'title topic-subtitle')
             .append('text')
+            .text(vis.annotation)
+            .attr('transform', `translate(${vis.width / 2},${vis.height-40})`)
+            .attr('font-style','italic')
+            .attr('text-anchor', 'middle');
+        vis.svg.append('g')
+            .attr('class', 'title topic-subtitle')
+            .append('text')
+            .text(vis.annotation2)
+            .attr('transform', `translate(${vis.width / 2},${vis.height-25})`)
+            .attr('font-style','italic')
+            .attr('text-anchor', 'middle');
+
+        vis.svg.append('g')
+            .attr('class', 'title topic-subtitle')
+            .append('text')
             .text(vis.subtitle)
-            .attr('transform', `translate(80,220)`)
+            .attr('transform', `translate(${vis.width / 2},${vis.height-5})`)
+            .attr('font-style','italic')
             .attr('text-anchor', 'middle');
 
         // initialize the circles & axes & the six topic names (since they will be fixed)
@@ -75,13 +98,13 @@ class TopicVis{
         // radar plot code adapted from https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart
         vis.radialScale = d3.scaleLinear()
             .domain([0,d3.max(vis.displayData.map(d=>d.coronavirus))])
-            .range([0,55]);
+            .range([0,vis.r]);
         vis.ticks = [1,Math.round(d3.max(vis.displayData.map(d=>d.coronavirus))/3),
             Math.round(d3.max(vis.displayData.map(d=>d.coronavirus))*2/3), d3.max(vis.displayData.map(d=>d.coronavirus))];
 
         vis.ticks.forEach(t =>
             vis.svg.append("circle")
-                .attr("cx", 70)
+                .attr("cx", vis.xloc)
                 .attr("cy", vis.yloc)
                 .attr("fill", "none")
                 .attr("stroke", "gray")
@@ -97,7 +120,7 @@ class TopicVis{
 
                 //draw axis line
                 vis.svg.append("line")
-                    .attr("x1", 70)
+                    .attr("x1", vis.xloc)
                     .attr("y1", vis.yloc)
                     .attr("x2", line_coordinate.x)
                     .attr("y2", line_coordinate.y)
@@ -180,7 +203,7 @@ class TopicVis{
 
         vis.radialScale = d3.scaleLinear()
             .domain([0,max_value])
-            .range([0,55]);
+            .range([0,vis.r]);
 
         vis.ticks = [1,Math.round(max_value/3),
             Math.round(max_value*2/3), max_value];
@@ -191,9 +214,9 @@ class TopicVis{
         vis.axis.enter().append("text")
             .merge(vis.axis)
             .attr("class","circle-axis")
-            .attr("x", 75)
+            .attr("x", vis.xloc+5)
             .attr("y", d=>vis.yloc - vis.radialScale(d))
-            .attr("font-size","0.5rem")
+            .attr("font-size","15px")
             .attr("fill","gray")
             .text(d=>d.toString())
         vis.axis.exit().remove()

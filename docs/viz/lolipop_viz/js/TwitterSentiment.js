@@ -17,12 +17,11 @@ function createSentimentTopicSpectrum() {
         .domain(cluster_ids)
         .range(cluster_config.map(d => d.color))
 
-  
+
     let cluster_radius = d3.scaleSqrt()
         .domain([0, 30])
         .range([0, 80])
 
-   
     let node_radius = 20
     let radius_elements = 600
     let radius_elements_offset = 1.1 * node_radius
@@ -47,7 +46,7 @@ function createSentimentTopicSpectrum() {
     let base_size = 2100
     let width = 600, height = 400
     let total_width, total_height
-    let margin = {top: 10, right: 0,  bottom: 0, left: 0}
+    let margin = {top: 15, right: 0,  bottom: 0, left: 0}
     let svg, g
     let g_scale
     let canvas_edges, canvas_nodes, canvas_hover
@@ -71,7 +70,7 @@ function createSentimentTopicSpectrum() {
     let pi = Math.PI
     let pi2 = Math.PI * 2
     let pi1_2 = Math.PI / 2
-    
+
     //Visual styles
     let opacity_concept_default = 0.5
     let opacity_element_default = 0.1
@@ -198,7 +197,7 @@ function createSentimentTopicSpectrum() {
         //Redraw
         drawCanvas()
 
-        return 1 //Needed for the saveImage function
+        return 1
     }//function resize
 
     function dataPreparation() {
@@ -207,7 +206,6 @@ function createSentimentTopicSpectrum() {
 
         linked_to_id = {}
         edges.forEach(d => {
-            //Save all of the connections to a specific node
             if (!linked_to_id[d.source]) linked_to_id[d.source] = []
             if (!linked_to_id[d.target]) linked_to_id[d.target] = []
             linked_to_id[d.source].push(node_by_id[d.target])
@@ -253,7 +251,6 @@ function createSentimentTopicSpectrum() {
         let data_translations = sentiment_clusters[language].categories
         cluster_config.forEach(d => d.label = data_translations[data_translations.map(b => b.id).indexOf(d.id)].label)
 
-        //Find the threat categories - ones that are not connected to a ICH element
         threats = nodes.filter(d => {
             //Is this id in the predefined list
             return cluster_ids.indexOf(d.id) >= 0
@@ -271,10 +268,8 @@ function createSentimentTopicSpectrum() {
 
         let tw_ids = sentimentClusters.map(d => d.id)
 
-        //The remaining concepts are threats
         concepts = nodes.filter(d => d.type === "element" || cluster_ids.indexOf(d.id) >= 0 ? false : true)
         concepts.forEach(d => {
-            //Get this node's threat category
             let e_connected = linked_to_id[d.id].filter(n => n.group === "threat category")
             if(e_connected.length !== 1) console.log("not 1 threat category", d.id, d.label, e_connected)
             d.threat_category = e_connected[0].id
@@ -287,7 +282,6 @@ function createSentimentTopicSpectrum() {
             d.definition = def >= 0 ? sentimentClusters[def].definition : "definition to be added"
         })//forEach
 
-        //Sort by the threat category and then alphabetically
         concepts = concepts.sort((a,b) => {
             if(cluster_ids.indexOf(a.threat_category) < cluster_ids.indexOf(b.threat_category)) return -1
             if(cluster_ids.indexOf(a.threat_category) > cluster_ids.indexOf(b.threat_category)) return 1
@@ -362,9 +356,8 @@ function createSentimentTopicSpectrum() {
             d.circle_offset = offset / 2 + circle_offset
         })//forEach
 
-        ////////////////////// CONCEPT ARCS //////////////////////
+        //////////////////////  ARCS //////////////////////
 
-        //Roll up the countries into an array of areas and the number of countries per area
         threats_nest = d3.nest()
             .key(d => d.threat_category)
             .entries(concepts)
@@ -378,7 +371,7 @@ function createSentimentTopicSpectrum() {
             .endAngle(end_angle)
             .padAngle(padding)
 
-        ctx_nodes.font = 'normal normal 300 19px ' + font_family //Needed to get the text width
+        ctx_nodes.font = 'normal normal 300 19px ' + font_family
         concept_arcs = pie_concept(threats_nest)
         concept_arcs.forEach(d => {
             d.totalAngle = d.endAngle - d.startAngle
@@ -389,7 +382,6 @@ function createSentimentTopicSpectrum() {
             let angle_step = (d.totalAngle - 2*padding) / num
             let angle = d.startAngle + 1.5*padding
 
-            //Loop over each concept within this threat category
             d.data.values.forEach(n => {
                 n.angle = angle
                 n.angle_width = angle_step
@@ -402,11 +394,7 @@ function createSentimentTopicSpectrum() {
         })//forEach
     }//function nodePlacement
 
-    ////////////////// Calculate edge placement //////////////////
     function edgePlacement() {
-        ////////////////////// Concept edges /////////////////////
-
-        //Get all the edges that should run between the threat categories and the threats
         let concept_ids = concepts.map(l => l.id)
         edges_concepts = edges.filter(d => {
             if (cluster_ids.indexOf(d.source) >= 0 && concept_ids.indexOf(d.target) >= 0) return true
@@ -421,8 +409,6 @@ function createSentimentTopicSpectrum() {
             d.sign_pos = -1
             d.opacity = opacity_concept_default
         })//forEach
-
-        ////////////////////// Element edges /////////////////////
 
         elements.forEach(d => {
             d.threat_categories.forEach(l => {
@@ -469,20 +455,12 @@ function createSentimentTopicSpectrum() {
 
     }//function edgePlacement
 
-    //////////////////////////////////////////////////////////////
-    ///////////////////////////// Arcs ///////////////////////////
-    //////////////////////////////////////////////////////////////
-
-    ////////////////// Prepare the arc functions /////////////////
     function prepareArcs() {
-        ///////////////////// Node pie charts ////////////////////
-        //Node pie charts
         arc_nodes
             .outerRadius(node_radius)
             .innerRadius(0)
             .context(ctx_nodes)
 
-        ///////////////////// Concept threats ////////////////////
         arc_concept
             .startAngle(d => d.angle - 0.5 * d.angle_width)
             .endAngle(d => d.angle + 0.5 * d.angle_width)
@@ -496,7 +474,8 @@ function createSentimentTopicSpectrum() {
 
     ////////////// ICH element label outside circle //////////////
     function showElementTitle(ctx, type, text, ICH_num) {
-        text = text ? text : ICH_num + " | " + sentiment_clusters[language].titles[0]
+        //text = text ? text : ICH_num + " | " + sentiment_clusters[language].titles[0]
+        text="";
         //Create a white arc on the background so cover the potential fixed title
         if(type === "hover") {
             ctx.fillStyle = "white"
@@ -521,13 +500,7 @@ function createSentimentTopicSpectrum() {
         ctx.fillStyle = "black"
         drawTextAlongArc(ctx, text, pi, radius_elements_title, "down", 0.6, false)
 
-        // let font_size = fitText(ctx, text, 34, 2*radius_elements_title)
-        // ctx.font = "normal normal 400 " + font_size + "px " + font_family
-        // ctx.strokeText(text, 0, 50)
-        // ctx.fillText(text, 0, 50)
 
-        // ctx.font = "normal normal 400 34px " + font_family
-        // wrapText(ctx, text, 0, 250, 2*300, 48, false)
     }//function showElementTitle
 
     /////////////////// Concept label in circle //////////////////
@@ -538,10 +511,8 @@ function createSentimentTopicSpectrum() {
         ctx.strokeStyle = "white"
         ctx.lineWidth = 8
 
-        //Add the threat's name
-        // let font_size = fitText(ctx, d.label, 44, 2*radius_concept_title)
         let offset = -350
-        ctx.font = "normal normal 400 " + 43 + "px " + font_family
+        ctx.font = "normal normal 400 " + 73 + "px " + font_family
         ctx.strokeText(d.label, 0, offset)
         ctx.fillText(d.label, 0, offset)
 
@@ -550,31 +521,16 @@ function createSentimentTopicSpectrum() {
         ctx.strokeRect(0 - width_text/2, offset, width_text, 5)
         ctx.fillRect(0 - width_text/2, offset, width_text, 5)
 
-        ctx.font = "normal normal 400 20px IBM Plex Serif"
+        ctx.font = "normal normal 400 30px Gotham Narrow SSm"
         ctx.textBaseline = 'middle'
         let line_height = 30
         let max_width = 2 * radius_size * 0.6
-        // let lines = wrapText(ctx, d.definition, 0, -270, max_width, line_height, false, true) + 0.5
-        // //Create background white rect that's a little see through
-        // ctx.fillStyle = "rgba(255,255,255,0.6)"
-        // ctx.fillRect(-max_width/2, -290, max_width, lines * line_height)
-        //Add threat definition below
         ctx.fillStyle = "black"
         wrapText(ctx, d.definition, 0, -270, max_width, line_height, true)
     }//function showConceptTitle
 
-    ///////////////// Smallest fitting font size /////////////////
-    function fitText(ctx, text, font_size, width) {
-        //Lower the font size until the text fits the canvas
-        do {
-            font_size -= 1
-            ctx.font = "normal normal 400 " + font_size + "px " + font_family
-        } while (ctx.measureText(text).width > width)
-        return font_size
-    }//function fitText
 
-    ////////////////// Fit & wrap text on canvas /////////////////
-    //From: https://codepen.io/bramus/pen/eZYqoO
+
     function wrapText(ctx, text, x, y, max_width, line_height = curved_line_height, do_stroke = false, get_num_lines = false) {
         let words = text.split(' ')
         let line = ''
@@ -603,7 +559,6 @@ function createSentimentTopicSpectrum() {
         if(get_num_lines) return num_lines
     }//function wrapText
 
-    ////////////////////// Draw curved text //////////////////////
     function drawTextAlongArc(ctx, str, angle, radius, side, kerning = 0.6){
         let startAngle = (side === "up" ? angle : angle - pi)
         if(side === "up") str = str.split("").reverse().join("") // Reverse letters
@@ -685,7 +640,6 @@ function createSentimentTopicSpectrum() {
             .style("cursor", "pointer")
     }//function drawHiddenElements
 
-    /////////////// Set the mouseover functionality //////////////
     function setHiddenHovers() {
         hover_ich
             .on("click", d => {
@@ -728,51 +682,12 @@ function createSentimentTopicSpectrum() {
             })
     }//function setHiddenHovers
 
-    //////////////////////////////////////////////////////////////
-    //////////////////// Node drawing functions //////////////////
-    //////////////////////////////////////////////////////////////
-
-    /////////////////////// Draw the nodes ///////////////////////
     function drawElements(ctx, d, opacity) {
         opacity = opacity ? opacity : d.opacity
-
-        //Draw the circles as mini pie charts
-//        let arcs = pie_nodes(d.threat_categories)
-        /* ctx.save()
-         ctx.translate(d.x, d.y)
-         ctx.rotate(d.angle)
-         //Draw each slice
-
-         var img = new Image();
-         img.src = 'https://i2.wp.com/9to5mac.com/wp-content/uploads/sites/6/2019/09/Twitter.jpg?w=2500&quality=82&strip=all&ssl=1';
-
-         */
-        /*
-                arcs.forEach(a => {
-                    ctx.beginPath()
-                    ctx.moveTo(0, 0) //Needed to make sure Chrome keeps them as circles even at small sizes
-                    arc_nodes.context(ctx)(a)
-                    ctx.closePath()
-                    var pattern = ctx.createPattern(img, 'repeat');
-                    ctx.fillStyle = "#4A99E4"
-                  //  ctx.fillStyle = chroma(color_cluster_scale(a.data)).alpha(opacity).css()
-                    ctx.fill()
-                })//forEach*/
-
-        //Outside white stroke
-        /*  ctx.strokeStyle = chroma("white").alpha(opacity).css()
-          ctx.lineWidth = 4
-          ctx.beginPath()
-          ctx.arc(0, 0, node_radius + 1.2, 0, pi2)
-          ctx.closePath()
-          ctx.stroke()
-
-          ctx.restore()*/
     }//function drawElements
 
-    ////////////////// Draw the concept circles //////////////////
+    ////////////////// Draw the  circles //////////////////
     function drawConcepts(ctx, d, opacity) {
-        //At what angle different from 0 to flip the text direction
         let flip = 0//-0.1 * pi
         opacity = opacity ? opacity : d.opacity
 
@@ -780,19 +695,6 @@ function createSentimentTopicSpectrum() {
         ctx.save()
         ctx.rotate(d.angle > 0 + flip ? d.angle - pi1_2 : d.angle + pi1_2)
         ctx.translate((d.angle > 0 + flip ? 1 : -1) * radius_concept, 0)
-
-        //Draw the large degree based concept circle //large bubbles over topic
-        /*
-        ctx.globalCompositeOperation = "multiply"
-        ctx.beginPath()
-        ctx.moveTo(0, 0)
-        ctx.arc(0, 0, scale_concept_radius(d.degree), 0, pi2)
-        ctx.closePath()
-        ctx.fillStyle = chroma(d.fill).alpha(Math.max(0.05, opacity/5)).css()
-        ctx.fill()
-        ctx.globalCompositeOperation = "source-over"
-        */
-        //Draw the small concept circle
 
 
         ctx.beginPath()
@@ -811,7 +713,6 @@ function createSentimentTopicSpectrum() {
         ctx.restore()
     }//function drawConcepts
 
-    ///////////////// Draw the threat categories /////////////////
     function drawCategories(ctx, d, opacity) {
         opacity = opacity ? opacity : d.opacity
 
@@ -819,31 +720,19 @@ function createSentimentTopicSpectrum() {
         ctx.globalCompositeOperation = "multiply"
         ctx.beginPath()
         ctx.moveTo(d.x, d.y)
-        ctx.arc(d.x, d.y, cluster_radius(d.degree), 0, pi2)
+        //ctx.arc(d.x, d.y, cluster_radius(d.degree), 0, pi2)
+        ctx.arc(d.x, d.y, 90, 0, pi2)
         ctx.closePath()
         ctx.fillStyle = chroma(d.fill).alpha(opacity/6).css()
         ctx.fill()
         ctx.globalCompositeOperation = "source-over"
 
         ctx.fillStyle = chroma(d.fill).alpha(opacity).css()
-        // //Small circles around the text
-        // ctx.beginPath()
-        // //Top circle
-        // ctx.moveTo(d.x, d.y - d.circle_offset)
-        // ctx.arc(d.x, d.y - d.circle_offset, threat_circle_radius, 0, pi2)
-        // //Bottom circle
-        // ctx.moveTo(d.x, d.y + d.circle_offset)
-        // ctx.arc(d.x, d.y + d.circle_offset, threat_circle_radius, 0, pi2)
-        // ctx.closePath()
-        // ctx.fill()
 
-        //Rectangles on top and bottom
         let space = d.space * 0.4
         ctx.fillRect(d.x - space/2, d.y - d.circle_offset - 2, space, 4)
         ctx.fillRect(d.x - space/2, d.y + d.circle_offset - 2, space, 4)
 
-        //Draw the text
-        // let color_text = chroma.mix('black', d.fill, 0.9)
         ctx.fillStyle = chroma(d.fill).alpha(opacity).css()
         //Draw the text over multiple lines
         wrapText(ctx, d.title, d.x, d.y - (d.num_lines-1) * curved_line_height / 2 - 2.5, d.space)
@@ -952,12 +841,12 @@ function createSentimentTopicSpectrum() {
         //Draw threat categories
         ctx_nodes.textBaseline = 'middle'
         ctx_nodes.textAlign = 'center'
-        ctx_nodes.font = "normal normal 400 24px " + font_family
+        ctx_nodes.font = "normal normal 400 26px " + font_family
         threats.forEach(d => { drawCategories(ctx_nodes, d) })
 
-        //Draw the other concepts around the top outside
+        //Draw the other topics around the top outside
         ctx_nodes.textBaseline = 'middle'
-        ctx_nodes.font = "normal normal 300 19px " + font_family
+        ctx_nodes.font = "normal normal 300 28px " + font_family
         concepts.forEach(d => { drawConcepts(ctx_nodes, d) })
 
         //Draw the ICH elements around the bottom outside

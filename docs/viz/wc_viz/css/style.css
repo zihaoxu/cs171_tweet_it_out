@@ -62,7 +62,7 @@
     width:52vw;
     height:28vh;
     z-index:2;
-    padding:2vw;
+    padding:4vw;
     box-sizing:border-box;
     font-family:"Open Sans",sans-serif;
     transition: visibility 1s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
@@ -114,7 +114,7 @@ button {
     background: none;
     color: gray;
     font-family: Georgia, serif;
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-style: italic;
     line-height: 1.4 !important;
     margin: 0;

@@ -14,13 +14,13 @@ let sentiment_clusters = {
         ],
         "definitions": [
             { id: "tweet_full_text_1", definition: "@JrPardal1 @zipelCS @Epidemic unbelievable neat bro"},
-            { id: "tweet_full_text_2", definition: "FL and NY have an identical number of per capita coronavirus infections but FL has 5X less per capita deaths. Will Dr. Fauci be praising @GovRonDeSantis√¢¬Ä¬ô response to the pandemic?  Will he point out that @NYGovCuomo√¢¬Ä¬ôs response allowed a fivefold greater per capita death rate?"},
+            { id: "tweet_full_text_2", definition: "FL and NY have an identical number of per capita coronavirus infections but FL has 5X less per capita deaths. Will Dr. Fauci be praising @GovRonDeSantis' response to the pandemic?  Will he point out that @NYGovCuomo's response allowed a fivefold greater per capita death rate?"},
             { id: "tweet_full_text_3", definition: "Now that the weekend of distractions is over, a quick reminder that DONALD TRUMP IS LETTING THE RUSSIANS KILL AMERICAN SOLDIERS AND LETTING CORONAVIRUS KILL AMERICANS.  HE DOES NOT WANT YOU TO TALK ABOUT THIS.   Please, do not RT!!!!! "},
             { id: "tweet_full_text_4", definition: "Since 16th July there have been 0 (yes, zero) COVID deaths in Scotland, 700 in England. There have been 170 recorded new infections in Scotland, 7559 in England. One reason for the difference is good clear consistent messaging. Stick with it! There's still a pandemic going on."},
             { id: "tweet_full_text_5", definition: "My video today warned of virus born economic crash &amp; QE4EVA (https://t.co/EBIGuf10cx). Well QE5.0 is here. On cue, Reuters reports billions in Chinese Virus Bonds issued in days, state subsidized, w/ proceeds that don't need to be spent on virus issues https://t.co/u1LgkqzZHR "},
             { id: "tweet_full_text_6", definition: "renewable energy could emerge on top after the pandemic. #COVID19 #RebuildBetter"},
             { id: "tweet_full_text_1114", definition: "Trump pressured the @US_FDA to approve a COVID-19 treatment before it's been fully reviewed. This isn√¢¬Ä¬ôt cutting red tape √¢¬Ä¬ì it√¢¬Ä¬ôs strong-arming public health experts for the President's political purposes. FDA actions must be based on science, not politics. https://t.co/1mBlco31yi\n"},
-            { id: "tweet_full_text_1118", definition: "√∞¬ü¬ö¬®Trump says he√¢¬Ä¬ôs blocking Postal Service funding because Democrats want to expand mail-in voting during pandemic -  https://t.co/ndStktUdWY"},
+            { id: "tweet_full_text_1118", definition: "Trump says he is blocking Postal Service funding because Democrats want to expand mail-in voting during pandemic -  https://t.co/ndStktUdWY"},
             { id: "tweet_full_text_1127", definition: "TW: Homophobia Let's not forget how the Church Education System Gaslighted the entire LGBTQ+ student population at their schools. COVID may have taken us off campus, but we didn't forget https://t.co/pQM4Mau2M1"},
             { id: "tweet_full_text_1132", definition: "As the coronavirus pandemic causes unemployment to soar among young people in France, those in struggling neighborhoods could be hardest hit https://t.co/UYe6z36tIE "},
             { id: "tweet_full_text_1207", definition: "Sydney Talker tested positive for Coronavirus and recovered in less than 48 hours, the fastest recovery from the virus ever recorded. Why are we not talking about this landmark achievement?"},
@@ -49,10 +49,10 @@ let sentiment_clusters = {
                     "Currently In Hospital: 9\n" +
                     "Currently In ICU: 2\n" +
                     "Deaths: 0 (1 death since May 1st)"},
-            { id: "tweet_full_text_1243", definition: "Black, female doctor: I√¢¬Ä¬ôve treated 350 patients with a drug cocktail including hydroxychloroquine. None died."},
+            { id: "tweet_full_text_1243", definition: "Black, female doctor: I've treated 350 patients with a drug cocktail including hydroxychloroquine. None died."},
             { id: "tweet_full_text_1244", definition: "6 Trump staffers just tested positive for Covid.\n" +
                     "Have fun inside a hot, humid, packed, arena filled with fans screaming their pork rind and flat beer breath on each other, while listening to an orange Sociopath making shit up..."},
-            { id: "tweet_full_text_1245", definition: "This lil pandemic made me realize I need to start living life fr, I don√¢¬Ä¬ôt be on nun.."},
+            { id: "tweet_full_text_1245", definition: "This lil pandemic made me realize I need to start living life fr, I don't be on nun.."},
             { id: "tweet_full_text_1246", definition: "Dr Birx is delivering much needed reprimand to fear mongers pushing doomsday scenario statistics about COVID-19 (which originated @ Imperial College UK). She is debunking fake news narratives about COVID-19 being \"plague of century.\" Much needed sober analysis coming from her.\n"},
             { id: "tweet_full_text_1289", definition: "The South Korean pharmaceutical company backed by Bill Gates may be capable of producing 200 million coronavirus vaccine kits by next June, the Microsoft co-founder said https://t.co/tAmZa5x1Ws\n" +
                     "\"Next time when you Vote, Bill Gates for President !!"},
@@ -63,7 +63,7 @@ let sentiment_clusters = {
             { id: "tweet_full_text_1296", definition: "Dah 50 kes positif Coronavirus di Malaysia. Please stay safe guys. Avoid unnecessary travel."},
             { id: "tweet_full_text_1297", definition: "BREAKING: India reports 78,761 new coronavirus cases, the biggest daily figure anywhere in the world since the pandemic began."},
             { id: "tweet_full_text_1299", definition: "Stop harassing employees working at private businesses who updated their \"No Shirt No Service\" policies to include \"No Mask\" during the pandemic that is still ongoing. They are doing it to protect you and everyone else. There is no global conspiracy other than in your own head.\n"},
-            { id: "tweet_full_text_1300", definition: "It√¢¬Ä¬ôs no accident that the same day DJT declares the troops are coming home and gets a Nobel nom for his work in foreign policy, the media recycles old stories on state level incompetence regarding Covid that anyone with an entry level understanding of Federalism can demolish."},
+            { id: "tweet_full_text_1300", definition: "It's no accident that the same day DJT declares the troops are coming home and gets a Nobel nom for his work in foreign policy, the media recycles old stories on state level incompetence regarding Covid that anyone with an entry level understanding of Federalism can demolish."},
             { id: "tweet_full_text_1301", definition: "I am voting for @JoeBiden &amp; @KamalaHarris.  I Want to make sure our veterans &amp; other will get to vote!!!  Todays reminder DONALD TRUMP IS LETTING THE RUSSIANS KILL AMERICAN SOLDIERS AND LETTING CORONAVIRUS KILL AMERICANS. HE DOES NOT WANT YOU TO TALK ABOUT THIS. We Wont forget!!! https://t.co/81j3r7o4An"},
             { id: "tweet_full_text_1303", definition: "Victoria posts deadliest day, but confident coronavirus easing @AJENews  https://t.co/4YFGbRXLrr"},
             { id: "tweet_full_text_1304", definition: "Military Hospital, #Jodhpur #KonarkCorps, commissions its Maiden Molecular Biology Laboratory. The laboratory is authorised by #ICMR to conduct both Rapid Antigen test and confirmatory RT PCR tests for the diagnosis of COVID-19.\n" +

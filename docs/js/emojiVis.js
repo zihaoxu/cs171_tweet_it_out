@@ -51,7 +51,7 @@ class EmojiVis {
 
         vis.margin = {top: 20, right: 20, bottom: 0, left: 40};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
-        vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom-50;
+        vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
 
         // init drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -66,6 +66,7 @@ class EmojiVis {
             .append('text')
             .text(vis.title)
             .attr('transform', `translate(${vis.width / 2}, 20)`)
+            .attr('fill','whitesmoke')
             .attr('text-anchor', 'middle');
 
         vis.list = [{'index':0},{'index':1},{'index':2},{'index':3},{'index':4},{'index':5},{'index':6},{'index':7},{'index':8},{'index':9}];
@@ -205,7 +206,8 @@ class EmojiVis {
         });
 
         // finalData contains emoji, encode, sentiment, count, category, index(for ordering the emojis on the sentiment axis)
-        console.log(vis.finalData)
+        // console.log(vis.finalData)
+        // console.log(vis.filteredData)
         vis.finalData.sort((a,b) => {return a['sentiment_score'] - b['sentiment_score']})
         vis.displayData = vis.finalData;
 
@@ -310,20 +312,20 @@ class EmojiVis {
         vis.rect.exit().remove()
 
         // annotation for the sentiment color scale
-        vis.svg.selectAll('#scale-annotation')
-            .text('Sentiment Color Scale')
-            .attr("fill","saddlebrown")
-            .attr("x",150)
-            .attr("y",30)
+        // vis.svg.selectAll('#scale-annotation')
+        //     .text('Sentiment Color Scale')
+        //     .attr("fill","saddlebrown")
+        //     .attr("x",150)
+        //     .attr("y",30)
 
 
         // create a legend group
         vis.legend = vis.svg.append("g")
             .attr('class', 'legend')
-            .attr('transform', `translate(${vis.legendx}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
          vis.legend_scale = vis.svg.append("g")
             .attr('class', 'legend-scale')
-            .attr('transform', `translate(${vis.legendx}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
+            .attr('transform', `translate(${vis.legendx*1.5}, ${vis.height-(vis.y_interval*1+vis.ytransform)})`)
 
         // similar to linspace in python; reusable
         function makeArr(startValue, stopValue, cardinality) {

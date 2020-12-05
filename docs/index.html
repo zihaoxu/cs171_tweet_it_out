@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/fullpage.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/aboutus.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -16,109 +17,161 @@
 </head>
 <body>
 <!-- WRAPPER -->
-<div class="container-fluid" style="height: 1000vh; padding-top: 1vh; background-color: #F5F8FA">
+<div class="container-fluid" style="height: 1000vh; padding-top: 0vh; background-color: rgb(225, 232, 237)">
     <div class="row">
         <!-- HOMEPAGE -->
         <div id="fullpage">
-            <div class="section" id="section0" style=" background-image: url(img/twitter_background3.jpg);">
-                <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:1vh">
-                    <div class="row d-flex justify-content-center" style="width:100%;height: 30vh">
-                        <div class="align-self-center p-2">
-                            <h1>Tweets Sentiment</h1>
+            <div class="section" id="section0">
+                <div class="row d-flex rcorners" id="homepage" style="width:98%;height:95vh;padding-top:0vh">
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 40vh">
+                        <div class="justify-content-center" style = "width:100%">
+                            <div class="align-self-center" style = "padding-top:15vh">
+                                <h1>Tweets Sentiment</h1>
+                            </div>
                         </div>
-                        <div class="align-self-center p-2">
+                        <div class="align-self-center">
                             <h2>During Covid</h2>
                         </div>
                     </div>
-
-                    <div class="col-4 offset-8" style="height:50%;width:100%">
-                        <div class="content" style="height:100%;width:100%;padding-top: 200px;padding-left: 30px">
-                            <img src="img/twitter-icon-home.png" alt="twitter-home"
-                                 style="width:50%;height:auto;border:0;outline:none;" border=0 class="start">
-                            <!--								<p style = "color: #657786;border:grey;" id = "headstart">Click to get started!</p>-->
+                    <div class="row justify-content-center" style="width:100%;height: 40vh">
+                        <div class="col-3 align-self-center">
+                            <img src="img/twitter-icon-home.png" alt="twitter-home" style="width: 17vw;padding-left:7vw">
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
             </div>
 
 
             <!--HOOK-->
             <div class="section" id="section1">
+                <div class = "slide" style="background-color: rgb(245, 245, 240)">
                 <div class="row d-flex" id="HOOK" style="width:98%;height:95vh;padding-top:0vh">
-                    <div class='col-6'>
+                    <div class='col-8'>
                         <div class="row justify-content-center" style="width:100%;height: 90vh">
-                            <iframe src="viz/hook_viz/hook.html" class="clsiframe"></iframe>
+                            <iframe src="viz/hook_viz/hook.html" class="clsiframe" scrolling="no"></iframe>
                         </div>
                     </div>
 
-                    <div class='col-6'
-                         style=" background-image: url(img/twitter_background9.jpg);background-size: cover">
-                        <div class="row justify-content-center" style="height: 70vh">
+                    <div class='col-3' style="background-size: cover">
+                        <div class="row justify-content-center" style="height: 100vh">
                             <div class='align-self-center'>
-                                <div class="testimonial-quote group right">
+                                <div class="testimonial-quote group right" style="height: 30vh">
                                     <div class="quote-container">
                                         <div id="hook_text_before" style="display: block">
                                             <blockquote>
-                                                <p>
+                                                <p style="color:gray">
                                                     The plot on the left displays the monthly tweet frequency
                                                     with positive sentiment during Covid-19.
                                                     Please draw your prediction line for the negative sentiment trend
-                                                    line in relation to
-                                                    the tweet frequency with positivesentiment line</p>
+                                                    line in relation to the tweet frequency with positive sentiment line</p>
                                             </blockquote>
 
                                         </div>
                                         <div id="hook_text_after" style="display: none">
                                             <blockquote>
-                                                <p>
-                                                    Between mid February to the first week of March, we see a spike in
-                                                    negative sentiment
-                                                    in Covid related tweets. The negative sentiment goes down between
-                                                    mid march and mid April. Later in the summer months
-                                                    of May, June and July, we observe a significant spike in Negative
-                                                    sentiment. More recently, between mid August to the end of September
-                                                    the negative sentiment trend appears to be in a slightly downward
-                                                    trajectory. Additional data for October and November probably would
-                                                    have shown an upward trend in negative sentiment as covid related
-                                                    death and infection rates are increasing again.</p>
+                                                <p style="color:gray"> Between February to early March, we see a spike in
+                                                    negative sentiment in Covid related tweets. The negative sentiment goes down beginning in April,
+                                                    but spiked again significantly later in the summer months
+                                                    from May to July. The trend appears to be in a slightly downward
+                                                    trajectory more recently.</p>
                                             </blockquote>
 
                                         </div>
                                     </div>
                                 </div>
-
-
+                                <div style = "height:15vh"></div>
+                                <div style = "height:10vh">
+                                    <h4 style="font-size:23px;padding-left: 2vh;padding-right: 2vh">Click onto the right slide to see more about the <b>data</b> and our definition of tweets <b>sentiments</b></h4>
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                </div>
+
+
+                <div class = "slide">
+                    <!-- Intro on data-->
+                    <div class="row d-flex justify-content-center" style="width:100%;height: 70vh;background-color: rgb(245, 245, 240)">
+                        <div style="width:100%;height:100%;background-color: #E1E8ED;">
+                            <div id="about_data" class="align-self-center" style = "padding-left: 10vh;padding-right: 10vh">
+                            </div>
+                            <script>
+                                $("#about_data").load("viz/hook_viz/docs/about.html")
+                            </script>
+                        </div>
+                    </div>
+                </div>
 			</div>
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
+
+
+            <div class="section" id="section2" style=" background-color: whitesmoke">
+                <div class="row d-flex justify-content-center" style="width:100%;height: 50vh">
+                    <div style="width:100%;height:100%;background-color: lightgrey;opacity: 0.7">
+                        <div class="align-self-center" style = "padding-left: 10vh;padding-right: 10vh">
+                            <h2>Overview </h2>
+                            <br>
+                            <h3>   - We will first take a look at the COVID-19 Tweets distribution from three aspects: <b>Topics</b>, <b>Tags</b>, and <b>Emojis</b>.</h3>
+                            <h3>   - Then we will dive into <b>Trump</b>'s COVID-19 tweets and people's reactions.</h3>
+                            <h3>   - Finally we will revisit the <b>general</b> sentiment trend more closely, pinpoint some major <b>concerns</b> that people have, and provide some <b>resources</b> to help relieve these concerns.</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-4 offset-4" style="height:50%;width:100%">
+                        <div class="content" style="height:100%;width:100%;padding-top:10px;">
+                            <img src="img/twitter-icon-home.png" alt="twitter-home"
+                                 style="width:30%;height:auto;border:0;outline:none;" border=0 class="start">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
                 <!--Lollipop-->
-                <div class="section" id="section2"
-                     style=" background-image: url(img/twitter_background5.png);background-size: auto">
+                <div class="section" id="section3"
+                     style="background-color: whitesmoke">
                     <div class="row d-flex" id="LOLLIPOP" style="width:98%;height:95vh;padding-top:0;">
-                        <div class='col-6'>
+                        <div class='col-9'>
                             <div class="row justify-content-center bar-title" style="height: 70vh"
                                  id="topic_cluster_frame">
-                                <font color="#f5f5f5">Explore Sentiment Topic Clusters</font> <!-- TODO: refactor -->
+                                <h3 style="color: #657786;font-size: 33px">Explore Sentiment Topic Clusters</h3> <!-- TODO: refactor -->
                                 <div id="lolipop_frame_container" class='align-self-center' style="display:block;">
                                     <iframe id="lolipop_frame" src="viz/lolipop_viz/index.html"
-                                            class="clsiframe"></iframe>
+                                            class="clsiframe" scrolling="no"></iframe>
                                 </div>
                             </div>
 
                         </div>
+                        <div class = 'col-3'>
+                            <div class="content" style="height:100%;width:100%;padding-top: 50px;">
+                                <div class="testimonial-quote group right">
+                                    <div class="quote-container">
+                                        <div>
+                                            <blockquote>
+                                                <p style="color:gray">
+                                                    The significant topics extracted from the Covid-19 tweets allow
+                                                    us to discover latent thematic patterns that are present within the Tweet Texts.
+                                                </p>
+                                            <br>
+                                                <p style="color:gray">
+                                                    The Sentiment clusters enable us to understand
+                                                    the themes as the they map to the sentiment spectrum.
+                                                </p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="img/twitter_background10.png" alt="twitter-black"
+                                     style="width:80%;height:auto;border:0;outline:none;" border=0 class="start">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
 
                 <!--NETWORK-->
-                <div class="section" id="section3">
+                <div class="section" id="section4">
                     <div class="row d-flex" id="NETWORK" style="width:98%;height:95vh;padding-top:0vh">
                         <div class='col-12'>
                             <div class="row justify-content-center" style="height: 70vh">
@@ -130,11 +183,11 @@
 
                     </div>
                 </div>
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
 
 
                 <!--Emoji-->
-                <div class="section" id="section4">
+                <div class="section" id="section5">
                     <div class="row d-flex" id="Emoji" style="width:98%;height:95vh;padding-top:0vh">
                         <div class='col-6'>
                             <div class="row justify-content-center" style="width:100%;height: 90vh">
@@ -168,11 +221,10 @@
                                         <label for="month" style="color:#E1E8ED;font-family: 'Comic Sans MS'">Month
                                             Range:</label>
                                         <input type="text" id="month" readonly
-                                               style="border:0; color:#E1E8ED;; font-weight:bold;background-color:#219ed6">
-                                    <p class="annotation" style="color:#E1E8ED;">*The sentiment scores for emojis are
-                                        credited to Novak et al., 2015</p>
-
-                                    </p>
+                                               style="border:0; color:#E1E8ED;font-family: 'Comic Sans MS'; font-weight:bold;background-color:#219ed6">
+                                        <p class="annotation" style="color:#E1E8ED;">*The sentiment scores for emojis are
+                                            credited to Novak et al., 2015</p>
+                                        </p>
                                 </div>
                             </div>
                         </div>
@@ -185,71 +237,83 @@
                                         <div class="quote-container">
                                             <div>
                                                 <blockquote>
-                                                    <p>People tend to use more positive emojis during the Covid
+                                                    <p>Despite the negative topics/tags we saw from above, people tend to use more positive emojis during the Covid
                                                         time.</p>
                                                     <p class="emoji"></p>
                                                 </blockquote>
-                                                <div id="example-emoji"></div>
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
                 </div>
 
 
                 <!-- TRUMP0 -->
-                <div class="section" id="section5">
+                <div class="section" id="section6">
+                    <div class ="slide active">
                     <div class="row d-flex" id="TRUMP0" style="width:98%;height:95vh;padding-top:0vh">
+                        <div class="col-3 offset-1" style="height: 100vh">
+                            <h3 style="color: #657786;font-size: 33px">The Trump Dashboard</h3>
+                            <div class="row justify-content-center" style="height: 60vh">
+                                <img src="img/trump.png"
+                                     style="width:80%;height:45%;position:absolute;top:10vh;left:5vh;" class="rotate15">
+                            </div>
+                            <div class="testimonial-quote group right">
+                                <div class="quote-container" style="width:100%;height:100%">
+                                    <div>
+                                        <blockquote>
+                                            <p style="color: gray;">Donald Trump has always been an active Twitter user. Let's take a look at his tweets during the Covid19 pandemic.</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="col-3" style="height: 100%;width:98%">
+                        </div>
+                        <div class="col-6 offset-1" style="height: 100%;width:98%">
 
-                            <div class="row" style="height: 10vh">
-                                <p style="display:none;position:absolute;top:20px;left:40px;" id="warning">Sorry, the
-                                    limit has reached!</p>
+                            <div class="row" style="height: 20vh">
+                                <p style="display:none;position:absolute;top:10px;left:40px;" id="warning">Sorry, the
+                                    limit is reached!</p>
                                 <button type="button" id="ttweet_generate" class="align-self-center"
-                                        style="position:absolute;top:40px;left:40px;height:30px">Give me some Trump's
+                                        style="position:absolute;top:40px;left:40px;height:60px;border-radius: 4px;">Give me more Trump's
                                     Tweets!
                                 </button>
                                 <button type="reset" id="ttweet_reset" class="align-self-center reset"
-                                        style="position:absolute;top:45px;left:240px;height:20px">Reset
+                                        style="position:absolute;top:50px;left:400px;height:40px;border-radius: 4px;">Reset
                                 </button>
                                 <br>
                             </div>
 
-                            <div class="row" style="height: 60vh">
+                            <div class="row" style="height: 68vh">
                                 <!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
                                 <img src="img/tweet_feb.png" class="tweet-img-fixed" id="ttweet6"
-                                     style="position:absolute;top:100px;left:20px;width:300px;height:70px">
+                                     style="position:absolute;top:150px;left:20px;width:500px;height:100px">
                                 <img src="img/tweet_mar.png" class="tweet-img-fixed" id="ttweet7"
-                                     style="position:absolute;top:170px;left:90px;width:300px;height:70px">
+                                     style="position:absolute;top:260px;left:90px;width:500px;height:100px">
                                 <img src="img/tweet_apr.png" class="tweet-img-fixed" id="ttweet8"
-                                     style="position:absolute;top:240px;left:20px;width:300px;height:70px">
+                                     style="position:absolute;top:370px;left:20px;width:500px;height:100px">
                                 <img src="img/tweet_jun.png" class="tweet-img-fixed" id="ttweet9"
-                                     style="position:absolute;top:310px;left:90px;width:300px;height:70px">
+                                     style="position:absolute;top:480px;left:90px;width:500px;height:100px">
                                 <img src="img/tweet_july.png" class="tweet-img-fixed" id="ttweet10"
-                                     style="position:absolute;top:380px;left:20px;width:300px;height:70px">
+                                     style="position:absolute;top:590px;left:20px;width:500px;height:100px">
                                 <!--					</div>-->
 
 
                                 <!--					<div class="row" style="height: 60vh">-->
                                 <!--							<img src = "img/tweet_jan.png"class="tweet-img" id = "ttweet1" style = "display:none;width:300px;height:70px" >-->
-                                <img src="img/tweet_feb.png" class="tweet-img" id="ttweet1"
-                                     style="position:absolute;top:100px;left:20px;display:none;width:300px;height:70px">
-                                <img src="img/tweet_mar.png" class="tweet-img" id="ttweet2"
-                                     style="position:absolute;top:170px;left:90px;display:none;width:300px;height:70px">
-                                <img src="img/tweet_apr.png" class="tweet-img" id="ttweet3"
-                                     style="position:absolute;top:240px;left:20px;display:none;width:300px;height:70px">
-                                <img src="img/tweet_jun.png" class="tweet-img" id="ttweet4"
-                                     style="position:absolute;top:310px;left:90px;display:none;width:300px;height:70px">
-                                <img src="img/tweet_jun.png" class="tweet-img" id="ttweet4"
-                                     style="position:absolute;top:380px;left:90px;display:none;width:300px;height:70px">
+                                <img src="img/tweet_add1.png" class="tweet-img" id="ttweet1"
+                                     style="position:absolute;top:150px;left:320px;display:none;width:500px;height:210px">
+                                <img src="img/tweet_add2.png" class="tweet-img" id="ttweet2"
+                                     style="position:absolute;top:370px;left:390px;display:none;width:500px;height:100px">
+                                <img src="img/tweet_add3.png" class="tweet-img" id="ttweet3"
+                                     style="position:absolute;top:480px;left:320px;display:none;width:500px;height:100px">
+                                <img src="img/tweet_add4.png" class="tweet-img" id="ttweet4"
+                                     style="position:absolute;top:590px;left:390px;display:none;width:500px;height:100px">
+
                             </div>
 
 
@@ -285,123 +349,100 @@
                                     window.tweet_img_list = ["ttweet1", "ttweet2", "ttweet3", "ttweet4", "ttweet5"]
                                 }
                             </script>
+                            <p style="font-family: 'Comic Sans MS'; color:gray;font-style: italic"> Click onto the right slide to see more visualizations...</p>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class = "slide" style = "background-color: #e1e8ed">
+                    <div class="row d-flex" style="width:98%;height:95vh;padding-top:2vh">
+                        <div class = "col-3 offset-1" style = "height:95%">
+                            <div class="row" style="height: 75vh">
+                                <div id='topic_trump' style="width:100%;height: 100%"></div>
+                            </div>
+                            <br>
                             <div class="testimonial-quote group right">
                                 <div class="quote-container" style="width:100%;height:100%">
                                     <div>
                                         <blockquote>
-                                            <p style="color: #657786;">Trump seems to be satisfied with the way he
+                                            <p style="color:gray">Trump seems to be satisfied with the way he
                                                 handled the coronavirus.</p>
                                         </blockquote>
                                     </div>
                                 </div>
                             </div>
-
-
-                        </div>
-                        <div class="col-2 offset-1" style="height: 75vh">
-                            <div class="row justify-content-center" style="height: 50vh">
-                                <img src="img/trump.png"
-                                     style="width:80%;height:40%;position:absolute;top:10vh;left:5vh;" class="rotate15">
-                            </div>
-                            <div class="row" style="height: 35vh">
-                                <div id='topic_trump' style="width:100%;height: 100%"></div>
-                            </div>
-
                         </div>
 
 
-                        <div class="col-6 offset">
+                        <div class="col-6 offset-1" style = "height:95%">
+                            <p style="font-family: 'Comic Sans MS'; color:gray;font-style: italic;font-size:1rem"> Brush the timeline to see the sentiment/topics changes over time*...</p>
                             <div class="row justify-content-center" style="height: 70vh">
                                 <div id="bar_trump" style="width:100%;height: 100%"></div>
                             </div>
-                            <div class="row justify-content-center" style="height: 20vh;padding-top: 1vh">
+                            <div class="row justify-content-center" style="height: 15vh;padding-top: 1vh">
                                 <div id="timeline_trump" style="width:100%;height: 100%"></div>
                             </div>
                         </div>
 
                     </div>
-                </div>
-
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
-
-
-                <!--TRUMP1-->
-                <div class="section" id="section6"
-                     style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
-                    <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
-                        <div class="row d-flex " id="TRUMP1" style="width:98%;height:95vh;padding-top:0vh;">
-                            <div class='col-6 offset-3'>
-                                <div class="row justify-content-center" style="height: 100%">
-                                    <div class='align-self-center'>
-                                        <div class="testimonial-quote group">
-                                            <div class="quote-container" style="width:100%;height:100%">
-                                                <div>
-                                                    <blockquote>
-                                                        <p style="color: black;opacity: 1">For the “1/100th time,” the
-                                                            reason why we show so many cases is because of the
-                                                            reopening.
-                                                            Doing more tests does bring in more positive test results.
-                                                            But the rising case numbers come with a rising percent
-                                                            positive rate too.
-                                                            The percentage of tests coming back positive is rising.</p>
-                                                    </blockquote>
-                                                    <cite><span>@eugenegu - July 9</span></cite>
+                    </div>
+                    <div class="slide" style=" background-image: url(img/twitter_background7.jpg);background-size: cover">
+                            <div style="width:100%;height:100%;background-color: #E1E8ED;opacity: 0.4">
+                                <div class="row d-flex " id="TRUMP1" style="width:98%;height:95vh;padding-top:0vh;">
+                                    <div class='col-6 offset-3'>
+                                        <div class="row justify-content-center" style="height: 100%">
+                                            <div class='align-self-center'>
+                                                <p style="color:dimgray;font-size:30px; font-style: italic; font-family: 'Comic Sans MS'">Despite Trump's self-satisfaction, some people @realDonaldTrump and say...</p>
+                                                <br>
+                                                <div class="testimonial-quote group">
+                                                    <div class="quote-container" style="width:100%;height:100%">
+                                                        <div>
+                                                            <blockquote>
+                                                                <p style="color: black;opacity: 1">For the “1/100th time,” the
+                                                                    reason why we show so many cases is because of the
+                                                                    reopening.
+                                                                    Doing more tests does bring in more positive test results.
+                                                                    But the rising case numbers come with a rising percent
+                                                                    positive rate too.
+                                                                    The percentage of tests coming back positive is rising.</p>
+                                                            </blockquote>
+                                                            <cite><span>@eugenegu - July 9</span></cite>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
+
 
 
                 <!--SENTIMENT ANALYSIS-->
-                <div class="section" id="section7">
-                    <div class="row d-flex" id="SENTIMENT" style="width:98%;height:95vh;padding-top:0vh">
-                        <div class='col-9'>
+                <div class="section" id="section8" >
+                    <div class="row d-flex" id="SENTIMENT" style="width:98%;height:95vh;padding-left:1vh">
+                        <div class='col-12'>
                             <div class="row justify-content-center" style="height: 70vh">
                                 <div class='align-self-center'>
                                     <iframe src="viz/senti_viz/index.html" class="clsiframe"></iframe>
                                 </div>
                             </div>
                         </div>
-                        <div class='col-3'>
-                            <div class="row justify-content-center" style="height: 70vh">
-                                <div class='align-self-center'>
-                                    <p>Some comments on the visualization</p>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
-                <div class="row d-flex" style="width:98%;height:5vh;padding-top:1vh"></div>
 
-                <!--CALLOUT-->
-                <div class="section" id="section8">
-                    <div style="width:100%;height:100%;background-color: #E1E8ED;">
-                        <div class="row d-flex" id="ACTION" style="width:98%;height:95vh;padding-top:0vh">
-                            <div class='col-6'>
-                                <div class="row justify-content-center" style="height: 70vh">
-                                    <div class='align-self-center'>
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xzNMABRELPg"
-                                                frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='col-6'>
-                                <div class="row justify-content-center" style="height: 70vh">
-                                    <div class='align-self-center'>
-                                        <p>Relevant sources related to mental health(links,text)</p>
-                                    </div>
-                                </div>
-
+            <!--WORDCLOUD-->
+            <div class="section" id="section9">
+                <div class="row d-flex" id="WORDCLOUD" style="width:98%;height:95vh;padding-top:0vh">
+                    <div class='col-12'>
+                        <div class="row justify-content-center" style="height: 70vh">
+                            <div class='align-self-center'>
+                                <iframe src="viz/wc_viz/index.html" class="clsiframe"></iframe>
                             </div>
                         </div>
                     </div>
@@ -409,9 +450,190 @@
             </div>
 
 
-        </div>
+                <!--CALLOUT-->
+                <div class="section" id="section10">
+                    <div style="width:100%;height:100%;background-color: #E1E8ED;">
+                        <div class="row d-flex" id="ACTION" style="width:98%;height:71vh;padding-top:4vh">
+                            <div class='col-5 offset-1'>
+                                    <div class='align-self-center'>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How to Address Mental Health Issues</p>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xzNMABRELPg"
+                                                frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                                        <br>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">How To Protect Ourselves Against Covid</p>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1APwq1df6Mw"
+                                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                                                gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            <div class='col-5'>
+                                <div class="row justify-content-center" style="height: 70vh">
+                                    <div class='align-self-center'>
+                                        <div class="testimonial-quote group right">
+                                            <div class="quote-container" style="width:90%;height:23vh;padding-top:5vh;padding-left: 2vh">
+                                                <div>
+                                                    <blockquote>
+                                                        <p style="color:gray">It seems that the people's main concerns are physical and mental health,
+                                                            and the unemployment issue. On this page we share some resources/links that target at these concerns.</p>
+                                                    </blockquote>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class='align-self-center'>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Resources for Unemployment</p>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1rem; color:#657786">Sources related to unemployment assistance</p>
+                                        <a href="https://edd.ca.gov/unemployment/pdf/benefit-flowchart.pdf">CA Unemployment Benefit Programs</a><br>
+                                        <a href="https://www.mass.gov/how-to/apply-for-pandemic-unemployment-assistance">MA Pandemic Unemployment Assistance</a><br>
+                                        <a href="https://dol.ny.gov/pandemic-unemployment-assistance">NY Pandemic Unemployment Assistance</a><br>
+                                        <a href="https://www.dol.gov/coronavirus/unemployment-insurance#find-state-unemployment-insurance-contacts">Or find you state's unemployment insurance office here</a><br>
+                                        <a href="osha.gov/SLTC/covid-19/standards.html">Check here to know more about workplace safety</a><br>
 
+
+                                    </div>
+                                        <br>
+                                    <div class='align-self-center'>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1.5rem; color:#657786">Housing during COVID19 Pandemic</p>
+                                        <p style="font-family: 'Comic Sans MS';font-size: 1rem; color:#657786">Sources related to housing assistance</p>
+                                        <a href="https://covid19.ca.gov/housing-and-homelessness/">CA Help for renters, homeowners, and small landlords</a><br>
+                                        <a href="https://www.mass.gov/covid-19-getting-help-with-housing-costs">MA COVID19 Getting Help With Housing Costs</a><br>
+                                        <a href="https://hcr.ny.gov/RRP">NY Rental Relief Program</a><br>
+                                        <a href="https://nlihc.org/rental-assistance">Or find you state's Rental Assistance Programs here</a><br>
+                                        <a href="https://www.ncsha.org/resource/state-hfa-emergency-housing-assistance-programs/">and Emergency Housing Assistance Programs</a><br>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!--Final Page-->
+                <div class="section" id="section11">
+                    <div style="width:100%;height:100%;padding: 2vh">
+
+                        <div style="width:100%;height:60vh">
+                            <div class="row justify-content-center" style="height: 55vh;padding-top:1vh;padding-bottom:1vh;padding-left:5vh;padding-right:5vh">
+                                <div class='align-self-center' style="height:100%;width:100%">
+                                    <div class="row">
+                                        <h3>About Us</h3>
+                                    </div>
+                                    <div class="row" style="height:49vh;width:100%">
+                                        <div class="col-md-4" style="height:100%">
+                                            <div class="card-box text-center" style="height:100%">
+                                                <div class="user-pic">
+                                                    <img src="img/people/yw-1.png" class="img-fluid" alt="User Pic">
+                                                </div>
+                                                <h6>Yiwen Wang</h6>
+                                                <hr>
+                                                <p>
+                                                    Yiwen Wang is a second-year Master’s student in the Harvard
+                                                    Data Science program, expecting to graduate in May 2021.
+                                                    She is interested in machine learning models,
+                                                    computational linguistics, and the area of data visualization.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4" style="height:100%">
+                                            <div class="card-box text-center" style="height:100%">
+                                                <div class="user-pic">
+                                                    <img src="img/people/zxu.jpg" class="img-fluid" alt="User Pic">
+                                                </div>
+                                                <h6>Zihau Xu</h6>
+                                                <hr>
+                                                <p>
+                                                    Zihao Xu is a Master's student in Data Science at Harvard University.
+                                                    He is passionate about using data wrangling, visualization,
+                                                    and predictive modeling to solve a diverse range of business problems.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4" style="height:100%">
+                                            <div class="card-box text-center" style="height:100%">
+                                                <div class="user-pic">
+                                                    <img src="img/people/gm.png" class="img-fluid" alt="User Pic">
+                                                </div>
+                                                <h6>Gazi Mahmud</h6>
+                                                <hr>
+                                                <p>
+                                                    Gazi Mahmud is a Data Scientist.
+                                                    His research interests include applications of Deep Neural
+                                                    Networks and facets of machine learning techniques in
+                                                    SourceCode static analysis,
+                                                    Computational Linguistics and
+                                                    information retrieval.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-top:3vh">
+                                        <h3>References</h3>
+                                    </div>
+                                    <div class="row" style="width:100%">
+                                        <div class = "col-6">
+                                            <h3 style="font-size:18px;">Images/Icons:</h3>
+                                            <h3 style="font-size:15px;">Trump Icon:
+                                                <a style = "font-size:12px" href="https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL">https://www.amazon.com/Donald-Stickers-Planner-Laptop-Cartoon/dp/B0833H2QTL</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Twitter Icon (Homepage):
+                                                <a style = "font-size:12px" href="https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856">https://toppng.com/red-twitter-logo-PNG-free-PNG-Images_79856</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Twitter Icon (Topics):
+                                                <a style = "font-size:12px" href="https://image.similarpng.com/very-thumbnail/2020/07/Twitter-new-logo-on-transparent-background-PNG.png">https://image.similarpng.com/very-thumbnail/2020/07/Twitter-new-logo-on-transparent-background-PNG.png</a>
+                                            </h3>
+                                            <h3 style="font-size:15px">Twitter Background (Homepage):
+                                                <a style = "font-size:12px" href="https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg">https://virtualwindow.com/wp-content/uploads/2013/08/Twitter-Background.jpg</a>
+                                            </h3>
+                                            <h3 style="font-size:15px">Twitter Background (Emoji):
+                                                <a style = "font-size:12px" href="https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg">https://icanbecreative.com/article/40-high-resolution-wallpapers-for-minimalist-lovers/https://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/twitter-minimalist-wallpaper-blue.jpg</a>
+                                            </h3>
+                                        </div>
+                                        <br>
+                                        <div class = "col-6">
+                                            <h3 style="font-size:18px;">Methods/Tools:</h3>
+                                            <h3 style="font-size:15px;">Twitter API:
+                                                <a style = "font-size:12px" href="https://developer.twitter.com/en/docs">https://codepen.io/NickNoordijk/pen/VLvxLE</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Navigation Tooltip:
+                                                <a style = "font-size:12px" href="http://alvarotrigo.com/fullPage">http://alvarotrigo.com/fullPage - A project by Alvaro Trigo</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Emoji Sentiment Scores:
+                                                <a style = "font-size:12px" href="http://kt.ijs.si/data/Emoji_sentiment_ranking/">http://kt.ijs.si/data/Emoji_sentiment_ranking</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Radar Plot:
+                                                <a style = "font-size:12px" href="https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart">https://yangdanny97.github.io/blog/2019/03/01/D3-Spider-Chart</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Gradient Color Border:
+                                                <a style = "font-size:12px" href="https://codepen.io/NickNoordijk/pen/VLvxLE">https://codepen.io/NickNoordijk/pen/VLvxLE</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Word Cloud:
+                                                <a style = "font-size:12px" href="https://github.com/jasondavies/d3-cloud">https://codepen.io/NickNoordijk/pen/VLvxLE</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Hook - They Draw it!:
+                                                <a style = "font-size:12px" href="https://mucollective.northwestern.edu/theydrawit/">https://mucollective.northwestern.edu/theydrawit/</a> by <a style = "font-size:12px" href="https://mucollective.northwestern.edu/theydrawit/">MU Collective</a>
+                                            </h3>
+                                            <h3 style="font-size:15px;">Topic Cluster:
+                                                <a style = "font-size:12px" href="https://www.visualcinnamon.com/">https://www.visualcinnamon.com/</a>
+                                            </h3>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
+</div>
+
+
 
 
     <!-- - - - - - - - - - - - >
@@ -450,11 +672,12 @@
 
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
-            anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-            sectionsColor: ['', '', '', '', '#219ed6', '', '', '#AAB8C2'],
+            licenseKey: 'IHHcGFM%k0',
+            anchors: ['1', '2', '3', '4', '5', '6', '7', '8', '9','10','11'],
+            sectionsColor: ['', '','', '', '', '#219ed6', '#E1E8ED', '#E1E8ED'],
             navigation: true,
             navigationPosition: 'right',
-            navigationTooltips: ['Homepage', 'Sentiment Line', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'People\'s Response', 'Sentiment Analysis', 'Resources']
+            navigationTooltips: ['Homepage', 'Data', 'Overview', 'Topics', 'Tags', 'Emojis', 'Trump Dashboard', 'Sentiment Analysis', 'Concerns', 'Resources','About Us']
         });
     </script>
 </body>

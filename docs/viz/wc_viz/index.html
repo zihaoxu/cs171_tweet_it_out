@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Tweet TagNetwork</title>
+		<title>Covid Concerns</title>
 
 		<!-- Load CSS libraries -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,77 +23,31 @@
 	<div class="container-fluid">
 		<div class="row" style="height: 12vh; width: 100%">
 			<div class="row" style="height: 8vh;">
-				<h3 id="tagnet-title">Tag Network: Top 20 hashtags per Month</h3>
-
-				<!-- Pop up text -->
-				<div class="popup" id="popup-1">
-					<div class="overlay"></div>
-						<div class="content">
-							<div class="close-btn" onclick="togglePopup()">&times;</div>
-							<h1>Tutorial</h1>
-							<ul>
-								<li>This visualization displays <strong>the hashtags</strong> that co-occur with "#Covid-19"
-									<ul>
-										<li><strong>Click</strong> on the circles on top of each month to navigate between months.</li>
-										<li><strong>Hover over</strong> the hashtag nodes to show interconnections and additional details!</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-				</div>
-				<button onclick="togglePopup()">Show Tutorial</button>
+				<h3 id="tagnet-title">During the Covid-19 Period, People are Having Many Concerns...</h3>
 			</div>
 
-			<div class="row" style="height:4vh; width: 100%; padding-left: 3.5vw">
-				<p><i>select a month to get started...</i></p>
+			<div class="row" style="height:4vh; width: 100%; padding-left: 3.3vw">
+				<p><i>Below are some most common concerns people have during the pandemic</i></p>
 			</div>
-
 		</div>
-		<div class="row" style="height: 80vh">
-			<div class="col-8 align-self-center" style="height: 100%">
+		<div class="row" style="height: 80vh; width: 100%">
+			<div class="col-9 align-self-center" style="height: 100%">
 				<div class="row" style="height: 15%; width: 100%">
-					<div id="tagnet-month_menu" style="height: 100%; width: 100%"></div>
+					<div id="wc-month_menu" style="height: 20vh; width: 100%"></div>
 				</div>
-				<div class="row" style="height: 85%; width: 100%">
-					<div id="tagnet-tagNetwork" style="height: 100%; width: 100%"></div>
+				<div class="row justify-content-center" style="height: 85%; width: 100%">
+					<div id="wc-word_cloud" style="height: 68vh; width: 100%"></div>
 				</div>
 			</div>
-			<div class="col-3 align-self-center">
-				<div id="tagDails">
-					<table class="styled-table">
-						<thead>
-							<tr>
-								<th>Hashtag Details</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>Hashtag</th>
-								<th><div class="tag-entry" id="tagent-tag"></div> </th>
-							</tr>
-							<tr>
-								<th>Time Range</th>
-								<th><div class="tag-entry" id="tagent-timeRange"></div> </th>
-							</tr>
-							<tr>
-								<th>Count</th>
-								<th><div class="tag-entry" id="tagent-count"></div> </th>
-							</tr>
-							<tr>
-								<th>Average Sentiment</th>
-								<th><div class="tag-entry" id="tagent-senti"></div> </th>
-							</tr>
-						</tbody>
-					</table>
 
-				</div>
+			<div class="col-3 align-self-center" style="height: 100%">
 
-				<div class="testimonial-quote">
+				<div class="testimonial-quote" style="height: 80%">
 					<div class="quote-container" style = "width:100%;height:100%;margin-top: 15vh">
 						<div>
 							<blockquote>
-								<p>Notice the shifts in topics as well as sentiment scores across months</p>
+								<p>Click on the word cloud to show a sample tweet...</p>
+								<p id="sample-tweet"></p>
 							</blockquote>
 						</div>
 					</div>
@@ -110,11 +64,11 @@
 
 	<!-- d3 -->
 	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
 
 	<!-- own js files -->
 	<script src="js/monthMenu.js"></script>
-	<script src="js/tagDataProcessor.js"></script>
-	<script src="js/tagNetwork.js"></script>
+	<script src="js/wordCloud.js"></script>
 	<script src="js/main.js"></script>
 	</body>
 </html>

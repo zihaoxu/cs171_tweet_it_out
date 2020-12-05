@@ -76,7 +76,7 @@ class Timeline {
         });
         vis.PosData = PosData;
 
-        console.log(vis.NegData,vis.PosData);
+        // console.log(vis.NegData,vis.PosData);
 
         // find the range for the y axis
         let neg_len = vis.NegData.map(a => a.len);

@@ -49,7 +49,7 @@ let sentiment_clusters = {
                     "Currently In Hospital: 9\n" +
                     "Currently In ICU: 2\n" +
                     "Deaths: 0 (1 death since May 1st)"},
-            { id: "tweet_full_text_1243", definition: "Black, female doctor: I√¢¬Ä¬ôve treated 350 patients with a drug cocktail including hydroxychloroquine. None died."},
+            { id: "tweet_full_text_1243", definition: "Black, female doctor: I have treated 350 patients with a drug cocktail including hydroxychloroquine. None died."},
             { id: "tweet_full_text_1244", definition: "6 Trump staffers just tested positive for Covid.\n" +
                     "Have fun inside a hot, humid, packed, arena filled with fans screaming their pork rind and flat beer breath on each other, while listening to an orange Sociopath making shit up..."},
             { id: "tweet_full_text_1245", definition: "This lil pandemic made me realize I need to start living life fr, I don√¢¬Ä¬ôt be on nun.."},
@@ -58,7 +58,7 @@ let sentiment_clusters = {
                     "\"Next time when you Vote, Bill Gates for President !!"},
             { id: "tweet_full_text_1291", definition: "Yet @GovAbbott is sticking with reopening - on Friday reopened amusement parks - and doing nothing to stop the spread. \n"},
             { id: "tweet_full_text_1293", definition: "Katy Perry is the only artist that constantly serving us virtual technology, visually appealing video performances, budgeted livestream events amidst the pandemic. Put some respect on a hardworking pregnant pop superstar! https://t.co/VJWULHwHtA\n "},
-            { id: "tweet_full_text_1294", definition: "√¢¬Ä¬úThe world√¢¬Ä¬ôs deadliest animal hasn√¢¬Ä¬ôt taken a break during this pandemic.√¢¬Ä¬ù Important reminder from @BillGates on why we mustn't lose sight of our efforts to rid the world of preventable, treatable diseases like malaria: https://t.co/gI3k5HkkZN "},
+            { id: "tweet_full_text_1294", definition: "The world√¢¬Ä¬ôs deadliest animal hasn't taken a break during this pandemic. Important reminder from @BillGates on why we mustn't lose sight of our efforts to rid the world of preventable, treatable diseases like malaria: https://t.co/gI3k5HkkZN "},
             { id: "tweet_full_text_1295", definition: "May Allah protect us all from the coronavirus."},
             { id: "tweet_full_text_1296", definition: "Dah 50 kes positif Coronavirus di Malaysia. Please stay safe guys. Avoid unnecessary travel."},
             { id: "tweet_full_text_1297", definition: "BREAKING: India reports 78,761 new coronavirus cases, the biggest daily figure anywhere in the world since the pandemic began."},
