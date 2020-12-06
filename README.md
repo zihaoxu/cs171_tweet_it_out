@@ -6,8 +6,8 @@ This software is published by Zihao Xu, Yiwen Wang, and Gazi Mahmud under [GPL V
 
 ## Important URLs
 - Website URL: https://zihaoxu.github.io/cs171_tweet_it_out/  
-- Video URL: 
-- Link to our datasets: https://bit.ly/3mQ4xnO  
+- Video URL: https://bit.ly/39Mcbfn
+- Link to our main datasets: https://bit.ly/3mQ4xnO
 - Link to our process book: https://bit.ly/3giNFE2  
 
 ## Directory Setup
