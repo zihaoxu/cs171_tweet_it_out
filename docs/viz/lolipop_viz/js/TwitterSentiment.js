@@ -1,15 +1,15 @@
 function createSentimentTopicSpectrum() {
 
     let cluster_config = [
-        { id: "sentiment_cluster_5", color: "#67000d"},
-        { id: "sentiment_cluster_1", color: "#a50f15"},
-        { id: "sentiment_cluster_2", color: "#cb181d"},
-        { id: "sentiment_cluster_3", color: "#ef3b2c"},
-        { id: "sentiment_cluster_9", color: "#fc9272"},
-        { id: "sentiment_cluster_4", color: "#4292c6"},
-        { id: "sentiment_cluster_6", color: "#2171b5"},
-        { id: "sentiment_cluster_7", color: "#08519c"},
-        { id: "sentiment_cluster_8", color: "#08306b"},
+        {id: "sentiment_cluster_5", color: "#67000d"},
+        {id: "sentiment_cluster_1", color: "#a50f15"},
+        {id: "sentiment_cluster_2", color: "#cb181d"},
+        {id: "sentiment_cluster_3", color: "#ef3b2c"},
+        {id: "sentiment_cluster_9", color: "#fc9272"},
+        {id: "sentiment_cluster_4", color: "#4292c6"},
+        {id: "sentiment_cluster_6", color: "#2171b5"},
+        {id: "sentiment_cluster_7", color: "#08519c"},
+        {id: "sentiment_cluster_8", color: "#08306b"},
     ]
 
     let cluster_ids = cluster_config.map(d => d.id)
@@ -41,12 +41,12 @@ function createSentimentTopicSpectrum() {
     let pie_concept = d3.pie()
         .value(d => d.values.length)
         .sort(null)
-    let threats_nest
+    let topic_group
 
     let base_size = 2100
     let width = 600, height = 400
     let total_width, total_height
-    let margin = {top: 15, right: 0,  bottom: 0, left: 0}
+    let margin = {top: 15, right: 0, bottom: 0, left: 0}
     let svg, g
     let g_scale
     let canvas_edges, canvas_nodes, canvas_hover
@@ -138,7 +138,7 @@ function createSentimentTopicSpectrum() {
             })
 
         //Group for all visual elements
-        g = svg.append("g").attr("id","visual-elements-group")
+        g = svg.append("g").attr("id", "visual-elements-group")
 
         g_scale = g.append("g").attr("id", "scaling-group")
 
@@ -149,24 +149,22 @@ function createSentimentTopicSpectrum() {
         chart.resize()
 
         function createGradient(ctx) {
-            let num = cluster_config.length-1
-            let grd = ctx.createLinearGradient(-radius_elements_title,0,radius_elements_title,0)
-            for(let i = 0; i <= num; i++) grd.addColorStop(i/num, cluster_config[i].color)
+            let num = cluster_config.length - 1
+            let grd = ctx.createLinearGradient(-radius_elements_title, 0, radius_elements_title, 0)
+            for (let i = 0; i <= num; i++) grd.addColorStop(i / num, cluster_config[i].color)
             return grd
         }
+
         arc_gradient_nodes = createGradient(ctx_nodes)
         arc_gradient_hover = createGradient(ctx_hover)
 
         prepareArcs()
-
         calculateEdgeCenters(edges_concepts)
-
         drawHiddenElements()
         setHiddenHovers()
-
         drawCanvas()
 
-        if(callback) callback(elements)
+        if (callback) callback(elements)
 
     }//function chart
 
@@ -177,7 +175,7 @@ function createSentimentTopicSpectrum() {
 
         //Change sizes of the svg
         svg.attr("width", total_width).attr("height", total_height)
-        g.attr("transform", "translate(" + (margin.left + width/2) + "," + (margin.top + height/2) + ")")
+        g.attr("transform", "translate(" + (margin.left + width / 2) + "," + (margin.top + height / 2) + ")")
 
         //Get the scale factor to resize
         let size = Math.min(total_height, total_width)
@@ -185,8 +183,8 @@ function createSentimentTopicSpectrum() {
         //Scale everything to fit
         g_scale.attr("transform", "scale(" + scale_factor + ")")
 
-        if(!sf_set) {
-            sf = Math.min(2, getPixelRatio(ctx_nodes) ) //no more than 2
+        if (!sf_set) {
+            sf = Math.min(2, getPixelRatio(ctx_nodes)) //no more than 2
             sf_original = sf
         }
 
@@ -202,7 +200,9 @@ function createSentimentTopicSpectrum() {
 
     function dataPreparation() {
         node_by_id = {}
-        nodes.forEach(d => { node_by_id[d.id] = d })
+        nodes.forEach(d => {
+            node_by_id[d.id] = d
+        })
 
         linked_to_id = {}
         edges.forEach(d => {
@@ -219,16 +219,20 @@ function createSentimentTopicSpectrum() {
         })//filter
 
         node_by_id = {}
-        nodes.forEach(d => { node_by_id[d.id] = d })
+        nodes.forEach(d => {
+            node_by_id[d.id] = d
+        })
         //Filter out any edges that were associated to the nodes filtered above
-        edges = edges.filter(d => { return node_by_id[d.source] && node_by_id[d.target] })
+        edges = edges.filter(d => {
+            return node_by_id[d.source] && node_by_id[d.target]
+        })
 
         //Second filtering based on connections
         nodes = nodes.filter(d => {
             d.degree = edges.filter(l => l.source == d.id || l.target == d.id).length
             //Filter out any element that has 0 degrees
-            if(d.type === "element") return d.degree >= 1 ? true : false
-            else if(cluster_ids.indexOf(d.id) >= 0) return true
+            if (d.type === "element") return d.degree >= 1 ? true : false
+            else if (cluster_ids.indexOf(d.id) >= 0) return true
             else {
                 let connections = edges.filter(l => (l.source === d.id && node_by_id[l.target].type === "element") || (l.target === d.id && node_by_id[l.source].type === "element"))
                 return connections.length >= 1 ? true : false
@@ -236,7 +240,9 @@ function createSentimentTopicSpectrum() {
         })//forEach
 
         node_by_id = {}
-        nodes.forEach(d => { node_by_id[d.id] = d })
+        nodes.forEach(d => {
+            node_by_id[d.id] = d
+        })
 
         linked_to_id = {}
         edges.forEach(d => {
@@ -251,27 +257,27 @@ function createSentimentTopicSpectrum() {
         let data_translations = sentiment_clusters[language].categories
         cluster_config.forEach(d => d.label = data_translations[data_translations.map(b => b.id).indexOf(d.id)].label)
 
-        threats = nodes.filter(d => {
+        topicsdata = nodes.filter(d => {
             //Is this id in the predefined list
             return cluster_ids.indexOf(d.id) >= 0
         })//filter
-        threats.forEach(d => {
+        topicsdata.forEach(d => {
             d.meta = cluster_config[cluster_ids.indexOf(d.id)]
             d.title = d.meta.label
-            d.group = "threat category"
+            d.group = "topic category"
             d.degree = 0
             tweet_by_id[d.id] = d
         })//forEach
         //Sort them by the id defined above
-        threats = threats.sort((a, b) => cluster_ids.indexOf(a.id) - cluster_ids.indexOf(b.id))
+        topicsdata = topicsdata.sort((a, b) => cluster_ids.indexOf(a.id) - cluster_ids.indexOf(b.id))
 
 
         let tw_ids = sentimentClusters.map(d => d.id)
 
         concepts = nodes.filter(d => d.type === "element" || cluster_ids.indexOf(d.id) >= 0 ? false : true)
         concepts.forEach(d => {
-            let e_connected = linked_to_id[d.id].filter(n => n.group === "threat category")
-            if(e_connected.length !== 1) console.log("not 1 threat category", d.id, d.label, e_connected)
+            let e_connected = linked_to_id[d.id].filter(n => n.group === "topic category")
+            if (e_connected.length !== 1) console.log("not 1  category", d.id, d.label, e_connected)
             d.threat_category = e_connected[0].id
 
             d.opacity = 1
@@ -282,11 +288,11 @@ function createSentimentTopicSpectrum() {
             d.definition = def >= 0 ? sentimentClusters[def].definition : "definition to be added"
         })//forEach
 
-        concepts = concepts.sort((a,b) => {
-            if(cluster_ids.indexOf(a.threat_category) < cluster_ids.indexOf(b.threat_category)) return -1
-            if(cluster_ids.indexOf(a.threat_category) > cluster_ids.indexOf(b.threat_category)) return 1
-            if(a.label < b.label) return -1
-            if(a.label > b.label) return 1
+        concepts = concepts.sort((a, b) => {
+            if (cluster_ids.indexOf(a.threat_category) < cluster_ids.indexOf(b.threat_category)) return -1
+            if (cluster_ids.indexOf(a.threat_category) > cluster_ids.indexOf(b.threat_category)) return 1
+            if (a.label < b.label) return -1
+            if (a.label > b.label) return 1
             return 0
         })//sort
 
@@ -298,22 +304,22 @@ function createSentimentTopicSpectrum() {
 
         elements.forEach(d => {
             let e_connected = linked_to_id[d.id].filter(n => n.group === "threat")
-            d.threats = e_connected.map(n => n.id)
-            d.threats = d.threats.sort((a, b) => {
+            d.topicsdata = e_connected.map(n => n.id)
+            d.topicsdata = d.topicsdata.sort((a, b) => {
                 let a_threat = cluster_ids.indexOf(concept_by_id[a].threat_category)
                 let b_threat = cluster_ids.indexOf(concept_by_id[b].threat_category)
-                if(a_threat < b_threat) return -1
-                if(a_threat > b_threat) return 1
+                if (a_threat < b_threat) return -1
+                if (a_threat > b_threat) return 1
                 return 0
             })//sort
-            d.threat_categories = [...new Set(d.threats.map(l => concept_by_id[l].threat_category))]
+            d.threat_categories = [...new Set(d.topicsdata.map(l => concept_by_id[l].threat_category))]
         })//forEach
         ICH_num_all = elements.length
 
         //Sort alphabetically
-        elements = elements.sort((a,b) => {
-            if(a.label < b.label) return -1
-            if(a.label > b.label) return 1
+        elements = elements.sort((a, b) => {
+            if (a.label < b.label) return -1
+            if (a.label > b.label) return 1
             return 0
         })
     }//function dataPreparation
@@ -325,20 +331,19 @@ function createSentimentTopicSpectrum() {
         num = elements.length
         start_angle = pi1_2 + offset
         end_angle = pi2 - (pi1_2 + offset)
-        elements.forEach((d,i) => {
-            d.angle = i/(num-1) * (end_angle - start_angle) + start_angle
-            let sign = i%2 === 0 ? -1 : 1
+        elements.forEach((d, i) => {
+            d.angle = i / (num - 1) * (end_angle - start_angle) + start_angle
+            let sign = i % 2 === 0 ? -1 : 1
             let rad = radius_elements + sign * radius_elements_offset
             d.x = rad * Math.cos(d.angle - pi1_2)
             d.y = rad * Math.sin(d.angle - pi1_2)
         })//forEach
 
 
-
-        num = threats.length
+        num = topicsdata.length
         let total_width = 2 * radius_size
         let space = total_width / num
-        threats.forEach((d,i) => {
+        topicsdata.forEach((d, i) => {
             d.x = (i + 0.5) * space - radius_size
             d.y = 0
             d.space = space
@@ -358,7 +363,7 @@ function createSentimentTopicSpectrum() {
 
         //////////////////////  ARCS //////////////////////
 
-        threats_nest = d3.nest()
+        topic_group = d3.nest()
             .key(d => d.threat_category)
             .entries(concepts)
 
@@ -372,15 +377,15 @@ function createSentimentTopicSpectrum() {
             .padAngle(padding)
 
         ctx_nodes.font = 'normal normal 300 19px ' + font_family
-        concept_arcs = pie_concept(threats_nest)
+        concept_arcs = pie_concept(topic_group)
         concept_arcs.forEach(d => {
             d.totalAngle = d.endAngle - d.startAngle
-            d.centerAngle = d.startAngle + d.totalAngle/2
+            d.centerAngle = d.startAngle + d.totalAngle / 2
             d.opacity = 1
 
             let num = d.data.values.length
-            let angle_step = (d.totalAngle - 2*padding) / num
-            let angle = d.startAngle + 1.5*padding
+            let angle_step = (d.totalAngle - 2 * padding) / num
+            let angle = d.startAngle + 1.5 * padding
 
             d.data.values.forEach(n => {
                 n.angle = angle
@@ -404,8 +409,8 @@ function createSentimentTopicSpectrum() {
 
         edges_concepts.forEach(d => {
             edge_concept_by_id[d.source + "," + d.target] = true
-            d.source = concept_by_id[d.source] //Threat
-            d.target = tweet_by_id[d.target] //Threat category
+            d.source = concept_by_id[d.source]
+            d.target = tweet_by_id[d.target]
             d.sign_pos = -1
             d.opacity = opacity_concept_default
         })//forEach
@@ -421,8 +426,8 @@ function createSentimentTopicSpectrum() {
 
         edges_elements.forEach(d => {
             edge_concept_by_id[d.source + "," + d.target] = true
-            d.source = node_by_id[d.source] //ICH element
-            d.target = tweet_by_id[d.target] //Threat category
+            d.source = node_by_id[d.source]
+            d.target = tweet_by_id[d.target]
             d.sign_pos = 1
             d.opacity = opacity_element_default
 
@@ -445,12 +450,12 @@ function createSentimentTopicSpectrum() {
             let cx1 = cr1 * Math.cos(d.source.angle - pi1_2)
             let cy1 = cr1 * Math.sin(d.source.angle - pi1_2)
 
-            let angle2 = pi + (angle_offset - pi)*0.5 * angle2_offset_scale(r_source_offset)
+            let angle2 = pi + (angle_offset - pi) * 0.5 * angle2_offset_scale(r_source_offset)
             let cr2 = cr2_offset_scale(r_source_offset)
             let cx2 = d.target.x + cr2 * Math.cos(angle2 - pi1_2)
             let cy2 = target_y + cr2 * Math.sin(angle2 - pi1_2)
 
-            d.line_data = [[d.source.x, d.source.y],[cx1,cy1],[cx2,cy2],[d.target.x, target_y]]
+            d.line_data = [[d.source.x, d.source.y], [cx1, cy1], [cx2, cy2], [d.target.x, target_y]]
         })//forEach
 
     }//function edgePlacement
@@ -464,8 +469,8 @@ function createSentimentTopicSpectrum() {
         arc_concept
             .startAngle(d => d.angle - 0.5 * d.angle_width)
             .endAngle(d => d.angle + 0.5 * d.angle_width)
-            .innerRadius(radius_concept - 2*concept_radius)
-            .outerRadius(d => radius_concept + 2*concept_radius + d.width + 10)
+            .innerRadius(radius_concept - 2 * concept_radius)
+            .outerRadius(d => radius_concept + 2 * concept_radius + d.width + 10)
     }//function prepareArcs
 
     //////////////////////////////////////////////////////////////
@@ -475,9 +480,9 @@ function createSentimentTopicSpectrum() {
     ////////////// ICH element label outside circle //////////////
     function showElementTitle(ctx, type, text, ICH_num) {
         //text = text ? text : ICH_num + " | " + sentiment_clusters[language].titles[0]
-        text="";
+        text = "";
         //Create a white arc on the background so cover the potential fixed title
-        if(type === "hover") {
+        if (type === "hover") {
             ctx.fillStyle = "white"
             ctx.beginPath()
             // ctx.arc(0, 0, radius_elements + 2*radius_elements_offset + 10, pi * 0.05, pi * 0.95)
@@ -518,8 +523,8 @@ function createSentimentTopicSpectrum() {
 
         //Add small rectangle below
         let width_text = ctx.measureText(d.label).width * 0.4
-        ctx.strokeRect(0 - width_text/2, offset, width_text, 5)
-        ctx.fillRect(0 - width_text/2, offset, width_text, 5)
+        ctx.strokeRect(0 - width_text / 2, offset, width_text, 5)
+        ctx.fillRect(0 - width_text / 2, offset, width_text, 5)
 
         ctx.font = "normal normal 400 30px Gotham Narrow SSm"
         ctx.textBaseline = 'middle'
@@ -528,7 +533,6 @@ function createSentimentTopicSpectrum() {
         ctx.fillStyle = "black"
         wrapText(ctx, d.definition, 0, -270, max_width, line_height, true)
     }//function showConceptTitle
-
 
 
     function wrapText(ctx, text, x, y, max_width, line_height = curved_line_height, do_stroke = false, get_num_lines = false) {
@@ -540,33 +544,32 @@ function createSentimentTopicSpectrum() {
             let new_line = line + words[n] + ' '
             let new_width = ctx.measureText(new_line).width
             if (new_width > max_width && n > 0) {
-                if(!get_num_lines) {
-                    if(do_stroke) ctx.strokeText(line.trim(), x, y)
+                if (!get_num_lines) {
+                    if (do_stroke) ctx.strokeText(line.trim(), x, y)
                     ctx.fillText(line.trim(), x, y)
                 }//if
                 num_lines += 1
                 line = words[n] + ' '
                 y += line_height
-            }
-            else line = new_line
+            } else line = new_line
         }//for n
-        if(!get_num_lines) {
-            if(do_stroke) ctx.strokeText(line.trim(), x, y)
+        if (!get_num_lines) {
+            if (do_stroke) ctx.strokeText(line.trim(), x, y)
             ctx.fillText(line.trim(), x, y)
         }//if
         num_lines += 1
 
-        if(get_num_lines) return num_lines
+        if (get_num_lines) return num_lines
     }//function wrapText
 
-    function drawTextAlongArc(ctx, str, angle, radius, side, kerning = 0.6){
+    function drawTextAlongArc(ctx, str, angle, radius, side, kerning = 0.6) {
         let startAngle = (side === "up" ? angle : angle - pi)
-        if(side === "up") str = str.split("").reverse().join("") // Reverse letters
+        if (side === "up") str = str.split("").reverse().join("") // Reverse letters
 
         //Rotate 50% of total angle for center alignment
         for (let j = 0; j < str.length; j++) {
             let charWid = ctx.measureText(str[j]).width
-            startAngle += ((charWid + (j === str.length-1 ? 0 : kerning)) / radius) / 2
+            startAngle += ((charWid + (j === str.length - 1 ? 0 : kerning)) / radius) / 2
         }//for j
 
         //Draw thick white stroke as background
@@ -582,9 +585,9 @@ function createSentimentTopicSpectrum() {
         ctx.save()
         ctx.rotate(startAngle)
         for (let n = 0; n < str.length; n++) {
-            let charWid = ctx.measureText(str[n]).width/2 // half letter
+            let charWid = ctx.measureText(str[n]).width / 2 // half letter
             //Rotate half letter
-            ctx.rotate(-charWid/radius)
+            ctx.rotate(-charWid / radius)
             // ctx.strokeText(str[n], 0, (side === "up" ? -1 : 1) * radius)
             ctx.fillText(str[n], 0, (side === "up" ? -1 : 1) * radius)
             //Rotate another half letter
@@ -593,10 +596,7 @@ function createSentimentTopicSpectrum() {
         ctx.restore()
     }//function drawTextAlongArc
 
-    /////////////// Draw the hidden mouseover nodes //////////////
     function drawHiddenElements() {
-        //Draw the invisible ICH element circles on the SVG
-
         hover_ich = g_scale.append("g")
             .attr("class", "element-hover-group")
             .selectAll(".element-circle")
@@ -615,10 +615,10 @@ function createSentimentTopicSpectrum() {
         hover_category = g_scale.append("g")
             .attr("class", "category-hover-group")
             .selectAll(".category-rect")
-            .data(threats)
+            .data(topicsdata)
             .enter().append("rect")
             .attr("class", "category-rect")
-            .attr("x", d => d.x - d.space/2)
+            .attr("x", d => d.x - d.space / 2)
             .attr("y", d => d.y - (d.num_lines + 1) * curved_line_height / 2)
             .attr("width", d => d.space)
             .attr("height", d => (d.num_lines + 1) * curved_line_height)
@@ -628,7 +628,6 @@ function createSentimentTopicSpectrum() {
             .style("cursor", "pointer")
 
 
-        //Draw the invisible arcs over the outside threats
         hover_concept = g_scale.selectAll(".threat-hover-path")
             .data(concepts)
             .enter().append("path")
@@ -643,14 +642,14 @@ function createSentimentTopicSpectrum() {
     function setHiddenHovers() {
         hover_ich
             .on("click", d => {
-                mouseClick(d,"element")
+                mouseClick(d, "element")
                 showModal(d)
             })
 
         hover_category
-            .on("click", d => mouseClick(d,"category"))
+            .on("click", d => mouseClick(d, "category"))
             .on("mouseover", d => {
-                if(!click_active) mouseOverCategory(d)
+                if (!click_active) mouseOverCategory(d)
                 else {
                     clearCanvas([ctx_hover])
                     ctx_hover.textBaseline = 'middle'
@@ -660,14 +659,14 @@ function createSentimentTopicSpectrum() {
                 }
             })
             .on("mouseout", d => {
-                if(!click_active) mouseOverReset()
+                if (!click_active) mouseOverReset()
                 else clearCanvas([ctx_hover])
             })
 
         hover_concept
-            .on("click", d => mouseClick(d,"concept"))
+            .on("click", d => mouseClick(d, "concept"))
             .on("mouseover", d => {
-                if(!click_active) mouseOverConcept(d)
+                if (!click_active) mouseOverConcept(d)
                 else {
                     clearCanvas([ctx_hover])
                     ctx_hover.textBaseline = 'middle'
@@ -677,7 +676,7 @@ function createSentimentTopicSpectrum() {
                 }//else
             })
             .on("mouseout", d => {
-                if(!click_active) mouseOverReset()
+                if (!click_active) mouseOverReset()
                 else clearCanvas([ctx_hover])
             })
     }//function setHiddenHovers
@@ -705,7 +704,7 @@ function createSentimentTopicSpectrum() {
         ctx.fill()
 
         //Draw the text
-        ctx.textAlign = d.angle > 0  + flip ? 'start' : 'end'
+        ctx.textAlign = d.angle > 0 + flip ? 'start' : 'end'
         let color_text = chroma.mix('black', d.fill, 0.1)
         ctx.fillStyle = chroma(color_text).alpha(opacity).css()
         ctx.translate((d.angle > 0 + flip ? 1 : -1) * (concept_radius + 5), 0)
@@ -723,19 +722,19 @@ function createSentimentTopicSpectrum() {
         //ctx.arc(d.x, d.y, cluster_radius(d.degree), 0, pi2)
         ctx.arc(d.x, d.y, 90, 0, pi2)
         ctx.closePath()
-        ctx.fillStyle = chroma(d.fill).alpha(opacity/6).css()
+        ctx.fillStyle = chroma(d.fill).alpha(opacity / 6).css()
         ctx.fill()
         ctx.globalCompositeOperation = "source-over"
 
         ctx.fillStyle = chroma(d.fill).alpha(opacity).css()
 
         let space = d.space * 0.4
-        ctx.fillRect(d.x - space/2, d.y - d.circle_offset - 2, space, 4)
-        ctx.fillRect(d.x - space/2, d.y + d.circle_offset - 2, space, 4)
+        ctx.fillRect(d.x - space / 2, d.y - d.circle_offset - 2, space, 4)
+        ctx.fillRect(d.x - space / 2, d.y + d.circle_offset - 2, space, 4)
 
         ctx.fillStyle = chroma(d.fill).alpha(opacity).css()
         //Draw the text over multiple lines
-        wrapText(ctx, d.title, d.x, d.y - (d.num_lines-1) * curved_line_height / 2 - 2.5, d.space)
+        wrapText(ctx, d.title, d.x, d.y - (d.num_lines - 1) * curved_line_height / 2 - 2.5, d.space)
     }//function drawCategories
 
     function showCategoryRing(ctx, d, opacity) {
@@ -758,7 +757,7 @@ function createSentimentTopicSpectrum() {
             ctx_edges.beginPath()
             ctx_edges.moveTo(d.source.x, d.source.y)
             let target_y = d.target.y + d.sign_pos * d.target.circle_offset
-            if(d.center) drawCircleArc(ctx_edges, d.center, d.r, d.source, d.target, d.sign, target_y)
+            if (d.center) drawCircleArc(ctx_edges, d.center, d.r, d.source, d.target, d.sign, target_y)
             else ctx_edges.lineTo(d.target.x, target_y)
             ctx_edges.stroke()
         })//forEach
@@ -788,22 +787,22 @@ function createSentimentTopicSpectrum() {
             let target_y = d.target.y + d.sign_pos * d.target.circle_offset
 
             //Find a good radius
-            if(d.target.x !== 0) curve_factor = scale_curve(Math.abs(d.target.x))
+            if (d.target.x !== 0) curve_factor = scale_curve(Math.abs(d.target.x))
             else curve_factor = scale_curve_center(Math.abs(d.target.x - d.source.x))
             d.r = Math.sqrt(sq(d.target.x - d.source.x) + sq(target_y - d.source.y)) * curve_factor
 
             //Find center of the arc function
             let centers = findCenters(d.r, d.source, d.target, target_y)
-            if(d.source.y < 0) d.sign = d.target.x < d.source.x ? 1 : 0 //1 flows from center to right
+            if (d.source.y < 0) d.sign = d.target.x < d.source.x ? 1 : 0 //1 flows from center to right
             else d.sign = d.target.x < d.source.x ? 0 : 1
             d.center = d.sign ? centers.c2 : centers.c1
         })//forEach
 
         function findCenters(r, p1, p2, target_y) {
             // pm is middle point of (p1, p2)
-            let pm = { x: 0.5 * (p1.x + p2.x), y: 0.5 * (p1.y + target_y) }
+            let pm = {x: 0.5 * (p1.x + p2.x), y: 0.5 * (p1.y + target_y)}
             // compute leading vector of the perpendicular to p1 p2 == C1C2 line
-            let perpABdx = - (target_y - p1.y)
+            let perpABdx = -(target_y - p1.y)
             let perpABdy = p2.x - p1.x
             // normalize vector
             let norm = Math.sqrt(sq(perpABdx) + sq(perpABdy))
@@ -818,16 +817,16 @@ function createSentimentTopicSpectrum() {
             // yes, compute the two centers
             let cos = Math.sqrt(1 - sq(sin))   // build cos out of sin
             let d = r * cos
-            let res1 = { x: pm.x + perpABdx * d, y: pm.y + perpABdy * d }
-            let res2 = { x: pm.x - perpABdx * d, y: pm.y - perpABdy * d }
-            return { c1: res1, c2: res2 }
+            let res1 = {x: pm.x + perpABdx * d, y: pm.y + perpABdy * d}
+            let res2 = {x: pm.x - perpABdx * d, y: pm.y - perpABdy * d}
+            return {c1: res1, c2: res2}
         }//function findCenters
     }//function calculateEdgeCenters
 
     function clearCanvas(ctxs) {
         ctxs.forEach(d => {
-            d.clearRect((-margin.left - width/2)/scale_factor, (-margin.top - height/2)/scale_factor,
-                total_width/scale_factor, total_height/scale_factor)
+            d.clearRect((-margin.left - width / 2) / scale_factor, (-margin.top - height / 2) / scale_factor,
+                total_width / scale_factor, total_height / scale_factor)
         })
     }//function clearCanvas
 
@@ -842,26 +841,32 @@ function createSentimentTopicSpectrum() {
         ctx_nodes.textBaseline = 'middle'
         ctx_nodes.textAlign = 'center'
         ctx_nodes.font = "normal normal 400 26px " + font_family
-        threats.forEach(d => { drawCategories(ctx_nodes, d) })
+        topicsdata.forEach(d => {
+            drawCategories(ctx_nodes, d)
+        })
 
         //Draw the other topics around the top outside
         ctx_nodes.textBaseline = 'middle'
         ctx_nodes.font = "normal normal 300 28px " + font_family
-        concepts.forEach(d => { drawConcepts(ctx_nodes, d) })
+        concepts.forEach(d => {
+            drawConcepts(ctx_nodes, d)
+        })
 
         //Draw the ICH elements around the bottom outside
-        elements.forEach(d => { drawElements(ctx_nodes, d) })
+        elements.forEach(d => {
+            drawElements(ctx_nodes, d)
+        })
 
         //Show the title
-        if(mouse_hover_active) {
-            if(hover_type === "element") showElementTitle(ctx_nodes, "nodes", current_hover.label)
+        if (mouse_hover_active) {
+            if (hover_type === "element") showElementTitle(ctx_nodes, "nodes", current_hover.label)
             else showElementTitle(ctx_nodes, "nodes", null, ICH_num)
             //Show threat concept title when hovered over top threat
-            if(hover_type === "concept") showConceptTitle(ctx_nodes, current_hover)
-            if(hover_type === "category") showCategoryRing(ctx_nodes, current_hover, 1)
-        } else if(click_active) {
-            if(hover_type === "element") showElementTitle(ctx_nodes, current_click.label, "nodes")
-            else if(hover_type === "concept") showConceptTitle(ctx_nodes, current_click)
+            if (hover_type === "concept") showConceptTitle(ctx_nodes, current_hover)
+            if (hover_type === "category") showCategoryRing(ctx_nodes, current_hover, 1)
+        } else if (click_active) {
+            if (hover_type === "element") showElementTitle(ctx_nodes, current_click.label, "nodes")
+            else if (hover_type === "concept") showConceptTitle(ctx_nodes, current_click)
         } else {
             showElementTitle(ctx_nodes, "nodes", null, ICH_num_all)
         }//else
@@ -869,13 +874,13 @@ function createSentimentTopicSpectrum() {
 
 
     function mouseClick(d, click_type) {
-        if(d3.event) d3.event.stopPropagation()
+        if (d3.event) d3.event.stopPropagation()
         click_active = true
 
         //Call the correct drawing function
-        if(click_type === "element") mouseOverElement(d)
-        else if(click_type === "concept") mouseOverConcept(d)
-        else if(click_type === "category") mouseOverCategory(d)
+        if (click_type === "element") mouseOverElement(d)
+        else if (click_type === "concept") mouseOverConcept(d)
+        else if (click_type === "category") mouseOverCategory(d)
 
         current_click = d
     }//function mouseClick
@@ -883,24 +888,24 @@ function createSentimentTopicSpectrum() {
     chart.fixNode = (node_id) => {
         //Check if it's in the data
         let node = node_by_id[node_id]
-        if(node) mouseClick(node, "element")
+        if (node) mouseClick(node, "element")
     }//function fixNode
 
     function findElement() {
         let m = d3.mouse(this)
-        let x = (m[0] - total_width/2)/scale_factor
-        let y = (m[1] - total_height/2)/scale_factor
-        let r = Math.sqrt(x*x + y*y)
+        let x = (m[0] - total_width / 2) / scale_factor
+        let y = (m[1] - total_height / 2) / scale_factor
+        let r = Math.sqrt(x * x + y * y)
 
         //Only continue of the mouse is somewhere near the ICH element arc
-        if(y > 70 && r > radius_elements - 2*radius_elements_offset && r < radius_elements + 2*radius_elements_offset) {
+        if (y > 70 && r > radius_elements - 2 * radius_elements_offset && r < radius_elements + 2 * radius_elements_offset) {
             //Search for nearby ICH element
             // let found = diagram.find(x, y, (node_radius * 2)/scale_factor)
             //A match is found and it's a new one
             if (found && current_hover !== found.data) {
-                if(!click_active) mouseOverElement(found.data)
+                if (!click_active) mouseOverElement(found.data)
                 //If a click is active and you hover over another element
-                else if(click_active) {
+                else if (click_active) {
                     current_hover = found.data
                     clearCanvas([ctx_hover])
                     drawElements(ctx_hover, found.data, 1)
@@ -910,93 +915,112 @@ function createSentimentTopicSpectrum() {
             //When hovering away from an element and no click is active
             else if (!click_active && !found && mouse_hover_active) mouseOverReset()
             //When a click is active and you hover away
-            else if(click_active && !found) {
+            else if (click_active && !found) {
                 clearCanvas([ctx_hover])
                 current_hover = null
             }//else if
         } //if
-        else if(click_active && y > 70 && r > radius_elements - 2*radius_elements_offset - 40) clearCanvas([ctx_hover])
-        else if (!click_active && mouse_hover_active && hover_type === "element")  mouseOverReset()
+        else if (click_active && y > 70 && r > radius_elements - 2 * radius_elements_offset - 40) clearCanvas([ctx_hover])
+        else if (!click_active && mouse_hover_active && hover_type === "element") mouseOverReset()
     }//function findElement
 
     function mouseOverElement(d) {
         //If the canvas fade is still active, stop it
-        if(timer_draw) timer_draw.stop()
+        if (timer_draw) timer_draw.stop()
         mouse_hover_active = true
         hover_type = "element"
         current_hover = d
         let id = d.id
 
-        //Draw the edges from element to threat category
-        edges_elements.forEach(l => { l.opacity = (l.source.id === id ? 0.5 : 0) })
+        edges_elements.forEach(l => {
+            l.opacity = (l.source.id === id ? 0.5 : 0)
+        })
 
-        //Draw the edges from the threat category to the threats
-        edges_concepts.forEach(l => { l.opacity = (d.threats.indexOf(l.source.id) >= 0 && d.threat_categories.indexOf(l.target.id) >= 0 ? 0.5 : 0) })
+        edges_concepts.forEach(l => {
+            l.opacity = (d.topicsdata.indexOf(l.source.id) >= 0 && d.threat_categories.indexOf(l.target.id) >= 0 ? 0.5 : 0)
+        })
 
         //Draw the ICH circles
-        elements.forEach(n => { n.opacity = (n.id === id ? 1 : 0.1) })
+        elements.forEach(n => {
+            n.opacity = (n.id === id ? 1 : 0.1)
+        })
 
-        //Draw connected threat categories
-        threats.forEach(n => { n.opacity = (d.threat_categories.indexOf(n.id) >= 0 ? 1 : 0.1) })
+        topicsdata.forEach(n => {
+            n.opacity = (d.threat_categories.indexOf(n.id) >= 0 ? 1 : 0.1)
+        })
 
-        //Draw connected threats
-        concepts.forEach(n => { n.opacity = (d.threats.indexOf(n.id) >= 0 ? 1 : 0.1) })
+        concepts.forEach(n => {
+            n.opacity = (d.topicsdata.indexOf(n.id) >= 0 ? 1 : 0.1)
+        })
 
         //Draw it all
         drawCanvas()
     }//function mouseOverElement
 
     function mouseOverCategory(d) {
-        if(timer_draw) timer_draw.stop()
+        if (timer_draw) timer_draw.stop()
         mouse_hover_active = true
         hover_type = "category"
         current_hover = d
         let id = d.id
 
-        //Draw the edges from threat category to the elements
-        edges_elements.forEach(l => { l.opacity = (l.target.id === id ? 0.5 : 0) })
+        edges_elements.forEach(l => {
+            l.opacity = (l.target.id === id ? 0.5 : 0)
+        })
 
-        //Draw the edges from the threat category to the threats
-        edges_concepts.forEach(l => { l.opacity = (l.target.id === id ? 0.5 : 0) })
+        edges_concepts.forEach(l => {
+            l.opacity = (l.target.id === id ? 0.5 : 0)
+        })
 
         //Draw the ICH circles
-        elements.forEach(n => { n.opacity = (n.threat_categories.indexOf(id) >= 0 ? 1 : 0.1) })
-        ICH_num = elements.filter(n => n.threat_categories.indexOf(id) >= 0 ).length
+        elements.forEach(n => {
+            n.opacity = (n.threat_categories.indexOf(id) >= 0 ? 1 : 0.1)
+        })
+        ICH_num = elements.filter(n => n.threat_categories.indexOf(id) >= 0).length
 
         //Draw connected threat categories
-        threats.forEach(n => { n.opacity = (n.id === id ? 1 : 0.1) })
+        topicsdata.forEach(n => {
+            n.opacity = (n.id === id ? 1 : 0.1)
+        })
 
-        //Draw connected threats
-        concepts.forEach(n => { n.opacity = (n.threat_category === id ? 1 : 0.1) })
+        //Draw connected topicsdata
+        concepts.forEach(n => {
+            n.opacity = (n.threat_category === id ? 1 : 0.1)
+        })
 
         //Draw it all
         drawCanvas()
     }//function mouseOverElement
 
-    ///////////////////// Mouse over threats /////////////////////
     function mouseOverConcept(d) {
         //If the canvas fade is still active, stop it
-        if(timer_draw) timer_draw.stop()
+        if (timer_draw) timer_draw.stop()
         mouse_hover_active = true
         hover_type = "concept"
         current_hover = d
         let id = d.id
 
-        //Draw the edges from the threat to the threat category
-        edges_concepts.forEach(l => { l.opacity = (l.source.id === id ? 0.5 : 0) })
+        edges_concepts.forEach(l => {
+            l.opacity = (l.source.id === id ? 0.5 : 0)
+        })
 
-        //Draw the edges from connected elements to threat category
-        edges_elements.forEach(l => { l.opacity = (l.source.threats.indexOf(id) >= 0 && l.target.id === d.threat_category ? 0.5 : 0) })
+        edges_elements.forEach(l => {
+            l.opacity = (l.source.topicsdata.indexOf(id) >= 0 && l.target.id === d.threat_category ? 0.5 : 0)
+        })
 
         //Draw the connected ICH circles
-        elements.forEach(n => { n.opacity = (n.threats.indexOf(id) >= 0 ? 1 : 0.1) })
-        ICH_num = elements.filter(n => n.threats.indexOf(id) >= 0 ).length
+        elements.forEach(n => {
+            n.opacity = (n.topicsdata.indexOf(id) >= 0 ? 1 : 0.1)
+        })
+        ICH_num = elements.filter(n => n.topicsdata.indexOf(id) >= 0).length
 
-        //Draw connected threat categories
-        threats.forEach(n => { n.opacity = (n.id === d.threat_category ? 1 : 0.1) })
+        topicsdata.forEach(n => {
+            n.opacity = (n.id === d.threat_category ? 1 : 0.1)
+        })
 
-        //Draw threats
-        concepts.forEach(n => { n.opacity = (n.id === id ? 1 : 0.1) })
+        concepts.forEach(n => {
+            n.opacity = (n.id === id ? 1 : 0.1)
+        })
 
         //Draw it all
         drawCanvas()
@@ -1004,7 +1028,7 @@ function createSentimentTopicSpectrum() {
 
 
     function mouseOverReset() {
-        if(timer_draw) timer_draw.stop()
+        if (timer_draw) timer_draw.stop()
         mouse_hover_active = false
         hover_type = null
         current_hover = null
@@ -1019,19 +1043,31 @@ function createSentimentTopicSpectrum() {
         let ease = d3.easeQuadInOut
 
         //Calculate the opacity interpolator
-        nodes.forEach(n => { n.interpolate_opacity = d3.interpolate(n.opacity, 1) })
-        edges_concepts.forEach(l => { l.interpolate_opacity = d3.interpolate(l.opacity, opacity_concept_default) })
-        edges_elements.forEach(l => { l.interpolate_opacity = d3.interpolate(l.opacity, opacity_element_default) })
+        nodes.forEach(n => {
+            n.interpolate_opacity = d3.interpolate(n.opacity, 1)
+        })
+        edges_concepts.forEach(l => {
+            l.interpolate_opacity = d3.interpolate(l.opacity, opacity_concept_default)
+        })
+        edges_elements.forEach(l => {
+            l.interpolate_opacity = d3.interpolate(l.opacity, opacity_element_default)
+        })
 
         //Fade everything back in
         timer_draw = d3.timer(elapsed => {
             //How far along the total duration are we (taking the easing into account)
-            let t = ease(Math.min(1,elapsed/duration))
+            let t = ease(Math.min(1, elapsed / duration))
 
             //Set new opacities
-            nodes.forEach(n => { n.opacity = n.interpolate_opacity(t) })
-            edges_concepts.forEach(l => { l.opacity = l.interpolate_opacity(t) })
-            edges_elements.forEach(l => { l.opacity = l.interpolate_opacity(t) })
+            nodes.forEach(n => {
+                n.opacity = n.interpolate_opacity(t)
+            })
+            edges_concepts.forEach(l => {
+                l.opacity = l.interpolate_opacity(t)
+            })
+            edges_elements.forEach(l => {
+                l.opacity = l.interpolate_opacity(t)
+            })
 
             //Draw the canvas
             drawCanvas()
@@ -1051,19 +1087,19 @@ function createSentimentTopicSpectrum() {
         let dpi_scale = 300 / 2.54 //300 dpi / 2.54cm
         //Calculate the new scale factor
         let sf_new
-        if(units === "px") sf_new = width_print / width
+        if (units === "px") sf_new = width_print / width
         else sf_new = (width_print * dpi_scale) / width
         sf_scale = sf_new / sf
         //Check sizes
-        if(sf_new * width * sf_new * height > 268435456) Error("requested canvas is probably too big for the browser to handle")
+        if (sf_new * width * sf_new * height > 268435456) Error("requested canvas is probably too big for the browser to handle")
         sf = sf_new
         sf_set = true
 
         ///////////// Resize everything /////////////
         //Resize the actual canvas to this
-        let resizeDone = new Promise(function(resolve, reject) {
+        let resizeDone = new Promise(function (resolve, reject) {
             let result = chart.resize()
-            if(result === 1) resolve("resizing done")
+            if (result === 1) resolve("resizing done")
             else reject(Error("Resizing broke"))
         })
         //Do the next step after the resizing is done
@@ -1073,7 +1109,9 @@ function createSentimentTopicSpectrum() {
             sf = sf_original
             sf_set = sf_set_original
             chart.resize()
-        }, error => { console.log(error) })
+        }, error => {
+            console.log(error)
+        })
 
         function createPrintCanvas() {
             //Create "off-screen" canvas to combine the different layers
@@ -1101,23 +1139,22 @@ function createSentimentTopicSpectrum() {
                     a.click()
                     document.body.removeChild(a)
                     URL.revokeObjectURL(url)
-                },'image/png')
-            } catch(err) {
+                }, 'image/png')
+            } catch (err) {
                 //Manually download the canvas
                 document.body.appendChild(canvas_save)
                 document.body.style.overflow = "auto"
-                window.scrollTo(0,document.body.scrollHeight)
+                window.scrollTo(0, document.body.scrollHeight)
                 console.log("Unable to automatically download the file due to photo and wrong URL")
             }//try-catch
         }//function createPrintCanvas
 
     }//function saveImage
 
-    //////////////////////////////////////////////////////////////
-    /////////////////////// Helper functions /////////////////////
-    //////////////////////////////////////////////////////////////
 
-    function sq(x) { return x * x }
+    function sq(x) {
+        return x * x
+    }
 
     function roundTo(n, digits) {
         let multiplicator = Math.pow(10, digits)
@@ -1125,9 +1162,7 @@ function createSentimentTopicSpectrum() {
         return Math.round(n) / multiplicator
     }//function roundTo
 
-    ///////////////// Find the device pixel ratio ////////////////
     function getPixelRatio(ctx) {
-        //From https://www.html5rocks.com/en/tutorials/canvas/hidpi/
         let devicePixelRatio = window.devicePixelRatio || 1
         let backingStoreRatio = ctx.webkitBackingStorePixelRatio ||
             ctx.mozBackingStorePixelRatio ||
@@ -1144,8 +1179,8 @@ function createSentimentTopicSpectrum() {
             .attr("height", Math.round(sf * total_height))
             .style("width", `${total_width}px`)
             .style("height", `${total_height}px`)
-        ctx.scale(sf*scale_factor, sf*scale_factor)
-        ctx.translate((margin.left + width/2)/scale_factor, (margin.top + height/2)/scale_factor)
+        ctx.scale(sf * scale_factor, sf * scale_factor)
+        ctx.translate((margin.left + width / 2) / scale_factor, (margin.top + height / 2) / scale_factor)
     }//function crispyCanvas
 
 
@@ -1182,11 +1217,11 @@ function createSentimentTopicSpectrum() {
         return chart
     }//function zoomFactor
 
-    chart.showModal = function(_) {
+    chart.showModal = function (_) {
         return arguments.length ? (showModal = _, chart) : showModal
     }//function showModal
 
     return chart
 
-}//function createThreatVisual
+}
 
